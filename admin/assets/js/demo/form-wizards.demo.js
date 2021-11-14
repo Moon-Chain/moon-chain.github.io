@@ -1,0 +1,1 @@
+var handleRenderFormWizards=function(){$('#rootwizard').bootstrapWizard({'nextSelector':'.wizard-next-btn','previousSelector':'.wizard-prev-btn'});};$(document).ready(function(){handleRenderFormWizards();});
