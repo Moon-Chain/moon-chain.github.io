@@ -1,1168 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoonTube</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <style>
-        /*
-
-All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 474). 
-        
-The 'supports' rule will only run if your browser supports CSS grid.
-
-Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
-
-*/
-
-        /* Base styles */
-
-        :root {
-            font-size: 10px;
-            --grey-text: #828282;
-            --black-text: #111;
-        }
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            font-family: "Roboto", Arial, sans-serif;
-            min-height: 100vh;
-        }
-
-        a {
-            display: inline-block;
-            text-decoration: none;
-            color: #969896 !important;
-        }
-
-        .container {
-            max-width: 138rem;
-            margin: 0 auto;
-            padding: 0 2vw;
-        }
-
-        .btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font: inherit;
-            background: none;
-            border: none;
-            color: inherit;
-            padding: 0;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        ::-webkit-scrollbar {
-            width: 1.2rem;
-            height: 1.2rem;
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #fff;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #888;
-            border-radius: 0.5rem;
-            border: 0.2rem solid #fff;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #666;
-        }
-
-        /* Masthead */
-
-        .masthead {
-            display: flex;
-            flex-basis: 5.6rem;
-            align-items: center;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            background-color: #fff;
-            padding: 0 2.2rem;
-            box-shadow: 0 0.2rem 0.2rem rgba(17, 17, 17, 0.2);
-            z-index: 1;
-        }
-
-        .logo {
-            flex: 0 0 15rem;
-            margin-left: 2.5rem;
-        }
-
-        .site-search {
-            flex-grow: 1;
-            margin: 0 2.5rem;
-        }
-
-        .menu-btn {
-            font-size: 1.6rem;
-            color: #888;
-            padding: 0 0.5rem;
-        }
-
-        .logo h1 {
-            font-family: "Oswald", Arial, sans-serif;
-            font-size: 2.2rem;
-            font-weight: 600;
-            letter-spacing: -0.12rem;
-            color: #282828;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-
-        .logo-icon {
-            color: #f00;
-            padding-right: 0.5rem;
-        }
-
-        .site-search {
-            display: flex;
-            height: 3.2rem;
-        }
-
-        .search-input,
-        .search-btn {
-            border: 0.1rem solid #ccc;
-        }
-
-        .search-input {
-            flex-basis: 60rem;
-            font-size: 1.5rem;
-            font-weight: 500;
-            border-top-left-radius: 0.3rem;
-            border-bottom-left-radius: 0.3rem;
-            border-right: none;
-            padding-left: 1rem;
-            color: var(--black-text);
-        }
-
-        .search-input::-webkit-input-placeholder {
-            color: var(--grey-text);
-        }
-
-        .search-input:-ms-input-placeholder {
-            color: var(--grey-text);
-        }
-
-        .search-input::-ms-input-placeholder {
-            color: var(--grey-text);
-        }
-
-        .search-input::placeholder {
-            color: var(--grey-text);
-        }
-
-        .search-btn {
-            flex: 0 0 6.5rem;
-            border-top-right-radius: 0.3rem;
-            border-bottom-right-radius: 0.3rem;
-            background-color: #f8f8f8;
-            color: var(--black-text);
-            cursor: pointer;
-        }
-
-        .search-btn:hover {
-            background-color: #f0f0f0;
-        }
-
-        .user-menu {
-            flex-basis: 16rem;
-            display: flex;
-            font-size: 1.6rem;
-            color: var(--grey-text);
-        }
-
-        .user-menu .btn {
-            flex: 0 0 4rem;
-        }
-
-        /* Channel banner */
-
-        .channel-banner {
-            flex-basis: 16vw;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            background: url("https://images.unsplash.com/photo-1486597622250-f997d79907f8?w=1400&h=600&fit=crop") no-repeat center 35%;
-            background-size: cover;
-            padding: 1.6rem;
-        }
-
-        .channel-social-links {
-            padding: 1rem;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .channel-social-links li {
-            display: inline-block;
-            font-size: 1.8rem;
-            padding-right: 1rem;
-        }
-
-        .channel-social-links li:last-of-type {
-            padding-right: 0;
-        }
-
-        .google-plus {
-            color: #dd4d40;
-        }
-
-        .twitter {
-            color: #1da1f3;
-        }
-
-        .facebook {
-            color: #3b5999;
-        }
-
-        /* Channel info */
-
-        .channel-info {
-            background-color: #fafafa;
-            padding-top: 1.6rem;
-        }
-
-        .channel-info .container {
-            display: flex;
-            align-items: center;
-        }
-
-        .channel-icon {
-            flex-basis: 8rem;
-            height: 8rem;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .channel-title {
-            flex: 1 1 auto;
-            margin: 0 2rem;
-        }
-
-        .channel-title h1 {
-            font-size: 2.4rem;
-            font-weight: 400;
-            color: var(--black-text);
-            white-space: nowrap;
-        }
-
-        .channel-title i {
-            font-size: 1.4rem;
-            color: #6e6e6e;
-        }
-
-        .channel-subscriber-count {
-            font-size: 1.4rem;
-            font-weight: 400;
-            line-height: 1.8;
-            color: var(--grey-text);
-        }
-
-        .channel-subscribe {
-            display: flex;
-            height: 3.7rem;
-            color: var(--grey-text);
-        }
-
-        .subscribe-btn {
-            width: 14.2rem;
-            font-size: 1.4rem;
-            font-weight: 500;
-            background-color: #eee;
-            margin-right: 0.4rem;
-        }
-
-        .notification-btn {
-            width: 4rem;
-            font-size: 2rem;
-        }
-
-        /* Channel navigation */
-
-        .channel-nav {
-            background-color: #fafafa;
-            padding-bottom: 0.5rem;
-            white-space: nowrap;
-            overflow-x: auto;
-        }
-
-        .channel-nav ul {
-            display: flex;
-        }
-
-        .nav-item a {
-            display: inline-block;
-            font-size: 1.4rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--grey-text);
-            padding: 1.5rem 3.2rem;
-        }
-
-        .nav-item a.current {
-            color: var(--black-text);
-            border-bottom: 0.3rem solid #6e6e6e;
-        }
-
-        .nav-item a:hover {
-            color: var(--black-text);
-        }
-
-        /* Channel content */
-
-        .channel-content .container {
-            display: flex;
-            padding-top: 2.4rem;
-            padding-bottom: 2.4rem;
-            color: var(--grey-text);
-        }
-
-        .channel-videos {
-            display: flex;
-            flex-direction: column;
-            min-width: 42.5rem;
-            max-width: 107rem;
-        }
-
-        .video-title {
-            color: var(--black-text);
-        }
-
-        .video-meta-data,
-        .video-description {
-            font-size: 1.3rem;
-            font-weight: 400;
-        }
-
-        .video-description {
-            max-width: 60rem;
-            line-height: 1.4;
-        }
-
-        .video-meta-data li {
-            display: inline-block;
-        }
-
-        .video-creator {
-            padding-right: 0.4rem;
-        }
-
-        .video-views::after {
-            content: "\00B7";
-            font-size: 2.2rem;
-            padding-left: 0.4rem;
-            vertical-align: middle;
-        }
-
-        /* Featured video */
-
-        .featured-video {
-            display: flex;
-            cursor: pointer;
-        }
-
-        .featured-video .video-info {
-            flex: 1;
-        }
-
-        .featured-video .video-thumbnail {
-            margin-right: 1.5rem;
-        }
-
-        .featured-video .video-title {
-            font-size: 1.8rem;
-            font-weight: 400;
-        }
-
-        /* Video playlists */
-
-        .playlist {
-            position: relative;
-            padding-bottom: 1rem;
-            overflow-x: auto;
-            margin-top: 2rem;
-        }
-
-        .playlist-title {
-            font-size: 1.6rem;
-            font-weight: 500;
-            position: -webkit-sticky;
-            position: sticky;
-            left: 0;
-            border-top: 0.1rem solid #eee;
-            padding: 2rem 0;
-            color: var(--black-text);
-        }
-
-        .playlist-videos {
-            display: flex;
-        }
-
-        .playlist-video {
-            flex-basis: 21rem;
-            margin-right: 0.5rem;
-            cursor: pointer;
-        }
-
-        .playlist-video .video-title {
-            font-size: 1.4rem;
-            font-weight: 500;
-            padding: 0.5rem 0;
-        }
-
-        .playlist-video .video-creator {
-            display: block;
-        }
-
-        /* Recommended channels */
-
-        .recommended-channels {
-            margin-left: 2rem;
-        }
-
-        .recommended-channels-heading {
-            font-size: 1.4rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            color: var(--grey-text);
-            margin-bottom: 2rem;
-        }
-
-        .recommended-channels-group:first-of-type {
-            margin-bottom: 2rem;
-            border-bottom: 0.1rem solid #eee;
-        }
-
-        .recommended-channel {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            padding-bottom: 2rem;
-            cursor: pointer;
-        }
-
-        .recommended-channel-icon {
-            width: 2.4rem;
-            height: 2.4rem;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 0.8rem;
-        }
-
-        .recommended-channel-title {
-            flex: 1 0 50%;
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: var(--black-text);
-        }
-
-        .recommended-channel-subscribe {
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: var(--grey-text);
-            background-color: #eee;
-            width: 10rem;
-            height: 2.4rem;
-            margin-top: 0.8rem;
-        }
-
-        /*
-
-The following rule will only run if your browser supports CSS grid.
-
-Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
-
-*/
-
-        @supports (display: grid) {
-            body {
-                display: grid;
-                grid-template-rows: 5.6rem 16vw repeat(3, auto);
-            }
-
-            .masthead {
-                display: grid;
-                grid-template-columns: auto 15rem 1fr 16rem;
-                grid-column-gap: 2.5rem;
-            }
-
-            .site-search {
-                display: grid;
-                grid-template-columns: minmax(0, 60rem) 6.5rem;
-            }
-
-            .user-menu {
-                display: grid;
-                grid-template-columns: repeat(4, 4rem);
-            }
-
-            .channel-info .container {
-                display: grid;
-                grid-template-columns: 8rem minmax(auto, 1fr) auto;
-                grid-column-gap: 2rem;
-            }
-
-            .channel-subscribe {
-                display: grid;
-                grid-template-columns: repeat(2, auto);
-                grid-column-gap: 0.4rem;
-            }
-
-            .channel-content .container {
-                display: grid;
-                grid-template-columns: 5fr 1fr;
-                grid-gap: 2rem;
-            }
-
-            .channel-videos {
-                display: grid;
-                grid-row-gap: 2rem;
-                max-width: 100%;
-            }
-
-            .featured-video {
-                display: grid;
-                grid-template-columns: auto 1fr;
-                grid-gap: 1.5rem;
-            }
-
-            .playlist-videos {
-                display: grid;
-                grid-auto-flow: column;
-                grid-auto-columns: 21rem;
-                grid-column-gap: 0.5rem;
-            }
-
-            .recommended-channel {
-                display: grid;
-                grid-template-columns: 2.4rem 1fr;
-                grid-gap: 0.8rem;
-            }
-
-            .recommended-channel-subscribe {
-                grid-column: 1 / -1;
-            }
-
-            .logo,
-            .site-search,
-            .channel-title,
-            .subscribe-btn,
-            .playlist,
-            .featured-video .video-thumbnail,
-            .playlist-video,
-            .recommended-channels,
-            .recommended-channel-icon,
-            .recommended-channel-subscribe {
-                margin: 0;
-            }
-
-            @media screen and (max-width: 60rem) {
-                .masthead {
-                    grid-template-columns: auto 1fr 16rem;
-                }
-
-                .channel-info .container {
-                    grid-template-columns: repeat(2, auto);
-                }
-
-                .channel-content .container {
-                    grid-template-columns: minmax(42.5rem, 1fr);
-                }
-            }
-        }
-
-        /* Media queries */
-
-        @media screen and (max-width: 60rem) {
-            .logo {
-                flex-grow: 1;
-            }
-
-            .channel-info {
-                padding-bottom: 1.6rem;
-            }
-
-            .channel-info .container {
-                justify-content: space-around;
-            }
-
-            .channel-title,
-            .channel-subscribe {
-                flex: 0 0 auto;
-                margin: 0;
-            }
-
-            .channel-title h1 {
-                font-size: 1.8rem;
-            }
-
-            .channel-videos {
-                max-width: 100%;
-            }
-
-            .recommended-channels,
-            .channel-icon,
-            .site-search {
-                display: none;
-            }
-        }
-    </style>
+    <title>2022 Surprise</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/fontawesome_4.7.0.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.min.css">
+    <script src="assets/js/script.js" defer></script>
 </head>
 
 <body>
-    <header class="masthead">
-
-        <button class="menu-btn btn">
-            <i class="fas fa-bars" aria-hidden="true"></i>
-        </button>
-
-        <div class="logo">
-            <a href="#">
-                <h1><i class="fab fa-youtube logo-icon" aria-hidden="true"></i>MoonTube</h1>
-            </a>
+    <div class="rootDiv">
+        <div class="side-bar">
+            <div class="nav">
+                <div class="guildSettings">
+                    <div class="navguild">
+                        <div class="guild-opener">
+                            <div class="navGuildItems">
+                                <h4 class="guildSelectorName">OTG</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="userBox">
+                <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="avatar" class="userAvatar">
+                <div class="userinfo">
+                    <h4 class="username" id="username_text">Anonim</h4>
+                    <h6 class="discriminator">#1234</h6>
+                </div>
+                <div class="usermenuicons">
+                    <div class="mic" id="micToggle"></div>
+                    <div class="headphone" id="headphoneToggle"></div>
+                    <div class="settings" id="settingsToggle"></div>
+                </div>
+            </div>
         </div>
-
-        <div class="site-search">
-            <input type="search" placeholder="Ara" class="search-input" aria-label="Ara">
-            <button class="search-btn" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
-        </div>
-
-        <div class="user-menu">
-
-            <button class="btn" aria-label="Upload">
-                <i class="fas fa-upload" aria-hidden="true"></i>
-            </button>
-
-            <button class="btn" aria-label="YouTube Apps">
-                <i class="fas fa-th" aria-hidden="true"></i>
-            </button>
-
-            <button class="btn" aria-label="Notifications">
-                <i class="fas fa-bell" aria-hidden="true"></i>
-            </button>
-
-            <button class="btn" aria-label="Account">
-                <i class="fas fa-user-circle" aria-hidden="true"></i>
-            </button>
-
-        </div>
-
-    </header>
-    <!-- End of header -->
-
-    <!-- Channel Banner -->
-    <section class="channel-banner">
-
-        <div class="channel-social-links">
-
-            <ul>
-
-                <li class="btn google-plus">
-                    <i class="fab fa-google-plus-square" aria-hidden="true"></i>
-                </li>
-
-                <li class="btn twitter">
-                    <i class="fab fa-twitter-square" aria-hidden="true"></i>
-                </li>
-
-                <li class="btn facebook">
-                    <i class="fab fa-facebook-square" aria-hidden="true"></i>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </section>
-    <!-- End of channel banner -->
-
-    <!-- Channel Info -->
-    <section class="channel-info">
-
-        <div class="container">
-
-            <div class="channel-icon">
-
-                <img src="https://yt3.ggpht.com/ytc/AKedOLS7olYqPEFggZEgIcyFgKqf3GjmS3drsvKmJit8=s88-c-k-c0x00ffffff-no-rj"
-                    alt="">
-
+        <div class="servers">
+            <div class="homebutton">
+                <svg class="homeIcon" aria-hidden="false" width="28" height="20" viewBox="0 0 28 20">
+                    <path fill="#FFFFFF"
+                        d="M20.6644 20C20.6644 20 19.8014 18.9762 19.0822 18.0714C22.2226 17.1905 23.4212 15.2381 23.4212 15.2381C22.4384 15.881 21.5034 16.3334 20.6644 16.6429C19.4658 17.1429 18.3151 17.4762 17.1884 17.6667C14.887 18.0953 12.7774 17.9762 10.9795 17.6429C9.61301 17.381 8.43836 17 7.45548 16.6191C6.90411 16.4048 6.30479 16.1429 5.70548 15.8096C5.63356 15.7619 5.56164 15.7381 5.48973 15.6905C5.44178 15.6667 5.41781 15.6429 5.39384 15.6191C4.96233 15.381 4.7226 15.2143 4.7226 15.2143C4.7226 15.2143 5.87329 17.1191 8.91781 18.0238C8.19863 18.9286 7.31164 20 7.31164 20C2.0137 19.8333 0 16.381 0 16.381C0 8.7144 3.45205 2.50017 3.45205 2.50017C6.90411 -0.07123 10.1884 0.000197861 10.1884 0.000197861L10.4281 0.285909C6.11301 1.52399 4.12329 3.40493 4.12329 3.40493C4.12329 3.40493 4.65068 3.11921 5.53767 2.71446C8.10274 1.59542 10.1404 1.2859 10.9795 1.21447C11.1233 1.19066 11.2432 1.16685 11.387 1.16685C12.8493 0.976379 14.5034 0.92876 16.2295 1.11923C18.5068 1.38114 20.9521 2.0478 23.4452 3.40493C23.4452 3.40493 21.5514 1.61923 17.476 0.381146L17.8116 0.000197861C17.8116 0.000197861 21.0959 -0.07123 24.5479 2.50017C24.5479 2.50017 28 8.7144 28 16.381C28 16.381 25.9623 19.8333 20.6644 20ZM9.51712 8.88106C8.15068 8.88106 7.07192 10.0715 7.07192 11.5239C7.07192 12.9763 8.17466 14.1667 9.51712 14.1667C10.8836 14.1667 11.9623 12.9763 11.9623 11.5239C11.9863 10.0715 10.8836 8.88106 9.51712 8.88106ZM18.2671 8.88106C16.9007 8.88106 15.8219 10.0715 15.8219 11.5239C15.8219 12.9763 16.9247 14.1667 18.2671 14.1667C19.6336 14.1667 20.7123 12.9763 20.7123 11.5239C20.7123 10.0715 19.6336 8.88106 18.2671 8.88106Z">
+                    </path>
+                </svg>
+            </div>
+            <hr class="server-divider" />
+            <div class="server">
+                <img class="servericon"
+                    src="https://cdn.discordapp.com/icons/367771308659965952/a_0342ed1d4050a1470e24d21f3f4869bf.webp?size=96">
+            </div>
+            <div class="server">
+                <img class="servericon"
+                    src="https://cdn.discordapp.com/avatars/312975353624657920/d41c9b43dbee19aae1cb7353f566cfdd.webp?size=80">
+            </div>
+            <div class="server">
+                <img class="servericon unread"
+                    src="https://cdn.discordapp.com/avatars/638747433580494860/991d1b5ddc869e81a22dec3a4f1031c4.webp?size=80">
+            </div>
+            <div class="server">
+                <img class="servericon"
+                    src="https://cdn.discordapp.com/avatars/336537358084079616/1e3a29ca026cd7e861d13068fd0f7f7e.webp?size=80">
+            </div>
+            <div class="server">
+                <img class="servericon" src="https://cdn.discordapp.com/embed/avatars/3.png">
             </div>
 
-            <div class="channel-title">
-
-                <h1>Berk W Moon <i class="fas fa-check-circle"></i></h1>
-
-                <div class="channel-subscriber-count">210 B abone</div>
-
+            <div class="server invite">
+                <p class="inviteButton">+</p>
             </div>
-
-            <div class="channel-subscribe">
-
-                <button class="subscribe-btn btn">ABONE OLUNDU</button>
-
-                <button class="notification-btn btn" aria-label="Enable Notifications"><i class="fas fa-bell"
-                        aria-hidden="true"></i></button>
-
-            </div>
-
         </div>
-
-    </section>
-    <!-- End of channel info section -->
-
-    <!-- Channel navigation -->
-    <nav class="channel-nav">
-
-        <div class="container">
-
-            <ul>
-
-                <li class="nav-item">
-                    <a href="#" class="current">Ana Sayfa</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#">Videolar</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#">Oynatma Listeleri</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#">Kanallar</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#">Hakkında</a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </nav>
-    <!-- End of channel navigation -->
-
-    <!-- Channel main content -->
-    <main class="channel-content">
-
-        <div class="container">
-
-            <!-- Channel videos -->
-            <section class="channel-videos">
-                <a href="https://www.youtube.com/watch?v=7C1c7_6UOlc&ab_channel=BerkwMoon" target="_blank">
-                    <div class="featured-video">
-                        <div class="video-thumbnail">
-                            <img src="https://i.ytimg.com/vi/7C1c7_6UOlc/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAoSwHbLDaUUmK0bkzoKAcYe0ehJA"
-                                alt="">
-                        </div>
-
-                        <div class="video-info">
-                            <h3 class="video-title">2021 Doğum günü efsane edit</h3>
-                            <ul class="video-meta-data">
-                                <!-- <li class="video-creator">Berk W Moon <i class="fas fa-check-circle"></i></li> -->
-                                <li class="video-views">210 B görüntüleme</li>
-                                <li class="video-upload-date">11 Kas 2021</li>
-                            </ul>
-                            <p class="video-description"></p>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="vlogs-playlist playlist">
-
-                    <h2 class="playlist-title">HaxBall Komik anlar</h2>
-
-                    <div class="playlist-videos">
-
-                        <div class="playlist-video" tabindex="0">
-                            <a href="https://www.youtube.com/watch?v=lbgvU0-NKeQ&ab_channel=BerkwMoon" target="_blank">
-                                <div class="video-thumbnail">
-                                    <img style="width:210px; height:118px;"
-                                        src="https://i.ytimg.com/vi/lbgvU0-NKeQ/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCcHkiFHbepIsJGMTuX8w75Dr_uVA"
-                                        alt="">
-                                </div>
-
-                                <div class="video-info">
-                                    <h3 class="video-title">Ekip ile Haxball - Komik anlar Vol [1]</h3>
-                                    <ul class="video-meta-data">
-                                        <li class="video-creator">Berk W Moon <i class="fas fa-check-circle"></i></li>
-                                        <li class="video-views">252 B görüntüleme</li>
-                                        <li class="video-upload-date">12 Kas 2021</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="playlist-video" tabindex="0">
-                            <a href="https://www.youtube.com/watch?v=lBbIzJ3Ci04&t=3s&ab_channel=BerkwMoon"
-                                target="_blank">
-                                <div class="video-thumbnail">
-                                    <img style="width:210px; height:118px;"
-                                        src="https://i.ytimg.com/vi/lBbIzJ3Ci04/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDJSvGyRB-oQC-ix854t8UVuLUY-w"
-                                        alt="">
-                                </div>
-
-                                <div class="video-info">
-                                    <h3 class="video-title">Ekip ile Haxball - Komik anlar Vol [2]</h3>
-                                    <ul class="video-meta-data">
-                                        <li class="video-creator">Berk W Moon <i class="fas fa-check-circle"></i></li>
-                                        <li class="video-views">196 B görüntüleme</li>
-                                        <li class="video-upload-date">12 Kas 2021</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- <div class="collabs-playlist playlist">
-
-                    <h2 class="playlist-title">Really Cool Collabs</h2>
-
-                    <div class="playlist-videos">
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1468109320504-a5e48f17cfb7?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Collab 6</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">128K views</li>
-                                    <li class="video-upload-date">2 days ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Collab 5</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">294K views</li>
-                                    <li class="video-upload-date">1 week ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1511306404404-ad607bd7c601?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Collab 4</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">336K views</li>
-                                    <li class="video-upload-date">2 weeks ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1475483768296-6163e08872a1?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Collab 3</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">471K views</li>
-                                    <li class="video-upload-date">3 weeks ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1512271126385-b02e1b530dca?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Collab 2</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">565K views</li>
-                                    <li class="video-upload-date">3 weeks ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1511854027438-1549025c5eff?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Collab 1</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">683K views</li>
-                                    <li class="video-upload-date">1 month ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="likes-playlist playlist">
-
-                    <h2 class="playlist-title">Liked Videos</h2>
-
-                    <div class="playlist-videos">
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1515264741767-1b533a4cdcb7?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Games 5</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolGames <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">723K views</li>
-                                    <li class="video-upload-date">2 days ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1464666495445-5a33228a808e?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Fashion 3</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolFashion <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">594K views</li>
-                                    <li class="video-upload-date">1 week ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1474711850460-45057e434715?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Music 4</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolMusic <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">137K views</li>
-                                    <li class="video-upload-date">2 weeks ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Games 2</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolGames <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">1.2M views</li>
-                                    <li class="video-upload-date">3 weeks ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1471478331149-c72f17e33c73?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Music 2</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolMusic <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">876K views</li>
-                                    <li class="video-upload-date">3 weeks ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="playlist-video" tabindex="0">
-
-                            <div class="video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1505022610485-0249ba5b3675?w=210&h=118&fit=crop"
-                                    alt="">
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Fashion 1</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">ReallyCoolFashion <i class="fas fa-check-circle"></i></li>
-                                    <li class="video-views">951K views</li>
-                                    <li class="video-upload-date">1 month ago</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div> -->
-
-            </section>
-
-            <!-- <section class="recommended-channels">
-
-                <div class="recommended-channels-group">
-
-                    <h2 class="recommended-channels-heading">Featured Channels</h2>
-
-                    <div class="recommended-channel">
-
-                        <div class="recommended-channel-icon">
-                            <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=24&h=24&fit=crop&crop=faces"
-                                alt="">
-                        </div>
-
-                        <h3 class="recommended-channel-title">ReallyCoolGuy</h3>
-
-                        <button class="recommended-channel-subscribe btn">Subscribed</button>
-
-                    </div>
-
-                    <div class="recommended-channel">
-
-                        <div class="recommended-channel-icon">
-                            <img src="https://images.unsplash.com/photo-1517492142635-e91271bebe8f?w=24&h=24&fit=crop&crop=faces"
-                                alt="">
-                        </div>
-
-                        <h3 class="recommended-channel-title">ReallyCoolGirl</h3>
-
-                        <button class="recommended-channel-subscribe btn">Subscribed</button>
-
-                    </div>
-
-                </div>
-
-                <div class="recommended-channels-group">
-
-                    <h2 class="recommended-channels-heading">Related Channels</h2>
-
-                    <div class="recommended-channel">
-
-                        <div class="recommended-channel-icon">
-                            <img src="https://images.unsplash.com/photo-1469032923574-4f1413034019?w=24&h=24&fit=crop"
-                                alt="">
-                        </div>
-
-                        <h3 class="recommended-channel-title">ReallyCoolGames</h3>
-
-                        <button class="recommended-channel-subscribe btn">Subscribed</button>
-
-                    </div>
-
-                    <div class="recommended-channel">
-
-                        <div class="recommended-channel-icon">
-                            <img src="https://images.unsplash.com/photo-1504960868016-9a59a5172321?w=24&h=24&fit=crop"
-                                alt="">
-                        </div>
-
-                        <h3 class="recommended-channel-title">ReallyCoolMusic</h3>
-
-                        <button class="recommended-channel-subscribe btn">Subscribe</button>
-
-                    </div>
-
-                    <div class="recommended-channel">
-
-                        <div class="recommended-channel-icon">
-                            <img src="https://images.unsplash.com/photo-1472591651607-70e2d88ae3c4?w=24&h=24&fit=crop"
-                                alt="">
-                        </div>
-
-                        <h3 class="recommended-channel-title">ReallyCoolFashion</h3>
-
-                        <button class="recommended-channel-subscribe btn">Subscribe</button>
-
-                    </div>
-
-                </div>
-
-            </section> -->
-
-        </div>
-        <!-- End of main content container -->
-
-    </main>
-    <!-- End of main content -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+        <div class="container"></div>
+        <div class="members"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.min.js"></script>
+    <script>
+        var kullanici_adi = "Anonim";
+        var call_interval;
+        var discord_notification_sound = new sound("assets/sounds/discord_notification.mp3");
+        var discord_call_sound = new sound("assets/sounds/discord_call.mp3");
+
+        var characters = [];
+        characters["berkay"] = {
+            img_url: "https://cdn.discordapp.com/avatars/312975353624657920/d41c9b43dbee19aae1cb7353f566cfdd.webp?size=80",
+            name: "Berkay",
+            surname: "Ölçe"
+        }
+        characters["ata"] = {
+            img_url: "https://cdn.discordapp.com/avatars/638747433580494860/991d1b5ddc869e81a22dec3a4f1031c4.webp?size=80",
+            name: "Ata Deniz",
+            surname: "Oktay"
+        }
+        characters["yavuz"] = {
+            img_url: "https://cdn.discordapp.com/avatars/336537358084079616/1e3a29ca026cd7e861d13068fd0f7f7e.webp?size=80",
+            name: "Yavuz B.",
+            surname: "Yalçın"
+        }
+
+
+        function sound(src) {
+            this.sound = document.createElement("audio");
+            this.sound.src = src;
+            this.sound.setAttribute("preload", "auto");
+            this.sound.setAttribute("controls", "none");
+            this.sound.style.display = "none";
+            document.body.appendChild(this.sound);
+            this.play = function () {
+                this.sound.play();
+            }
+            this.stop = function () {
+                this.sound.pause();
+            }
+        }
+
+        $(document).ready(function () {
+            Swal.fire({
+                title: 'Hoşgeldin',
+                text: 'Hadi bir nickname belirle !',
+                input: 'text',
+                inputAttributes: {
+                    autocapitalize: 'off'
+                },
+                showCancelButton: true,
+                confirmButtonText: 'Hazırım',
+                cancelButtonText: 'Anonim devam et',
+            }).then((result) => {
+                setTimeout(function(){CallModal("ata")}, 1500);
+                if (result.isConfirmed) {
+                    kullanici_adi = result.value.slice(0, 12);
+                    document.getElementById("username_text").innerText = kullanici_adi;
+                }
+            })
+            // toastr["success"](
+            //     '<div><input class="input-small" value="textbox"/>&nbsp;<a href="http://johnpapa.net" target="_blank">This is a hyperlink</a></div><div><button type="button" id="okBtn" class="btn btn-primary">Close me</button><button type="button" id="surpriseBtn" class="btn" style="margin: 0 8px 0 8px">Surprise me</button></div>'
+            //     );
+            // toastr.options = {
+            //     "closeButton": false,
+            //     "debug": false,
+            //     "newestOnTop": false,
+            //     "progressBar": false,
+            //     "positionClass": "toast-top-right",
+            //     "preventDuplicates": false,
+            //     "onclick": null,
+            //     "showDuration": "300",
+            //     "hideDuration": "1000",
+            //     "timeOut": "5000",
+            //     "extendedTimeOut": "1000",
+            //     "showEasing": "swing",
+            //     "hideEasing": "linear",
+            //     "showMethod": "fadeIn",
+            //     "hideMethod": "fadeOut"
+            // }
+        });
+
+        function CallModal(character) {
+            character = characters[character];
+            playSound();
+            call_interval = setInterval(playSound, 500);
+            Swal.fire({
+                customClass: "call_style",
+                title: '<img class="shaking" style="border-radius:50%;" src="' + character.img_url + '">',
+                text: character.name + " " + character.surname,
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: '<i class="bx bx-sm bxs-phone-call"></i>',
+                confirmButtonColor: '#3BA55D',
+                denyButtonText: '<i class="bx bx-sm bxs-phone-off"></i>',
+                denyButtonColor: '#ED4245',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    stopSound();
+                } else if (result.isDenied) {
+                    stopSound();
+                }
+            })
+        }
+
+        function playSound() {
+            discord_notification_sound.play();
+        }
+
+        function stopSound() {
+            discord_notification_sound.stop();
+            clearInterval(call_interval);
+        }
     </script>
 </body>
 
