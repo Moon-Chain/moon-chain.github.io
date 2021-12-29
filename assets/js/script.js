@@ -63,14 +63,14 @@ function setupIcon() {
 
 setupIcon();
 
-micToggle.addEventListener("click", () => {
-    // just a test
-    if (micToggle.innerHTML.includes(`class="unmuted"`)) micToggle.innerHTML = MIC_MUTED;
-    else micToggle.innerHTML = MIC_UNMUTED;
-});
+// micToggle.addEventListener("click", () => {
+//     // just a test
+//     if (micToggle.innerHTML.includes(`class="unmuted"`)) micToggle.innerHTML = MIC_MUTED;
+//     else micToggle.innerHTML = MIC_UNMUTED;
+// });
 
-headphoneToggle.addEventListener("click", () => {
-    // just a test
-    if (headphoneToggle.innerHTML.includes(`class="undeafen"`)) headphoneToggle.innerHTML = UNDEAF;
-    else headphoneToggle.innerHTML = DEAF;
-});
+// headphoneToggle.addEventListener("click", () => {
+//     // just a test
+//     if (headphoneToggle.innerHTML.includes(`class="undeafen"`)) headphoneToggle.innerHTML = UNDEAF;
+//     else headphoneToggle.innerHTML = DEAF;
+// });

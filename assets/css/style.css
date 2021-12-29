@@ -4,14 +4,30 @@
     --dark-bg: #36393f;
     --dark-server-list: #202225;
     --server-divider: #2d2f32;
-    --blurple: #7289da;
-    --dark-blurple: #4d5e94;
-    --green: #43b581;
+    --blurple: #5764F0;
+    --dark-blurple: #202dc5;
+    --green: #3BA55D;
     --dark-primary: #2f3136;
     --text-gray: #dcddde;
     --user-box: #292B2F;
     --iconColor: #b9bbbe;
     --red: #dd4444;
+}
+
+.hidden_now {
+    visibility: hidden !important;
+}
+
+.visible_now {
+    visibility: visible;
+}
+
+.display_none {
+    display: none;
+}
+
+.display_block {
+    display: block;
 }
 
 body {
@@ -24,7 +40,7 @@ body {
 
 .rootDiv {
     display: grid;
-    grid-template-columns: 0px 70px 300px;
+    grid-template-columns: 0px 70px 240px;
     grid-template-rows: auto;
 }
 
@@ -32,7 +48,7 @@ body {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: row1-start;
-    grid-row-end: 3;
+    grid-row-end: 1;
     position: absolute;
     width: 70px;
     height: 100%;
@@ -45,7 +61,20 @@ body {
     user-select: none;
 }
 
-.servers::-webkit-scrollbar, .nav::-webkit-scrollbar {
+.container {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    position: relative;
+    float: right;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary);
+}
+
+.servers::-webkit-scrollbar,
+.nav::-webkit-scrollbar {
     width: 0px;
 }
 
@@ -100,7 +129,8 @@ body {
     background-color: var(--green) !important;
 }
 
-.server-active, .server:hover {
+.server-active,
+.server:hover {
     background-color: var(--blurple);
     border-radius: 30%;
     transition: 0.3s;
@@ -132,11 +162,12 @@ body {
     grid-row-start: 1;
     grid-row-end: 1;
     position: relative;
-    float:right;
-    width: 80%;
+    float: right;
+    width: 100%;
     height: 100vh;
     background-color: var(--dark-primary);
 }
+
 .nav {
     overflow-y: auto;
 }
@@ -159,6 +190,7 @@ body {
 .guildDropdown {
     margin-right: 43px;
 }
+
 .userBox {
     position: absolute;
     bottom: 0;
@@ -215,19 +247,25 @@ body {
     align-items: center;
 }
 
-.mic, .headphone, .settings {
+.mic,
+.headphone,
+.settings {
     padding: 3px;
     user-select: none;
     cursor: pointer;
 }
 
-.mic svg, .headphone svg, .settings svg {
+.mic svg,
+.headphone svg,
+.settings svg {
     height: 20px;
     width: 20px;
     fill: var(--iconColor);
 }
 
-.mic:hover, .headphone:hover, .settings:hover {
+.mic:hover,
+.headphone:hover,
+.settings:hover {
     background-color: var(--dark-bg);
 }
 

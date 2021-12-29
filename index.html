@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2022 Surprise</title>
+    <title>OTG ile 2022</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="assets/css/fontawesome_4.7.0.css">
@@ -12,24 +13,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.min.css">
     <script src="assets/js/script.js" defer></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/glitch.css">
 </head>
 
 <body>
-    <div class="rootDiv">
+    <!-- incele visibility hidden yapılacak -->
+    <div class="rootDiv" id="rootDiv" style="visibility: visible;">
         <div class="side-bar">
             <div class="nav">
                 <div class="guildSettings">
                     <div class="navguild">
                         <div class="guild-opener">
                             <div class="navGuildItems">
-                                <h4 class="guildSelectorName">OTG</h4>
+                                <h4 class="guildSelectorName">Discord</h4>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="userBox">
-                <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="avatar" class="userAvatar">
+                <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="avatar"
+                    class="userAvatar foreignUserImg">
                 <div class="userinfo">
                     <h4 class="username" id="username_text">Anonim</h4>
                     <h6 class="discriminator">#1234</h6>
@@ -43,38 +48,122 @@
         </div>
         <div class="servers">
             <div class="homebutton">
-                <svg class="homeIcon" aria-hidden="false" width="28" height="20" viewBox="0 0 28 20">
-                    <path fill="#FFFFFF"
-                        d="M20.6644 20C20.6644 20 19.8014 18.9762 19.0822 18.0714C22.2226 17.1905 23.4212 15.2381 23.4212 15.2381C22.4384 15.881 21.5034 16.3334 20.6644 16.6429C19.4658 17.1429 18.3151 17.4762 17.1884 17.6667C14.887 18.0953 12.7774 17.9762 10.9795 17.6429C9.61301 17.381 8.43836 17 7.45548 16.6191C6.90411 16.4048 6.30479 16.1429 5.70548 15.8096C5.63356 15.7619 5.56164 15.7381 5.48973 15.6905C5.44178 15.6667 5.41781 15.6429 5.39384 15.6191C4.96233 15.381 4.7226 15.2143 4.7226 15.2143C4.7226 15.2143 5.87329 17.1191 8.91781 18.0238C8.19863 18.9286 7.31164 20 7.31164 20C2.0137 19.8333 0 16.381 0 16.381C0 8.7144 3.45205 2.50017 3.45205 2.50017C6.90411 -0.07123 10.1884 0.000197861 10.1884 0.000197861L10.4281 0.285909C6.11301 1.52399 4.12329 3.40493 4.12329 3.40493C4.12329 3.40493 4.65068 3.11921 5.53767 2.71446C8.10274 1.59542 10.1404 1.2859 10.9795 1.21447C11.1233 1.19066 11.2432 1.16685 11.387 1.16685C12.8493 0.976379 14.5034 0.92876 16.2295 1.11923C18.5068 1.38114 20.9521 2.0478 23.4452 3.40493C23.4452 3.40493 21.5514 1.61923 17.476 0.381146L17.8116 0.000197861C17.8116 0.000197861 21.0959 -0.07123 24.5479 2.50017C24.5479 2.50017 28 8.7144 28 16.381C28 16.381 25.9623 19.8333 20.6644 20ZM9.51712 8.88106C8.15068 8.88106 7.07192 10.0715 7.07192 11.5239C7.07192 12.9763 8.17466 14.1667 9.51712 14.1667C10.8836 14.1667 11.9623 12.9763 11.9623 11.5239C11.9863 10.0715 10.8836 8.88106 9.51712 8.88106ZM18.2671 8.88106C16.9007 8.88106 15.8219 10.0715 15.8219 11.5239C15.8219 12.9763 16.9247 14.1667 18.2671 14.1667C19.6336 14.1667 20.7123 12.9763 20.7123 11.5239C20.7123 10.0715 19.6336 8.88106 18.2671 8.88106Z">
-                    </path>
-                </svg>
+                <div class="homeIcon">
+                    <i class="bx bx-md bxl-discord-alt"></i>
+                </div>
             </div>
             <hr class="server-divider" />
-            <div class="server">
-                <img class="servericon"
-                    src="https://cdn.discordapp.com/icons/367771308659965952/a_0342ed1d4050a1470e24d21f3f4869bf.webp?size=96">
+            <div id="user_list">
+                <div id="user_0" class="server">
+                    <img class="servericon" src="assets/images/profile_otg.webp">
+                </div>
+                <div id="user_1" class="server">
+                    <img class="servericon" src="assets/images/profile_berkay.webp">
+                    <div class="notification">
+                        <span class="call_badge" style="visibility: hidden;"><i class="bx bxs-volume-full"></i></span>
+                        <span class="badge" style="visibility: hidden;">1</span>
+                    </div>
+                </div>
+                <div id="user_2" class="server">
+                    <img class="servericon" src="assets/images/profile_ata.webp">
+                    <div class="notification">
+                        <span class="call_badge" style="visibility: hidden;"><i class="bx bxs-volume-full"></i></span>
+                        <span class="badge" style="visibility: hidden;">1</span>
+                    </div>
+                </div>
+                <div id="user_3" class="server">
+                    <img class="servericon" src="assets/images/profile_kardelen.webp">
+                    <div class="notification">
+                        <span class="call_badge" style="visibility: hidden;"><i class="bx bxs-volume-full"></i></span>
+                        <span class="badge" style="visibility: hidden;">1</span>
+                    </div>
+                </div>
+                <div id="user_4" class="server">
+                    <img class="servericon" src="assets/images/profile_ahmet.webp">
+                    <div class="notification">
+                        <span class="call_badge" style="visibility: hidden;"><i class="bx bxs-volume-full"></i></span>
+                        <span class="badge" style="visibility: hidden;">1</span>
+                    </div>
+                </div>
             </div>
-            <div class="server">
-                <img class="servericon"
-                    src="https://cdn.discordapp.com/avatars/312975353624657920/d41c9b43dbee19aae1cb7353f566cfdd.webp?size=80">
-            </div>
-            <div class="server">
-                <img class="servericon unread"
-                    src="https://cdn.discordapp.com/avatars/638747433580494860/991d1b5ddc869e81a22dec3a4f1031c4.webp?size=80">
-            </div>
-            <div class="server">
-                <img class="servericon"
-                    src="https://cdn.discordapp.com/avatars/336537358084079616/1e3a29ca026cd7e861d13068fd0f7f7e.webp?size=80">
-            </div>
-            <div class="server">
-                <img class="servericon" src="https://cdn.discordapp.com/embed/avatars/3.png">
-            </div>
-
             <div class="server invite">
                 <p class="inviteButton">+</p>
             </div>
         </div>
-        <div class="container"></div>
+        <div class="container">
+            <div id="call_container" class="display_none">
+
+                <div id="call_screen">
+                    <div style="height:240px;">
+                        <div class="header">
+                            <span style="padding-left:40px; display: block; padding-top:20px; font-weight: bold;">@
+                                <span class="characterName" data-text="characterName">characterName</span>
+                            </span>
+
+                        </div>
+                        <div class="user_list">
+                            <div id="foreign_user" class="call_user">
+                                <img class="foreignUserImg servericon can_talk"
+                                    src="https://cdn.discordapp.com/embed/avatars/0.png">
+                                <div class="call_screen_notification">
+                                    <span class="badge" style="visibility: visible;"><i
+                                            class="bx bxs-microphone-off"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="call_user">
+                                <img class="characterImg servericon can_talk talk" src="assets/images/profile_otg.webp">
+                                <div class="call_screen_notification">
+                                    <span class="badge" style="visibility: hidden;"><i
+                                            class="bx bxs-microphone-off"></i></span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="button_list">
+                            <button onclick="open_mic()" class="call_button open_mic pressed" type="button">
+                                <i class="bx bx-sm bxs-microphone-off"></i>
+                            </button>
+                            <button onclick="closeCall()" class="call_button close_call">
+                                <i class="bx bx-sm bxs-phone-off" type="button"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="message_screen">
+                    <div style="height:1400px;">
+                        <div class="call_user">
+                            <img class="characterImg servericon" src="assets/images/profile_otg.webp">
+                            <div class="call_screen_notification">
+                                <span class="badge" style="visibility: hidden;"><i
+                                        class="bx bxs-microphone-off"></i></span>
+                            </div>
+                        </div>
+
+                        <p class="characterName" style="font-weight: bold; font-size: 32px;">characterName</p>
+                        <p style="color:#72767D; font-weight: bold; ">
+                            Bu <span class="characterName">characterName</span> kullanıcısıyla olan direkt mesaj
+                            geçmişinin
+                            başlangıcıdır.</p>
+                        <hr style="opacity: 0.2;">
+                        <p class="date_text"
+                            style="text-align: center; font-size:12px; color:#72767D; font-weight: bold;">
+                            date</p>
+                        <hr style="opacity: 0.2;">
+
+                        <div>
+                            <img class="characterImg" style="border-radius: 50%; width:44px;"
+                                src="assets/images/profile_otg.webp">
+                            <div class="message_box">
+                                <p class="chat_username characterName">characterName</p>
+                                <p>message</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="members"></div>
     </div>
 
@@ -82,29 +171,152 @@
     <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.min.js"></script>
+
     <script>
-        var kullanici_adi = "Anonim";
+        var debug_mode = false;
+        var active_call = false;
+        var active_call_id = null;
         var call_interval;
+        var doCallST;
+        var active_call_sound = new sound("");
+        var call_ended = true;
         var discord_notification_sound = new sound("assets/sounds/discord_notification.mp3");
         var discord_call_sound = new sound("assets/sounds/discord_call.mp3");
+        var discord_join_sound = new sound("assets/sounds/discord_join.mp3");
+        var discord_leave_sound = new sound("assets/sounds/discord_leave.mp3");
+        var discord_mute_sound = new sound("assets/sounds/discord_mute.mp3");
+        var discord_unmute_sound = new sound("assets/sounds/discord_unmute.mp3");
+        var giris_konusmasi_sound = new sound("assets/sounds/giris_konusmasi.mp3");
 
-        var characters = [];
-        characters["berkay"] = {
-            img_url: "https://cdn.discordapp.com/avatars/312975353624657920/d41c9b43dbee19aae1cb7353f566cfdd.webp?size=80",
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        const monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+            "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
+        ];
+        today_text = dd + ' ' + monthNames[today.getMonth()] + ' ' + yyyy;
+        today = dd + '.' + mm + '.' + yyyy;
+
+        var date_text_list = document.querySelectorAll(".date_text");
+        date_text_list.forEach(date_text => {
+            date_text.innerText = today_text;
+        });
+
+        //Arama ses dosyası sona erince algılama
+        active_call_sound.sound.addEventListener("ended", function () {
+            call_ended = true;
+        });
+
+        var random = Math.floor(Math.random() * 6);
+        var random_discord_avatar = "https://cdn.discordapp.com/embed/avatars/" + random + ".png";
+
+        const characters = [];
+        characters[0] = {
+            id: 0,
+            img_url: random_discord_avatar,
+            name: "Anonim",
+            surname: "",
+            display_name: "Anonymous",
+            unread_message: 0,
+            show: false,
+        }
+        characters[1] = {
+            id: 1,
+            img_url: "assets/images/profile_berkay.webp",
             name: "Berkay",
-            surname: "Ölçe"
+            surname: "Ölçe",
+            display_name: "moonchain",
+            unread_message: 0,
+            show: false,
         }
-        characters["ata"] = {
-            img_url: "https://cdn.discordapp.com/avatars/638747433580494860/991d1b5ddc869e81a22dec3a4f1031c4.webp?size=80",
+        characters[2] = {
+            id: 2,
+            img_url: "assets/images/profile_ata.webp",
             name: "Ata Deniz",
-            surname: "Oktay"
+            surname: "Oktay",
+            display_name: "Beez",
+            unread_message: 0,
+            show: false,
         }
-        characters["yavuz"] = {
-            img_url: "https://cdn.discordapp.com/avatars/336537358084079616/1e3a29ca026cd7e861d13068fd0f7f7e.webp?size=80",
+        characters[3] = {
+            id: 3,
+            img_url: "assets/images/profile_kardelen.webp",
+            name: "Kardelen",
+            surname: "Erdinç",
+            display_name: "perduuus",
+            unread_message: 0,
+            show: false,
+        }
+        characters[4] = {
+            id: 4,
+            img_url: "assets/images/profile_ahmet.webp",
+            name: "Ahmet F.",
+            surname: "Demirel",
+            display_name: "Valentine",
+            unread_message: 0,
+            show: false,
+        }
+        characters[5] = {
+            id: 5,
+            img_url: "assets/images/profile_yavuz.webp",
             name: "Yavuz B.",
-            surname: "Yalçın"
+            surname: "Yalçın",
+            display_name: "Orbbloff",
+            unread_message: 0,
+            show: false,
+        }
+        characters[6] = {
+            id: 6,
+            img_url: "assets/images/profile_can.webp",
+            name: "Can",
+            surname: "Sargın",
+            display_name: "SARGIN",
+            unread_message: 0,
+            show: false,
+        }
+        characters[7] = {
+            id: 7,
+            img_url: "assets/images/profile_otg.webp",
+            name: "OTG",
+            surname: "Adam",
+            display_name: "OTG",
+            unread_message: 0,
+            show: false,
         }
 
+        function get_character(name) {
+            switch (name) {
+                case "user":
+                    return_val = characters[0];
+                    break;
+                case "berkay":
+                    return_val = characters[1];
+                    break;
+                case "ata":
+                    return_val = characters[2];
+                    break;
+                case "kardelen":
+                    return_val = characters[3];
+                    break;
+                case "ahmet":
+                    return_val = characters[4];
+                    break;
+                case "yavuz":
+                    return_val = characters[5];
+                    break;
+                case "can":
+                    return_val = characters[6];
+                    break;
+                case "otg":
+                    return_val = characters[7];
+                    break;
+                default:
+                    return_val = null;
+                    break;
+            }
+            return return_val;
+        }
 
         function sound(src) {
             this.sound = document.createElement("audio");
@@ -121,54 +333,65 @@
             }
         }
 
-        $(document).ready(function () {
-            Swal.fire({
-                title: 'Hoşgeldin',
-                text: 'Hadi bir nickname belirle !',
-                input: 'text',
-                inputAttributes: {
-                    autocapitalize: 'off'
-                },
-                showCancelButton: true,
-                confirmButtonText: 'Hazırım',
-                cancelButtonText: 'Anonim devam et',
-            }).then((result) => {
-                setTimeout(function(){CallModal("ata")}, 1500);
-                if (result.isConfirmed) {
-                    kullanici_adi = result.value.slice(0, 12);
-                    document.getElementById("username_text").innerText = kullanici_adi;
-                }
-            })
-            // toastr["success"](
-            //     '<div><input class="input-small" value="textbox"/>&nbsp;<a href="http://johnpapa.net" target="_blank">This is a hyperlink</a></div><div><button type="button" id="okBtn" class="btn btn-primary">Close me</button><button type="button" id="surpriseBtn" class="btn" style="margin: 0 8px 0 8px">Surprise me</button></div>'
-            //     );
-            // toastr.options = {
-            //     "closeButton": false,
-            //     "debug": false,
-            //     "newestOnTop": false,
-            //     "progressBar": false,
-            //     "positionClass": "toast-top-right",
-            //     "preventDuplicates": false,
-            //     "onclick": null,
-            //     "showDuration": "300",
-            //     "hideDuration": "1000",
-            //     "timeOut": "5000",
-            //     "extendedTimeOut": "1000",
-            //     "showEasing": "swing",
-            //     "hideEasing": "linear",
-            //     "showMethod": "fadeIn",
-            //     "hideMethod": "fadeOut"
-            // }
-        });
+        //------------------- Dinamik Fonksiyonlar -------------------
 
-        function CallModal(character) {
-            character = characters[character];
+        // incele - ses oyunu için mikrofon algılayıcı
+
+        // var foreign_user = document.getElementById("foreign_user");
+        // navigator.mediaDevices.getUserMedia({
+        //         audio: true,
+        //     })
+        //     .then(function (stream) {
+        //         const audioContext = new AudioContext();
+        //         const analyser = audioContext.createAnalyser();
+        //         const microphone = audioContext.createMediaStreamSource(stream);
+        //         const scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+
+        //         analyser.smoothingTimeConstant = 0.8;
+        //         analyser.fftSize = 1024;
+
+        //         microphone.connect(analyser);
+        //         analyser.connect(scriptProcessor);
+        //         scriptProcessor.connect(audioContext.destination);
+        //         scriptProcessor.onaudioprocess = function () {
+        //             const array = new Uint8Array(analyser.frequencyBinCount);
+        //             analyser.getByteFrequencyData(array);
+        //             const arraySum = array.reduce((a, value) => a + value, 0);
+        //             const average = arraySum / array.length;
+        //             // console.log(Math.round(average));
+
+        //             if (foreign_user != undefined) {
+        //                 if (average > 10) {
+        //                     foreign_user.getElementsByClassName("servericon")[0].classList.add("talk");
+        //                 } else {
+        //                     foreign_user.getElementsByClassName("servericon")[0].classList.remove("talk");
+        //                 }
+        //             }
+
+        //         };
+        //     })
+        //     .catch(function (err) {
+        //         /* handle the error */
+        //         console.error(err);
+        //     });
+
+        function doCall(name, time, if_accept, if_denied) {
+            doCallST = setTimeout(function () {
+                callModal(name, if_accept, if_denied)
+            }, time);
+        }
+
+        function callModal(character_value, if_accept, if_denied) {
+            character = get_character(character_value);
+            character == null ? character = characters[character_value] : null;
             playSound();
             call_interval = setInterval(playSound, 500);
             Swal.fire({
                 customClass: "call_style",
-                title: '<img class="shaking" style="border-radius:50%;" src="' + character.img_url + '">',
-                text: character.name + " " + character.surname,
+                title: '<img class="shaking" style="border-radius:50%;" src="' + character.img_url +
+                    '"><br>' +
+                    character.name + " " + character.surname,
+                text: "Gelen arama...",
                 showDenyButton: true,
                 showCancelButton: false,
                 confirmButtonText: '<i class="bx bx-sm bxs-phone-call"></i>',
@@ -177,20 +400,244 @@
                 denyButtonColor: '#ED4245',
             }).then((result) => {
                 if (result.isConfirmed) {
+                    if (if_accept != null) {
+                        if_accept()
+                    }
                     stopSound();
+                    discord_join_sound.play();
                 } else if (result.isDenied) {
+                    if (if_denied != null) {
+                        if_denied();
+                    }
                     stopSound();
                 }
             })
         }
 
-        function playSound() {
-            discord_notification_sound.play();
+        function closeCall() {
+            stopActiveCallSound();
+            discord_leave_sound.play();
+            notification(null, "end_call");
+            clearInterval(call_interval);
+            clearTimeout(doCallST);
         }
 
+        //arama sesini oynat
+        function playSound() {
+            discord_call_sound.play();
+        }
+
+        //arama sesini durdur
         function stopSound() {
-            discord_notification_sound.stop();
+            discord_call_sound.stop();
             clearInterval(call_interval);
+        }
+
+        function playActiveCallSound(sound_val) {
+            active_call_sound = sound_val;
+            active_call_sound.play();
+        }
+
+        function stopActiveCallSound() {
+            active_call_sound.stop();
+        }
+
+        function notification(character_value, type) {
+            character = get_character(character_value);
+            character == null ? character = characters[character_value] : null;
+            var user_list = document.getElementById("user_list");
+            if (character != null) {
+                var find_user = document.getElementById("user_" + character.id);
+            }
+            //Html oluşturulmadan önce okunmamış mesaj verisi 1 arttırılır
+            type == "notification" ? character.unread_message = character.unread_message + 1 : null;
+            if (type == "end_call") {
+                active_call_id = null;
+                active_call = false;
+                return;
+            }
+
+            var add_user_active_call_class = character.id == active_call_id ? "user_active_call" : null;
+            var html = '<div id="user_' + character.id + '" class="server"><img class="servericon" src="' +
+                character.img_url +
+                '"><div class="notification"><span class="call_badge ' + add_user_active_call_class +
+                '" style="visibility: hidden;"><i class="bx bxs-volume-full"></i></span><span class="badge" style="visibility: hidden;">' +
+                character.unread_message + '</span></div></div>';
+
+            if (type == "notification") {
+                discord_notification_sound.play();
+                if (find_user != null) {
+                    find_user.remove();
+                }
+
+                user_list.innerHTML = html + user_list.innerHTML;
+                find_user = document.getElementById("user_" + character.id);
+                var notification_badge = find_user.getElementsByClassName("notification")[0].getElementsByClassName(
+                    "badge")[0];
+                notification_badge.style.visibility = "visible";
+
+            } else if (type == "call") {
+                if (active_call) {
+                    var user_active_call = document.getElementsByClassName("user_active_call")[0];
+                    user_active_call != undefined ? user_active_call.classList.remove("user_active_call") : null;
+                }
+
+                active_call = true;
+                active_call_id = character.id;
+                if (find_user != null) {
+                    find_user.remove();
+                }
+                user_list.innerHTML = html + user_list.innerHTML;
+                find_user = document.getElementById("user_" + character.id);
+                var notification_call_badge = find_user.getElementsByClassName("notification")[0]
+                    .getElementsByClassName("call_badge")[0];
+                if (character.unread_message > 0) {
+                    var notification_badge = find_user.getElementsByClassName("notification")[0]
+                        .getElementsByClassName("badge")[0];
+                    notification_badge.style.visibility = "visible";
+                }
+                notification_call_badge.classList.add("user_active_call");
+            }
+        }
+
+        function open_mic() {
+            var mics_button = document.querySelectorAll(".open_mic");
+            var mic_notification = document.getElementById("foreign_user");
+            mics_button.forEach(microphone_button => {
+                var mic_button_logo = microphone_button.getElementsByTagName("i")[0];
+                if (mic_button_logo.classList.contains("bxs-microphone-off")) {
+                    microphone_button.classList.remove("pressed");
+                    mic_button_logo.classList.remove("bxs-microphone-off");
+                    mic_button_logo.classList.add("bxs-microphone");
+                    mic_notification.getElementsByClassName("call_screen_notification")[0]
+                        .getElementsByClassName("badge")[0]
+                        .style.visibility = "hidden";
+                    discord_unmute_sound.play();
+                } else {
+                    microphone_button.classList.add("pressed");
+                    mic_button_logo.classList.remove("bxs-microphone");
+                    mic_button_logo.classList.add("bxs-microphone-off");
+                    mic_notification.getElementsByClassName("call_screen_notification")[0]
+                        .getElementsByClassName("badge")[0]
+                        .style.visibility = "visible";
+                    discord_mute_sound.play();
+                }
+
+            });
+
+            // var mic_button_logo = microphone_button.getElementsByTagName("i")[0];
+            // if (mic_logo.classList.contains("bxs-microphone-off")) {
+            //     microphone_button.style.backgroundColor = "#36393F";
+            //     microphone_button.style.color = "#ffffff";
+            //     mic_button_logo.classList.remove("bxs-microphone-off");
+            //     mic_button_logo.classList.add("bxs-microphone");
+            // } else {
+            //     microphone_button.style.backgroundColor = "#ffffff";
+            //     microphone_button.style.color = "#000000";
+            //     mic_button_logo.classList.remove("bxs-microphone");
+            //     mic_button_logo.classList.add("bxs-microphone-off");
+            // }
+        }
+
+        function get_screen(character_value, type) {
+            character = get_character(character_value);
+            character == null ? character = characters[character_value] : null;
+            if (type == "call") {
+                var container = document.getElementById("call_container");
+                container.classList.remove("display_none");
+                container.classList.add("display_block");
+
+                var cntext = document.querySelectorAll(".characterName");
+                var cnimg = document.querySelectorAll(".characterImg");
+                var futext = document.querySelectorAll(".foreignUserName");
+                var fuimg = document.querySelectorAll(".foreignUserImg");
+                cntext.forEach(cn => {
+                    cn.innerText = character.display_name;
+                });
+                cnimg.forEach(cn => {
+                    cn.src = character.img_url;
+                });
+
+                futext.forEach(fu => {
+                    fu.innerText = characters[0].display_name;
+                });
+                fuimg.forEach(fu => {
+                    fu.src = characters[0].img_url;
+                });
+
+            }
+        }
+
+        function callNow(character_value, speech_sound) {
+            call_ended = true;
+            // rootDiv("visible");
+            notification(character_value, "call");
+            get_screen(character_value, "call");
+            doCallST = setTimeout(function () {
+                playActiveCallSound(speech_sound);
+            }, 1500);
+        }
+
+        function rootDiv(mode) {
+            var bar = document.getElementById("rootDiv");
+            mode == "visible" ? bar.style.visibility = "visible" : bar.style.visibility = "hidden";
+        }
+        //------------------- İçerik Fonksiyonları -------------------
+
+
+        //index.html?debugMode=true
+        var get_debug_info = location.search.split('debugMode=')[1];
+        if (get_debug_info != undefined) {
+            debug_mode = (get_debug_info.toLowerCase() === 'true');
+        }
+        if (!debug_mode) {
+            $(document).ready(function () {
+                Swal.fire({
+                    title: 'Hoşgeldin',
+                    text: 'Hadi bir nickname belirle !',
+                    input: 'text',
+                    inputAttributes: {
+                        autocapitalize: 'off'
+                    },
+                    showCancelButton: true,
+                    confirmButtonText: 'Hazırım',
+                    cancelButtonText: 'Anonim devam et',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                }).then((result) => {
+                    var fuimg = document.querySelectorAll(".foreignUserImg");
+                    fuimg.forEach(fu => {
+                        fu.src = characters[0].img_url;
+                    });
+                    doCall("berkay", 1500, function () {
+                        callNow("berkay", giris_konusmasi_sound)
+                    }, null);
+                    if (result.isConfirmed) {
+                        kullanici_adi = result.value.slice(0, 12);
+                        document.getElementById("username_text").innerText = kullanici_adi;
+                    }
+                })
+                // toastr["success"](
+                //     '<div><input class="input-small" value="textbox"/>&nbsp;<a href="http://johnpapa.net" target="_blank">This is a hyperlink</a></div><div><button type="button" id="okBtn" class="btn btn-primary">Close me</button><button type="button" id="surpriseBtn" class="btn" style="margin: 0 8px 0 8px">Surprise me</button></div>'
+                //     );
+                // toastr.options = {
+                //     "closeButton": false,
+                //     "debug": false,
+                //     "newestOnTop": false,
+                //     "progressBar": false,
+                //     "positionClass": "toast-top-right",
+                //     "preventDuplicates": false,
+                //     "onclick": null,
+                //     "showDuration": "300",
+                //     "hideDuration": "1000",
+                //     "timeOut": "5000",
+                //     "extendedTimeOut": "1000",
+                //     "showEasing": "swing",
+                //     "hideEasing": "linear",
+                //     "showMethod": "fadeIn",
+                //     "hideMethod": "fadeOut"
+                // }
+            });
         }
     </script>
 </body>
