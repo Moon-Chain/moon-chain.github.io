@@ -242,9 +242,22 @@
     overflow-x: auto;
 }
 
-.user_active_call {
-    visibility: visible !important;
+#only_message_screen {
+    height: calc(100vh - 111px);
+    background-color: #36393F;
+    padding: 20px;
+    overflow-x: auto;
 }
+
+
+.call_badge_visibility {
+    visibility: hidden;
+}
+
+.user_active_call {
+    visibility: visible;
+}
+
 
 .chat_username {
     font-weight: bold;
