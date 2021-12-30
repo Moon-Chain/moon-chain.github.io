@@ -259,10 +259,55 @@
 }
 
 
-.chat_username {
+.chat_username span {
     font-weight: bold;
 }
 
-.message_box{
-    display: inline-block;
+
+.message_line {
+    position: relative;
+    height: 70px;
+    font: 12px "Open Sans", sans-serif;
+}
+
+.message_line:hover {
+    background: #32353b;
+    cursor: pointer;
+}
+
+.message_line img {
+    width: 40px;
+    border-radius: 50%;
+    margin: 15px;
+    float: left;
+}
+
+.floatingImg {
+    width: 40px;
+    border-radius: 50%;
+    top: 0;
+    left: 12px;
+    border: 3px solid #fff;
+}
+
+.message_line p {
+    padding: 0px 0 0 0;
+    float: left;
+    width: 80%;
+}
+
+.message_line p strong {
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+
+}
+
+.message_line p .message {
+    font-size: 13px;
+    font-weight: 400;
+    color: #bbbfc2;
+    font-weight: bold;
+    display: block;
 }
