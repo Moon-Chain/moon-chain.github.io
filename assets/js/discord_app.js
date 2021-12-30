@@ -433,7 +433,8 @@ function get_screen(character_value, type) {
     });
 }
 
-function startCall(character_value, speech_sound) {
+function startCall(character_value, speech_sound, time) {
+    time == null ? time = 1500 : null;
     call_ended = true;
     notification(character_value, "call");
     get_screen(character_value, "call");
@@ -442,7 +443,7 @@ function startCall(character_value, speech_sound) {
         startCallST = setTimeout(function () {
             active_call_sound = createSpeechSound(speech_sound);
             active_call_sound.play();
-        }, 1500);
+        }, time);
     }
 }
 
