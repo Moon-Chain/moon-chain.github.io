@@ -270,6 +270,12 @@
     font: 12px "Open Sans", sans-serif;
 }
 
+.message_line a{
+    color:#2177c7;
+    text-shadow: 0px 0px 3px rgba(0,0,0,5);
+    text-decoration: none;
+}
+
 .message_line:hover {
     background: #32353b;
     cursor: pointer;

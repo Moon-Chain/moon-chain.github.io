@@ -3,7 +3,7 @@ var active_call = false;
 var active_call_id = null;
 var active_screen_id = null;
 var call_interval;
-var doCallST;
+var startCallST;
 var active_call_sound;
 var call_ended = true;
 var mic_is_open = false;
@@ -59,7 +59,7 @@ function sendMessage(character_value, message) {
     }
 }
 
-function sendMessage_withTimeot(character_value, message, ms) {
+function sendMessage_withTimeout(character_value, message, ms) {
     ms == null ? ms = 0 : null;
     last_message_timeout = setTimeout(function () {
         sendMessage(character_value, message)
@@ -166,7 +166,7 @@ navigator.mediaDevices.getUserMedia({
 
 
 function get_callModal(name, time, if_accept, if_denied) {
-    doCallST = setTimeout(function () {
+    startCallST = setTimeout(function () {
         callModal(name, if_accept, if_denied)
     }, time);
 }
@@ -216,7 +216,7 @@ function closeCall() {
     notification(character_value, "end_call");
     get_screen(character_value, "only_message")
     clearInterval(call_interval);
-    clearTimeout(doCallST);
+    clearTimeout(startCallST);
     if (active_call_sound != undefined) {
         active_call_sound.pause();
     }
@@ -433,15 +433,17 @@ function get_screen(character_value, type) {
     });
 }
 
-function doCall(character_value, speech_sound) {
-    call_ended = false;
+function startCall(character_value, speech_sound) {
+    call_ended = true;
     notification(character_value, "call");
     get_screen(character_value, "call");
 
-    doCallST = setTimeout(function () {
-        active_call_sound = createSpeechSound(speech_sound);
-        active_call_sound.play();
-    }, 1500);
+    if (speech_sound != null) {
+        startCallST = setTimeout(function () {
+            active_call_sound = createSpeechSound(speech_sound);
+            active_call_sound.play();
+        }, 1500);
+    }
 }
 
 function rootDiv(mode) {

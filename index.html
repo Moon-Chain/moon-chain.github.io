@@ -197,7 +197,7 @@
     <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.min.js"></script>
-    <script src="assets/js/discord_app.js"></script>
+    <script src="/assets/js/discord_app.js"></script>
 
     <script>
         // Karakter Listesi
@@ -356,27 +356,25 @@
                     fuimg.forEach(fu => {
                         fu.src = characters[0].img_url;
                     });
-                    get_callModal("morpheus", 1500, function () {
-                            doCall("morpheus", "assets/sounds/giris_konusmasi.mp3");
-                            sendMessage_withTimeot("morpheus",
-                                "<button>Selam, Yeni yılın kutlu olsun !</button>",
-                                5000);
-                            sendMessage_withTimeot("morpheus", "Eğer konuşursan seni duyamam",
-                                9000);
-                            sendMessage_withTimeot("morpheus", "Çünkü burası gerçek discord değil",
-                                14000);
-                            sendMessage_withTimeot("morpheus", "Yoksa Matrixte miyiz ? Hayır Hayır",
-                                17000);
+                    get_callModal("otg", 1500, function () {
+                            startCall("otg", null);
+                            sendMessage_withTimeout("otg",
+                                '<a href="javascript:void(0);" onclick="yapimci_ara()">Buraya tıklarsan</a> yapımcı seni arayacak.',
+                                2000);
                         },
                         function () {
-                            sendMessage_withTimeot("morpheus", "Açsana şerefsiz",
+                            sendMessage_withTimeout("otg", "Madem açmayacaksın anlatıyorum.",
                                 2000);
+                            sendMessage_withTimeout("otg",
+                                "Discord oyununa hoşgeldin, bu oyun tüm OTG üyelerinin yeni yılını kutlamak için tasarlandı",
+                                4000);
                         });
                     if (result.isConfirmed) {
                         kullanici_adi = result.value.slice(0, 12);
                         document.getElementById("username_text").innerText = kullanici_adi;
                     }
                 })
+
                 // toastr["success"](
                 //     '<div><input class="input-small" value="textbox"/>&nbsp;<a href="http://johnpapa.net" target="_blank">This is a hyperlink</a></div><div><button type="button" id="okBtn" class="btn btn-primary">Close me</button><button type="button" id="surpriseBtn" class="btn" style="margin: 0 8px 0 8px">Surprise me</button></div>'
                 //     );
@@ -398,6 +396,15 @@
                 //     "hideMethod": "fadeOut"
                 // }
             });
+
+            function yapimci_ara() {
+                get_callModal("berkay", 1500, function () {
+                    startCall("berkay", null)
+                }, function () {
+                    sendMessage_withTimeout("berkay", "Madem açmayacaksın neden arattırıyorsun :D",
+                        1500)
+                });
+            }
         }
     </script>
 </body>
