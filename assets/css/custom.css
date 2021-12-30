@@ -281,7 +281,7 @@
     cursor: pointer;
 }
 
-.message_line img {
+.message_line .profilePhoto {
     width: 40px;
     border-radius: 50%;
     margin: 15px;

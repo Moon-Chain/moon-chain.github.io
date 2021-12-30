@@ -128,7 +128,7 @@
 
                         <div class="message_box">
                             <div class="message_line">
-                                <img class="characterImg profilePhoto" src="" />
+                                <img class="characterImg" src="" />
                                 <p>
                                     <strong class="character_DisplayName">character_DisplayName</strong> <span
                                         class="date_today" style="font-size:12px; text-indent: 50px; color:#72767D">
@@ -174,7 +174,7 @@
 
                         <div class="message_box">
                             <div class="message_line">
-                                <img class="characterImg profilePhoto" src="" />
+                                <img class="characterImg" src="" />
                                 <p>
                                     <strong class="character_DisplayName">character_DisplayName</strong> <span
                                         class="date_today" style="font-size:12px; text-indent: 50px; color:#72767D">
@@ -224,37 +224,64 @@
         }
         characters[2] = {
             id: 2,
-            img_url: "assets/images/tugay.webp",
-            name: "Tugay",
-            surname: "Demir",
-            display_name: "Tugayy",
+            img_url: "assets/images/profile_ata.webp",
+            name: "Ata Deniz",
+            surname: "Oktay",
+            display_name: "Beez",
             unread_message: 0,
             show: false,
         }
         characters[3] = {
             id: 3,
-            img_url: "assets/images/umut.webp",
-            name: "Umut",
-            surname: "Tandoğan",
-            display_name: "Umutt",
+            img_url: "assets/images/profile_kardelen.webp",
+            name: "Kardelen",
+            surname: "Erdinç",
+            display_name: "perduuus",
             unread_message: 0,
             show: false,
         }
         characters[4] = {
             id: 4,
-            img_url: "assets/images/taha.webp",
-            name: "Berk T.",
-            surname: "Çetin",
-            display_name: "tb",
+            img_url: "assets/images/profile_ahmet.webp",
+            name: "Ahmet F.",
+            surname: "Demirel",
+            display_name: "Valentine",
             unread_message: 0,
             show: false,
         }
         characters[5] = {
             id: 5,
-            img_url: "assets/images/soner.webp",
-            name: "Soner",
-            surname: "Ay",
-            display_name: "cash0nline",
+            img_url: "assets/images/profile_yavuz.webp",
+            name: "Yavuz B.",
+            surname: "Yalçın",
+            display_name: "Orbbloff",
+            unread_message: 0,
+            show: false,
+        }
+        characters[6] = {
+            id: 6,
+            img_url: "assets/images/profile_can.webp",
+            name: "Can",
+            surname: "Sargın",
+            display_name: "SARGIN",
+            unread_message: 0,
+            show: false,
+        }
+        characters[7] = {
+            id: 7,
+            img_url: "assets/images/profile_otg.webp",
+            name: "OTG",
+            surname: "Adam",
+            display_name: "OTG",
+            unread_message: 0,
+            show: false,
+        }
+        characters[8] = {
+            id: 8,
+            img_url: "assets/images/morpheus.webp",
+            name: "Laurence",
+            surname: "Fishburne",
+            display_name: "Morpheus",
             unread_message: 0,
             show: false,
         }
@@ -267,17 +294,26 @@
                 case "berkay":
                     return_val = characters[1];
                     break;
-                case "tugay":
+                case "ata":
                     return_val = characters[2];
                     break;
-                case "umut":
+                case "kardelen":
                     return_val = characters[3];
                     break;
-                case "taha":
+                case "ahmet":
                     return_val = characters[4];
                     break;
-                case "soner":
+                case "yavuz":
                     return_val = characters[5];
+                    break;
+                case "can":
+                    return_val = characters[6];
+                    break;
+                case "otg":
+                    return_val = characters[7];
+                    break;
+                case "morpheus":
+                    return_val = characters[8];
                     break;
                 default:
                     return_val = null;
@@ -320,24 +356,18 @@
                     fuimg.forEach(fu => {
                         fu.src = characters[0].img_url;
                     });
-                    get_callModal("tugay", 1500, function () {
-                            startCall("tugay", null);
-                            sendMessage_withTimeout("tugay", "Naber abi sj",
+                    get_callModal("otg", 1500, function () {
+                            startCall("otg", null);
+                            sendMessage_withTimeout("otg",
+                                '<a href="javascript:void(0);" onclick="yapimci_ara()">Buraya tıklarsan</a> yapımcı seni arayacak.',
                                 2000);
                         },
                         function () {
-                            sendMessage_withTimeout("tugay",
-                                'Abi açsana amk bir şey göstericem',
-                                1500);
-                            sendMessage_withTimeout("tugay",
-                                'Soner abiyi gördüm bugün <a target="_blank" href="https://foto.haberler.com/haber/2021/03/10/golcukspor-a-korona-virus-soku-13983184_amp.jpg">Buraya Tıkla</a>',
+                            sendMessage_withTimeout("otg", "Madem açmayacaksın anlatıyorum.",
+                                2000);
+                            sendMessage_withTimeout("otg",
+                                "Discord oyununa hoşgeldin, bu oyun tüm OTG üyelerinin yeni yılını kutlamak için tasarlandı",
                                 4000);
-                            sendMessage_withTimeout("soner",
-                                'Abisi Tugay sana ne attı',
-                                10000);
-                            sendMessage_withTimeout("soner",
-                                'Çiftliğe gelirim bak',
-                                11500);
                         });
                     if (result.isConfirmed) {
                         kullanici_adi = result.value.slice(0, 12);

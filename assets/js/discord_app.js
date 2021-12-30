@@ -44,7 +44,7 @@ function sendMessage(character_value, message) {
 
     if (active_screen_id == character.id) {
         message_line_html =
-            '<div class="message_line"><img class="characterImg" src="' + character.img_url +
+            '<div class="message_line"><img class="characterImg profilePhoto" src="' + character.img_url +
             '" /><p><strong class="character_DisplayName">' +
             character.display_name +
             '</strong> <span class="date_today" style="font-size:12px; text-indent: 50px; color:#72767D">' +
@@ -379,7 +379,7 @@ function get_screen(character_value, type) {
         if (character_chat != null) {
             character_chat.forEach(ch => {
                 old_message_line_html =
-                    '<div class="message_line"><img class="characterImg" src="' + character.img_url +
+                    '<div class="message_line"><img class="characterImg profilePhoto" src="' + character.img_url +
                     '" /><p><strong class="character_DisplayName">' +
                     character.display_name +
                     '</strong> <span class="date_today" style="font-size:12px; text-indent: 50px; color:#72767D">' +
