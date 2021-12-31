@@ -64,12 +64,12 @@
                 function () {
                     speechSound("tugay", findSpeech("tugay_gulme.mp3"), 1500);
                     getMessage("tugay", 'Abi Fug reise küfür ettim, ararsa sakın açma', 3000);
-                    callEnded("tugay", 4500);
+                    speechEnded_indicator("tugay", 4500);
 
                     get_callModal("fug_reis", 6500, 9000,
                         function () {
                             speechSound("fug_reis", findSpeech("fog_reis_konusma.mp3"), 1500);
-                            callEnded("fug_reis", 9000);
+                            speechEnded_indicator("fug_reis", 9000);
                         },
                         function () {
                             getMessage("fug_reis", 'Eğer bana küfreden varsa oralarda, eğer bana bi yazı yazanlar olursa, onun fug koyarım tamammı, if you do it again..', 1000);
@@ -91,7 +91,7 @@
                     get_callModal("cenk_hoca", 6000, 10000,
                         function () {
                             speechSound("cenk_hoca", findSpeech("bir_yil.mp3"), 1500);
-                            callEnded("cenk_hoca", 10000);
+                            speechEnded_indicator("cenk_hoca", 10000);
                         },
                         null,
                         null,

@@ -7,7 +7,7 @@ var call_interval;
 var startCallST;
 var closeCallST;
 var active_call_sound;
-var call_ended = true;
+var speech_ended = true;
 var mic_is_open = false;
 var last_message_timeout;
 var calling_now_id = null;
@@ -265,7 +265,7 @@ function closeCall() {
     get_screen(character_value, "only_message")
     clearInterval(call_interval);
     clearTimeout(startCallST);
-    if (call_ended) {
+    if (speech_ended) {
         if_call_closed_function = variable_if_call_closed;
     } else {
         if_call_closed_function = variable_if_speech_not_ended;
@@ -505,7 +505,7 @@ function get_screen(character_value, type) {
 
 function speechSound(character_value, speech_sound, time = 1500) {
     discord_join_sound.play();
-    call_ended = false;
+    speech_ended = false;
     notification(character_value, "call");
     get_screen(character_value, "call");
     if (speech_sound != null) {
@@ -516,16 +516,16 @@ function speechSound(character_value, speech_sound, time = 1500) {
     }
 }
 
-function callEnded(character_value, time = 0) {
+function speechEnded_indicator(character_value, time = 0) {
     setTimeout(function () {
-        callEnded_with_control(character_value)
+        speechEnded_indicator_with_control(character_value)
     }, time);
 }
 
-function callEnded_with_control(character_value) {
+function speechEnded_indicator_with_control(character_value) {
     character = get_character(character_value);
     if (character.id == active_call_id) {
-        call_ended = true;
+        speech_ended = true;
     }
 }
 
