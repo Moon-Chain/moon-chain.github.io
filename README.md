@@ -36,6 +36,7 @@ get_callModal(1, 2, 3, 4, 5, 6, 7, 8);Gelen arama oluşturmak için
 
 
 
+
 speechSound(1, 2, 3);Konuşmayı oynatmak için
 
 1 - Karakter (name veya id değeri)
@@ -43,6 +44,22 @@ speechSound(1, 2, 3);Konuşmayı oynatmak için
 2 - Ses dosyası
 
 3 - Konuşmaya ne zaman başlasın / Varsayılan 1500 MS
+
+
+
+speechEnd_indicator(1, 2); Aramayı kapatmadan konuşmanın bittiği süreyi belirtmek için 
+(Arama kapatıldığında, yüzüne mi kapatılmış yoksa konuşma bittiği zaman mı kapatılmış. Şeklinde ayırt etmek için kullanılır)
+
+1 - Karakter (name veya id değeri)
+
+2 - Konuşma ne zaman sonra bitecek ? / Varsayılan 0 MS
+
+
+
+findSpeech(1); Ses dosyasını bulmak için
+
+1 - ses dosyasının adı ve uzantısı (sesin konumu assets/sounds/speech_sounds) olmak şartıyla
+
 
 
 
@@ -64,20 +81,6 @@ deleteMessages(1, 2); Mesajları silmek için
 
 
 
-callEnded(1, 2); Aramayı kapatmadan konuşmanın bittiğini belirtmek için
-
-1 - Karakter (name veya id değeri)
-
-2 - Konuşma ne zaman sonra bitecek ? / Varsayılan 0 MS
-
-
-
-findSpeech(1); Ses dosyasını bulmak için
-
-1 - ses dosyasının adı ve uzantısı (sesin konumu assets/sounds/speech_sounds) olmak şartıyla
-
-
-
 createButton(1, 2, 3, 4); - Mesajların içerisine buton koymak için
 
 1 - Buton üzerindeki metin
@@ -90,7 +93,7 @@ createButton(1, 2, 3, 4); - Mesajların içerisine buton koymak için
 
 
 
- createImage(1, 2, 3, 4); - Mesajların içerisine görsel koymak için
+createImage(1, 2, 3, 4); - Mesajların içerisine görsel koymak için
 
 1 - Görsel URL
 
@@ -107,3 +110,11 @@ get_screen(1, 2); - Ekranı değiştirmek için
 1 - Karakter (name veya id değeri)
 
 2 - Arama veya mesaj ekranları getirilebilir / "call" veya "only_message" değerleri alabilir.
+
+
+
+notification(1, 2); - Sadece bildirim almak için (Fake Notification olarak kullanılabilir) 
+
+1 - Karakter (name veya id değeri)
+
+2 - mesaj bildirimleri için "message" yazılması yeterli.
