@@ -1,19 +1,26 @@
+var startTime = Date.now();
 var debug_mode = false;
 var active_call = false;
 var active_call_id = null;
 var active_screen_id = null;
 var call_interval;
 var startCallST;
+var closeCallST;
 var active_call_sound;
 var call_ended = true;
 var mic_is_open = false;
 var last_message_timeout;
-var discord_notification_sound = new sound("assets/sounds/discord_notification.mp3");
+var calling_now_id = null;
+var calling_start_time;
+var if_call_closed_function = null;
+var variable_if_call_closed = null;
+var variable_if_speech_not_ended = null;
 var discord_call_sound = new sound("assets/sounds/discord_call.mp3");
 var discord_join_sound = new sound("assets/sounds/discord_join.mp3");
 var discord_leave_sound = new sound("assets/sounds/discord_leave.mp3");
 var discord_mute_sound = new sound("assets/sounds/discord_mute.mp3");
 var discord_unmute_sound = new sound("assets/sounds/discord_unmute.mp3");
+var discord_notification_sound = new sound("assets/sounds/discord_notification.mp3");
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
@@ -25,46 +32,18 @@ const monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
 today_text = dd + ' ' + monthNames[today.getMonth()] + ' ' + yyyy;
 today = dd + '.' + mm + '.' + yyyy;
 
-var date_text_list = document.querySelectorAll(".date_today");
-date_text_list.forEach(date_text => {
-    date_text.innerText = today;
+
+$(document).ready(function () {
+    var date_text_list = document.querySelectorAll(".date_today");
+    date_text_list.forEach(date_text => {
+        date_text.innerText = today;
+    });
+
+    var date_text_list = document.querySelectorAll(".date_today_text");
+    date_text_list.forEach(date_text => {
+        date_text.innerText = today_text;
+    });
 });
-
-var date_text_list = document.querySelectorAll(".date_today_text");
-date_text_list.forEach(date_text => {
-    date_text.innerText = today_text;
-});
-
-function sendMessage(character_value, message) {
-    character = get_character(character_value);
-    character == null ? character = characters[character_value] : null;
-    character_chat = chat_list[character.id];
-    character_chat.push(message);
-    notification(character.id, "notification");
-
-    if (active_screen_id == character.id) {
-        message_line_html =
-            '<div class="message_line"><img class="characterImg profilePhoto" src="' + character.img_url +
-            '" /><p><strong class="character_DisplayName">' +
-            character.display_name +
-            '</strong> <span class="date_today" style="font-size:12px; text-indent: 50px; color:#72767D">' +
-            today +
-            '</span><span class="message" id="message_' + character_chat.length + '">' + message +
-            '</span></p></div>';
-
-        message_box = document.querySelectorAll(".message_box");
-        message_box.forEach(box => {
-            box.innerHTML = box.innerHTML + message_line_html;
-        });
-    }
-}
-
-function sendMessage_withTimeout(character_value, message, ms) {
-    ms == null ? ms = 0 : null;
-    last_message_timeout = setTimeout(function () {
-        sendMessage(character_value, message)
-    }, ms);
-}
 
 function sound(src) {
     this.sound = document.createElement("audio");
@@ -78,6 +57,48 @@ function sound(src) {
     }
     this.stop = function () {
         this.sound.pause();
+    }
+}
+
+function getM(character_value, message) {
+    character = get_character(character_value);
+    character_chat = chat_list[character.id];
+    character_chat.push(message);
+    notification(character.id, "notification");
+
+    if (active_screen_id == character.id) {
+        message_line_html =
+            '<div class="message_line"><img class="characterImg profilePhoto" src="' + character.img_url +
+            '" /><div class="mbox"><strong class="character_DisplayName">' +
+            character.display_name +
+            '</strong> <span class="date_today" style="font-size:12px; text-indent: 50px; color:#72767D">' +
+            today +
+            '</span><span class="message">' + message +
+            '</span><p></p></div></div>';
+
+        message_box = document.querySelectorAll(".message_box");
+        message_box.forEach(box => {
+            box.innerHTML = box.innerHTML + message_line_html;
+        });
+    }
+}
+
+function getMessage(character_value, message, ms = 0) {
+    last_message_timeout = setTimeout(function () {
+        getM(character_value, message)
+    }, ms);
+}
+
+function deleteMessages(character_value = null, select) {
+    if (select == "all") {
+        characters.forEach(ch => {
+            chat_list[ch.id] = [];
+        });
+    } else {
+        if (character_value != null) {
+            character = get_character(character_value);
+            chat_list[character.id] = [];
+        }
     }
 }
 
@@ -110,19 +131,16 @@ function createSpeechSound(sound_url) {
         while (i < len) total += Math.abs(input[i++]);
         rms = Math.sqrt(total / len);
         average = (rms * 100);
-        if (foreign_user != undefined) {
-            if (average > 8) {
-                a_talk_user.getElementsByClassName("servericon")[0].classList.add("talk");
-            } else {
-                a_talk_user.getElementsByClassName("servericon")[0].classList.remove("talk");
-            }
+        if (average > 7) {
+            a_talk_user.getElementsByClassName("servericon")[0].classList.add("talk");
+        } else {
+            a_talk_user.getElementsByClassName("servericon")[0].classList.remove("talk");
         }
 
     };
 
     return created_audio;
 }
-
 
 // incele - ses oyunu için mikrofon algılayıcı
 var foreign_user = document.getElementById("foreign_user");
@@ -164,21 +182,28 @@ navigator.mediaDevices.getUserMedia({
     });
 
 
-
-function get_callModal(name, time, if_accept, if_denied) {
+function get_callModal(character_value, time, close_time, if_accept, if_denied, if_missed, if_call_closed, if_speech_not_ended) {
+    character = get_character(character_value);
     startCallST = setTimeout(function () {
-        callModal(name, if_accept, if_denied)
+        callModal(character_value, close_time, if_accept, if_denied, if_missed, if_call_closed, if_speech_not_ended)
     }, time);
 }
 
-function callModal(character_value, if_accept, if_denied) {
+function callModal(character_value, close_time, if_accept, if_denied, if_missed, if_call_closed, if_speech_not_ended) {
     character = get_character(character_value);
-    character == null ? character = characters[character_value] : null;
+    calling_now_id = character.id;
+    calling_start_time = setTimeout(function () {
+        missedCall(character_value);
+        calling_now_id = null;
+        if (if_missed != null) {
+            if_missed();
+        }
+    }, 10000);
     playSound();
     call_interval = setInterval(playSound, 500);
     Swal.fire({
         customClass: "call_style",
-        title: '<img class="shaking" style="border-radius:50%;" src="' + character.img_url +
+        title: '<img class="shaking" style="border-radius:50%; width:80px;" src="' + character.img_url +
             '"><br>' +
             character.name + " " + character.surname,
         text: "Gelen arama...",
@@ -192,12 +217,27 @@ function callModal(character_value, if_accept, if_denied) {
         allowEscapeKey: false
     }).then((result) => {
         if (result.isConfirmed) {
+            characters.forEach(ccst => {
+                if (ccst != character.id) {
+                    ccst.closeCallST = false;
+                }
+            });
+            close_time != undefined || close_time != null ? closeCall_ST(character_value, close_time) : null;
+            active_call_id = character.id;
+            active_call = true;
+
+            variable_if_call_closed = if_call_closed;
+            variable_if_speech_not_ended = if_speech_not_ended;
+            calling_now_id = null;
+            clearTimeout(calling_start_time);
             if (if_accept != null) {
                 if_accept()
             }
             stopSound();
-            discord_join_sound.play();
         } else if (result.isDenied) {
+            if_call_closed_function = null;
+            calling_now_id = null;
+            clearTimeout(calling_start_time);
             if (if_denied != null) {
                 if_denied();
             }
@@ -206,22 +246,54 @@ function callModal(character_value, if_accept, if_denied) {
     })
 }
 
+function missedCall(character_value) {
+    Swal.close();
+    character = get_character(character_value);
+    stopSound();
+    discord_leave_sound.play();
+    getMessage(character_value, '<i style="color:#ED4245" class="bx bxs-phone"></i>' + character.display_name + ' kullanıcısından bir cevapsız arama.');
+}
+
 function closeCall() {
     character_value = active_call_id;
     character = get_character(character_value);
-    character == null ? character = characters[character_value] : null;
     active_call_id = null;
     active_call = false;
     discord_leave_sound.play();
+    character.closeCallST = false;
     notification(character_value, "end_call");
     get_screen(character_value, "only_message")
     clearInterval(call_interval);
     clearTimeout(startCallST);
+    if (call_ended) {
+        if_call_closed_function = variable_if_call_closed;
+    } else {
+        if_call_closed_function = variable_if_speech_not_ended;
+    }
+    if (if_call_closed_function != null) {
+        if_call_closed_function();
+        if_call_closed_function = null;
+    }
     if (active_call_sound != undefined) {
         active_call_sound.pause();
     }
 }
 
+function closeCall_ST(character_value, time) {
+    character = get_character(character_value);
+    character.closeCallST = true;
+    setTimeout(function () {
+        closeCall_with_control(character_value)
+    }, time)
+}
+
+function closeCall_with_control(character_value) {
+    character = get_character(character_value);
+    if (active_call_id == character.id && character.closeCallST == true) {
+        closeCall();
+        character.closeCallST = false;
+    }
+}
 
 //arama sesini oynat
 function playSound() {
@@ -242,7 +314,6 @@ function click_server(character_value) {
 function notification(character_value, type) {
     var find_user;
     character = get_character(character_value);
-    character == null ? character = characters[character_value] : null;
 
     var user_list = document.getElementById("user_list");
     if (character != null) {
@@ -255,20 +326,20 @@ function notification(character_value, type) {
     if (type == "end_call") {
         active_call_id = null;
         active_call = false;
-        var notification_call_badge = find_user.getElementsByClassName("notification")[0]
-            .getElementsByClassName("user_active_call")[0];
-        notification_call_badge.classList.remove("user_active_call");
-        notification_call_badge.classList.add("call_badge_visibility");
+        if (find_user != undefined) {
+            var notification_call_badge = find_user.getElementsByClassName("notification")[0].getElementsByClassName("user_active_call")[0];
+            notification_call_badge.classList.remove("user_active_call");
+            notification_call_badge.classList.add("call_badge_visibility");
+        }
         return;
     }
 
-    var add_user_active_call_class = character.id == active_call_id ? "user_active_call" : null;
+    var add_user_active_call_class = character.id == active_call_id ? "user_active_call" : false;
     var html = '<div id="user_' + character.id + '" class="server" onclick="click_server(' + character.id +
         ')"><img class="servericon" src="' +
         character.img_url +
         '"><div class="notification"><span class="call_badge call_badge_visibility ' +
-        add_user_active_call_class +
-        '""><i class="bx bxs-volume-full"></i></span><span class="badge" style="visibility: hidden;">' +
+        add_user_active_call_class + '"><i class="bx bxs-volume-full"></i></span><span class="badge" style="visibility: hidden;">' +
         character.unread_message + '</span></div></div>';
 
     if (type == "notification") {
@@ -358,7 +429,6 @@ function open_mic() {
 
 function get_screen(character_value, type) {
     character = get_character(character_value);
-    character == null ? character = characters[character_value] : null;
     active_screen_id = character.id;
     var selected_container;
     container_list = ["call_container", "only_message_container"]
@@ -380,12 +450,12 @@ function get_screen(character_value, type) {
             character_chat.forEach(ch => {
                 old_message_line_html =
                     '<div class="message_line"><img class="characterImg profilePhoto" src="' + character.img_url +
-                    '" /><p><strong class="character_DisplayName">' +
+                    '" /><div class="mbox"><strong class="character_DisplayName">' +
                     character.display_name +
                     '</strong> <span class="date_today" style="font-size:12px; text-indent: 50px; color:#72767D">' +
                     today +
-                    '</span><span class="message" id="message_' + 1 + '">' + ch +
-                    '</span></p></div>';
+                    '</span><span class="message">' + ch +
+                    '</span><p></p></div></div>';
                 all_messages_html = all_messages_html + old_message_line_html;
 
                 message_box = document.querySelectorAll(".message_box");
@@ -433,18 +503,56 @@ function get_screen(character_value, type) {
     });
 }
 
-function startCall(character_value, speech_sound, time) {
-    time == null ? time = 1500 : null;
-    call_ended = true;
+function speechSound(character_value, speech_sound, time = 1500) {
+    discord_join_sound.play();
+    call_ended = false;
     notification(character_value, "call");
     get_screen(character_value, "call");
-
     if (speech_sound != null) {
         startCallST = setTimeout(function () {
             active_call_sound = createSpeechSound(speech_sound);
             active_call_sound.play();
         }, time);
     }
+}
+
+function callEnded(character_value, time = 0) {
+    setTimeout(function () {
+        callEnded_with_control(character_value)
+    }, time);
+}
+
+function callEnded_with_control(character_value) {
+    character = get_character(character_value);
+    if (character.id == active_call_id) {
+        call_ended = true;
+    }
+}
+
+function createButton(btn_innertext, btn_onclick_val, btn_style, btn_class) {
+    var onclick_html = null;
+    var style_html = null;
+    var class_html = null;
+    style_html = btn_style != undefined || btn_style != null ? 'style="' + btn_style + '"' : null;
+    onclick_html = btn_onclick_val != undefined || btn_onclick_val != null ? 'onclick="' + btn_onclick_val + '"' : null;
+    class_html = btn_class != undefined || btn_class != null ? 'class="' + btn_class + '"' : null;
+    var buttonhtml = '<button ' + style_html + onclick_html + '>' + btn_innertext + '</button>';
+    return buttonhtml;
+}
+
+function createImage(img_src, btn_onclick_val, btn_style, btn_class) {
+    var onclick_html = null;
+    var style_html = null;
+    var class_html = null;
+    style_html = btn_style != undefined || btn_style != null ? 'style="' + btn_style + '"' : 'style="width:40px;"';
+    onclick_html = btn_onclick_val != undefined || btn_onclick_val != null ? 'onclick="' + btn_onclick_val + '"' : null;
+    class_html = btn_class != undefined || btn_class != null ? 'class="' + btn_class + '"' : null;
+    var buttonhtml = '<img src="' + img_src + '"' + style_html + onclick_html + '>';
+    return buttonhtml;
+}
+
+function findSpeech(speech_name) {
+    return "assets/sounds/speech_sounds/" + speech_name;
 }
 
 function rootDiv(mode) {

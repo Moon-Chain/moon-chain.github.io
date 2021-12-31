@@ -266,13 +266,13 @@
 
 .message_line {
     position: relative;
-    height: 70px;
+    min-height: 70px;
     font: 12px "Open Sans", sans-serif;
 }
 
-.message_line a{
-    color:#2177c7;
-    text-shadow: 0px 0px 3px rgba(0,0,0,5);
+.message_line a {
+    color: #2177c7;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 5);
     text-decoration: none;
 }
 
@@ -296,13 +296,16 @@
     border: 3px solid #fff;
 }
 
-.message_line p {
+.message_line .mbox {
     padding: 0px 0 0 0;
     float: left;
+    flex: 1;
+    min-height: 70px;
     width: 80%;
+    ;
 }
 
-.message_line p strong {
+.message_line .mbox strong {
     font-weight: 600;
     font-size: 15px;
     color: #fff;
@@ -310,10 +313,15 @@
 
 }
 
-.message_line p .message {
+.message_line .mbox .message {
     font-size: 13px;
     font-weight: 400;
     color: #bbbfc2;
     font-weight: bold;
     display: block;
+}
+
+.message_box {
+    display: flex;
+    flex-direction: column;
 }

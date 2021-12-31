@@ -53,7 +53,12 @@
             </div>
             <hr class="server-divider" />
             <div id="user_list">
-
+                <!-- <div id="user_2" class="server" onclick="click_server(2)"><img class="servericon"
+                        src="assets/images/profile/tugay.webp">
+                    <div class="notification"><span class="call_badge call_badge_visibility"><i
+                                class="bx bxs-volume-full"></i></span><span class="badge"
+                            style="visibility: visible;">1</span></div>
+                </div> -->
             </div>
             <div class="server invite">
                 <p class="inviteButton">+</p>
@@ -81,7 +86,8 @@
                             </div>
 
                             <div id="character_user" class="call_user">
-                                <img class="characterImg servericon can_talk" src="assets/images/profile_otg.webp">
+                                <img class="characterImg servericon can_talk"
+                                    src="https://cdn.discordapp.com/embed/avatars/0.png">
                                 <div class="call_screen_notification">
                                     <span class="badge" style="visibility: hidden;"><i
                                             class="bx bxs-microphone-off"></i></span>
@@ -102,53 +108,7 @@
                 <div id="message_screen">
                     <div>
                         <div class="call_user">
-                            <img class="characterImg servericon" src="assets/images/profile_otg.webp">
-                            <div class="call_screen_notification">
-                                <span class="badge" style="visibility: hidden;"><i
-                                        class="bx bxs-microphone-off"></i></span>
-                            </div>
-                        </div>
-
-                        <p>
-                            <span style="font-weight: bold; font-size: 32px;" class="character_DisplayName"></span>
-                            <span
-                                style="font-weight:bold; font-size:16px; text-indent: 50px; color:#72767D; margin-left:20px;">
-                                Diğer adıyla <span class="character_NameSurname">character_NameSurname</span> </span>
-                        </p>
-                        <p style="color:#72767D; font-weight: bold; ">
-                            Bu <span class="character_DisplayName">character_DisplayName</span> kullanıcısıyla olan
-                            direkt mesaj
-                            geçmişinin
-                            başlangıcıdır.</p>
-                        <hr style="opacity: 0.2;">
-                        <p class="date_text"
-                            style="text-align: center; font-size:12px; color:#72767D; font-weight: bold;">
-                            date</p>
-                        <hr style="opacity: 0.2;">
-
-                        <div class="message_box">
-                            <div class="message_line">
-                                <img class="characterImg profilePhoto" src="" />
-                                <p>
-                                    <strong class="character_DisplayName">character_DisplayName</strong> <span
-                                        class="date_today" style="font-size:12px; text-indent: 50px; color:#72767D">
-                                        date</span>
-                                    <span class="message" id="message_1">message</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="only_message_container" class="display_none">
-                <div style="height:38px; border-bottom: 1px solid #202225; padding:16px;">
-                    <span style="font-weight: bold; font-size: 32px;">@ <span
-                            class="character_DisplayName">character_DisplayName</span></span>
-                </div>
-                <div id="only_message_screen">
-                    <div>
-                        <div class="call_user">
-                            <img class="characterImg servericon" src="assets/images/profile_otg.webp">
+                            <img class="characterImg servericon" src="https://cdn.discordapp.com/embed/avatars/0.png">
                             <div class="call_screen_notification">
                                 <span class="badge" style="visibility: hidden;"><i
                                         class="bx bxs-microphone-off"></i></span>
@@ -174,14 +134,54 @@
 
                         <div class="message_box">
                             <div class="message_line">
-                                <img class="characterImg profilePhoto" src="" />
-                                <p>
-                                    <strong class="character_DisplayName">character_DisplayName</strong> <span
-                                        class="date_today" style="font-size:12px; text-indent: 50px; color:#72767D">
-                                        date</span>
-                                    <span class="message" id="message_1">message</span>
-                                </p>
+                                <img class="characterImg profilePhoto" src="assets/images/profile/tugay.webp">
+                                <div class="mbox">
+                                    <strong class="character_DisplayName">Tugayy</strong> <span class="date_today"
+                                        style="font-size:12px; text-indent: 50px; color:#72767D">31.12.2021</span><span
+                                        class="message" id="message_1"><i style="color:#ED4245"
+                                            class="bx bxs-phone"></i>metin</span>
+                                    <p></p>
+
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="only_message_container" class="display_none">
+                <div style="height:38px; border-bottom: 1px solid #202225; padding:16px;">
+                    <span style="font-weight: bold; font-size: 32px;">@ <span
+                            class="character_DisplayName">character_DisplayName</span></span>
+                </div>
+                <div id="only_message_screen">
+                    <div>
+                        <div class="call_user">
+                            <img class="characterImg servericon" src="https://cdn.discordapp.com/embed/avatars/0.png">
+                            <div class="call_screen_notification">
+                                <span class="badge" style="visibility: hidden;"><i
+                                        class="bx bxs-microphone-off"></i></span>
+                            </div>
+                        </div>
+
+                        <p>
+                            <span style="font-weight: bold; font-size: 32px;" class="character_DisplayName"></span>
+                            <span
+                                style="font-weight:bold; font-size:16px; text-indent: 50px; color:#72767D; margin-left:20px;">
+                                Diğer adıyla <span class="character_NameSurname">character_NameSurname</span> </span>
+                        </p>
+                        <p style="color:#72767D; font-weight: bold; ">
+                            Bu <span class="character_DisplayName">character_DisplayName</span> kullanıcısıyla olan
+                            direkt mesaj
+                            geçmişinin
+                            başlangıcıdır.</p>
+                        <hr style="opacity: 0.2;">
+                        <p class="date_today_text"
+                            style="text-align: center; font-size:12px; color:#72767D; font-weight: bold;">
+                            date</p>
+                        <hr style="opacity: 0.2;">
+
+                        <div class="message_box">
+
                         </div>
 
                     </div>
@@ -196,215 +196,9 @@
     <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.min.js"></script>
+    <script src="/assets/js/characters.js"></script>
     <script src="/assets/js/discord_app.js"></script>
-
-    <script>
-        // Karakter Listesi
-        var random = Math.floor(Math.random() * 6);
-        var random_discord_avatar = "https://cdn.discordapp.com/embed/avatars/" + random + ".png";
-
-        const characters = [];
-        characters[0] = {
-            id: 0,
-            img_url: random_discord_avatar,
-            name: "Anonim",
-            surname: "",
-            display_name: "Anonymous",
-            unread_message: 0,
-            show: false,
-        }
-        characters[1] = {
-            id: 1,
-            img_url: "assets/images/profile_berkay.webp",
-            name: "Berkay",
-            surname: "Ölçe",
-            display_name: "moonchain",
-            unread_message: 0,
-            show: false,
-        }
-        characters[2] = {
-            id: 2,
-            img_url: "assets/images/tugay.webp",
-            name: "Tugay",
-            surname: "Demir",
-            display_name: "Tugayy",
-            unread_message: 0,
-            show: false,
-        }
-        characters[3] = {
-            id: 3,
-            img_url: "assets/images/umut.webp",
-            name: "Umut",
-            surname: "Tandoğan",
-            display_name: "Umutt",
-            unread_message: 0,
-            show: false,
-        }
-        characters[4] = {
-            id: 4,
-            img_url: "assets/images/taha.webp",
-            name: "Berk T.",
-            surname: "Çetin",
-            display_name: "tb",
-            unread_message: 0,
-            show: false,
-        }
-        characters[5] = {
-            id: 5,
-            img_url: "assets/images/soner.webp",
-            name: "Soner",
-            surname: "Ay",
-            display_name: "cash0nline",
-            unread_message: 0,
-            show: false,
-        }
-        characters[6] = {
-            id: 6,
-            img_url: "https://cdn.discordapp.com/embed/avatars/0.png",
-            name: "Discord",
-            surname: "Bot",
-            display_name: "discord_bot",
-            unread_message: 0,
-            show: false,
-        }
-
-
-        function get_character(name) {
-            switch (name) {
-                case "user":
-                    return_val = characters[0];
-                    break;
-                case "berkay":
-                    return_val = characters[1];
-                    break;
-                case "tugay":
-                    return_val = characters[2];
-                    break;
-                case "umut":
-                    return_val = characters[3];
-                    break;
-                case "taha":
-                    return_val = characters[4];
-                    break;
-                case "soner":
-                    return_val = characters[5];
-                    break;
-                case "discord_bot":
-                    return_val = characters[6];
-                    break;
-                default:
-                    return_val = null;
-                    break;
-            }
-            return return_val;
-        }
-
-        var chat_list = []
-        characters.forEach(ch => {
-            chat_list[ch.id] = [];
-        });
-    </script>
-    <script>
-        //------------------- Hikaye Modu Fonksiyonları -------------------
-
-        //index.html?debugMode=true
-        var get_debug_info = location.search.split('debugMode=')[1];
-        if (get_debug_info != undefined) {
-            debug_mode = (get_debug_info.toLowerCase() === 'true');
-        }
-        if (!debug_mode) {
-            $(document).ready(function () {
-                Swal.fire({
-                    title: '<img style="border-radius:50%; width:60px;" src="' + characters[0].img_url +
-                        '"><br>' + 'Hoşgeldin',
-                    text: 'Hadi bir nickname belirle !',
-                    input: 'text',
-                    inputAttributes: {
-                        autocapitalize: 'off'
-                    },
-                    showCancelButton: true,
-                    confirmButtonText: 'Hazırım',
-                    cancelButtonText: 'Anonim devam et',
-                    allowOutsideClick: false,
-                    allowEscapeKey: false
-                }).then((result) => {
-                    rootDiv("visible");
-                    var fuimg = document.querySelectorAll(".foreignUserImg");
-                    fuimg.forEach(fu => {
-                        fu.src = characters[0].img_url;
-                    });
-                    get_callModal("tugay", 1500, function () {
-                            startCall("tugay", "assets/sounds/speech_sounds/tugay_link.mp3",1500);
-                            startCall("tugay", "assets/sounds/speech_sounds/tugay_gulme.mp3",6500);
-                            sendMessage_withTimeout("tugay",
-                                'Kaleci Soner <a target="_blank" href="https://foto.haberler.com/haber/2021/03/10/golcukspor-a-korona-virus-soku-13983184_amp.jpg">Link</a>',
-                                5000);
-
-                        },
-                        function () {
-                            sendMessage_withTimeout("discord_bot",
-                                'Nitroyu denedin mi ?',
-                                1500);
-                            sendMessage_withTimeout("discord_bot",
-                                '<button onclick="hap_sec(1)">Mavi hap</button>  <button onclick="hap_sec(2)">Kırmızı hap</button>',
-                                2000);
-                        });
-                    if (result.isConfirmed) {
-                        kullanici_adi = result.value.slice(0, 12);
-                        document.getElementById("username_text").innerText = kullanici_adi;
-                    }
-                })
-
-
-                // toastr["success"](
-                //     '<div><input class="input-small" value="textbox"/>&nbsp;<a href="http://johnpapa.net" target="_blank">This is a hyperlink</a></div><div><button type="button" id="okBtn" class="btn btn-primary">Close me</button><button type="button" id="surpriseBtn" class="btn" style="margin: 0 8px 0 8px">Surprise me</button></div>'
-                //     );
-                // toastr.options = {
-                //     "closeButton": false,
-                //     "debug": false,
-                //     "newestOnTop": false,
-                //     "progressBar": false,
-                //     "positionClass": "toast-top-right",
-                //     "preventDuplicates": false,
-                //     "onclick": null,
-                //     "showDuration": "300",
-                //     "hideDuration": "1000",
-                //     "timeOut": "5000",
-                //     "extendedTimeOut": "1000",
-                //     "showEasing": "swing",
-                //     "hideEasing": "linear",
-                //     "showMethod": "fadeIn",
-                //     "hideMethod": "fadeOut"
-                // }
-            });
-
-            function hap_sec(deger) {
-                console.log(deger)
-                if (deger == 1) {
-                    window.open(
-                        "https://foto.haberler.com/haber/2021/03/10/golcukspor-a-korona-virus-soku-13983184_amp.jpg",
-                        "_blank");
-                } else if (deger == 2) {
-                    get_callModal("discord_bot", 1500, function () {
-                        startCall("discord_bot", "assets/sounds/tugay_link.mp3");
-                        sendMessage_withTimeout("discord_bot",
-                            'Kaleci Soner <a target="_blank" href="https://foto.haberler.com/haber/2021/03/10/golcukspor-a-korona-virus-soku-13983184_amp.jpg">Link</a>',
-                            5000);
-
-                    }, null);
-                }
-            }
-
-            function yapimci_ara() {
-                get_callModal("berkay", 1500, function () {
-                    startCall("berkay", null)
-                }, function () {
-                    sendMessage_withTimeout("berkay", "Madem açmayacaksın neden arattırıyorsun :D",
-                        1500)
-                });
-            }
-        }
-    </script>
+    <script src="/assets/js/game.js"></script>
 </body>
 
 </html>
