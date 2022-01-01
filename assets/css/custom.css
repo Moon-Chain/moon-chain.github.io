@@ -278,7 +278,6 @@
 
 .message_line:hover {
     background: #32353b;
-    cursor: pointer;
 }
 
 .message_line .profilePhoto {
@@ -302,7 +301,7 @@
     flex: 1;
     min-height: 70px;
     width: 80%;
-    ;
+    margin-top: 12px;
 }
 
 .message_line .mbox strong {
@@ -324,4 +323,50 @@
 .message_box {
     display: flex;
     flex-direction: column;
+}
+
+.bpoint {
+    cursor: pointer;
+}
+
+.programs {
+    height: 20px;
+    padding: 20px;
+    background-color: rgb(60, 133, 179);
+    cursor: pointer;
+    border-bottom: 1px solid #efefef;
+    transition: 0.3s;
+}
+
+.programs:hover {
+    background-color: rgb(42, 119, 167);
+}
+
+.emoji_button {
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding-right: 7px;
+    padding-left: 7px;
+    cursor: pointer;
+}
+
+.emoji_button.active_emoji{
+    border: 1px solid #5764F0;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.name_tagged{
+    display: inline-block;
+    background-color: rgba(41, 111, 250, 0.8);
+    font-weight: bold;
+    color:#ffffff;
+}
+
+.ntfc_tagged{
+    display: inline-block;
+    color: rgba(255, 220, 22, 0.9);
+    background-color: rgba(255, 220, 20, 0.4);
+    font-weight: bold;
+    color:#ffffff;
 }
