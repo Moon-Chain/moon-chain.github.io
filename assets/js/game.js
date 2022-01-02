@@ -113,7 +113,7 @@
     // oyunu başlatır
     function start_game() {
         setTimeout(() => {
-            oyunBiter()
+            otg_join()
         }, 1000);
     }
 

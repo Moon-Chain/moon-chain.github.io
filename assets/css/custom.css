@@ -401,7 +401,7 @@
 }
 
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 570px) {
     .container {
         grid-column-start: 3;
         grid-column-end: 6;
