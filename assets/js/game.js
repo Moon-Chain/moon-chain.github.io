@@ -110,14 +110,12 @@
         }
     }
 
-
     // oyunu başlatır
     function start_game() {
         setTimeout(() => {
-            otg_join()
+            oyunBiter()
         }, 1000);
     }
-
 
     // sahne 1
     function otg_join() {
@@ -960,8 +958,16 @@
                     }, 100);
                     if (result.isConfirmed) {
                         achievements_html = "";
+                        if (!achievements.hack_yourself) {
+                            achievements_html = achievements_html + "<div> - Kendini Hackle</div>";
+                        }
+                        if(!achievements.form_form_form_and_form){
+                            achievements_html = achievements_html + "<div> - Beni mod yapıııın!</div>";
+                        }
+
+
                         Swal.fire({
-                            title: 'Kazandığın başarımlar <br> <div>' + achievements_html + '</div>',
+                            title: 'Kazandığın başarımlar: <br> <div>' + achievements_html + '</div>',
                         }).then((result) => {
                             setTimeout(() => {
                                 windows_error.play();
@@ -971,15 +977,13 @@
                                     title: 'Oyunun yapımında HTML,CSS ve JS kullanılmıştır',
                                     text: 'Açık kaynak kodlu ve dinamik yazılmıştır, kendi senaryonuzu üretip sizin de bir oyun yapabilmeniz için kütüphane haline getirilmiştir.',
                                     icon: 'info',
-                                    showCancelButton: true,
+                                    showCancelButton: false,
                                     confirmButtonText: 'Proje',
-                                    cancelButtonText: 'Devam',
                                     allowOutsideClick: false,
                                     allowEscapeKey: false
                                 }).then((result) => {
                                     if (result.isConfirmed) {
                                         window.open("https://github.com/Moon-Chain/moon-chain.github.io");
-
                                     }
                                 })
                             }
@@ -1190,7 +1194,6 @@
     // debug mod paneli yazmak için
     //     document.getElementById("");
     // }
-
 
     // glitch kodu
     // glitch_interval = setInterval(function(){
