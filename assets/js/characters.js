@@ -195,6 +195,66 @@
             show: false,
             closeCallST: false
         }
+        characters[19] = {
+            id: 19,
+            img_url: profile_file + "bitcord_nitro.webp",
+            name: "Bitcord",
+            surname: "Nitro",
+            display_name: "Bitcord",
+            unread_message: 0,
+            show: false,
+            closeCallST: false
+        }
+        characters[20] = {
+            id: 20,
+            img_url: profile_file + "lux_black.webp",
+            name: "Luxury",
+            surname: "Black",
+            display_name: "LUX 0",
+            unread_message: 0,
+            show: false,
+            closeCallST: false
+        }
+        characters[21] = {
+            id: 21,
+            img_url: profile_file + "lux_white.webp",
+            name: "Luxury",
+            surname: "White",
+            display_name: "LUX 1",
+            unread_message: 0,
+            show: false,
+            closeCallST: false
+        }
+        characters[22] = {
+            id: 22,
+            img_url: profile_file + "canilbey.webp",
+            name: "Can İ.",
+            surname: "Sezgin",
+            display_name: "canilbey",
+            unread_message: 0,
+            show: false,
+            closeCallST: false
+        }
+        characters[23] = {
+            id: 23,
+            img_url: profile_file + "fbi.webp",
+            name: "Federal B.",
+            surname: "Investigation",
+            display_name: "FBI",
+            unread_message: 0,
+            show: false,
+            closeCallST: false
+        }
+        characters[24] = {
+            id: 24,
+            img_url: profile_file + "fug_reis.png",
+            name: "Fug",
+            surname: "Reis",
+            display_name: "CCC FUG REIS CCC",
+            unread_message: 0,
+            show: false,
+            closeCallST: false
+        }
 
         function get_character(name_or_id) {
             switch (name_or_id) {
@@ -254,6 +314,24 @@
                     break;
                 case "otg_guard":
                     return_val = characters[18];
+                    break;
+                case "bitcord_nitro":
+                    return_val = characters[19];
+                    break;
+                case "lux_black":
+                    return_val = characters[20];
+                    break;
+                case "lux_white":
+                    return_val = characters[21];
+                    break;
+                case "can_ilbey":
+                    return_val = characters[22];
+                    break;
+                case "fbi":
+                    return_val = characters[23];
+                    break;
+                case "fug_reis":
+                    return_val = characters[24];
                     break;
                 default:
                     return_val = null;

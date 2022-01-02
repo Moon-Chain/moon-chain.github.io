@@ -15,6 +15,7 @@ var calling_start_time;
 var if_call_closed_function = null;
 var variable_if_call_closed = null;
 var variable_if_speech_not_ended = null;
+var glitch_interval = null;
 var discord_call_sound = new sound("assets/sounds/discord_call.mp3");
 var discord_join_sound = new sound("assets/sounds/discord_join.mp3");
 var discord_leave_sound = new sound("assets/sounds/discord_leave.mp3");
@@ -22,14 +23,21 @@ var discord_mute_sound = new sound("assets/sounds/discord_mute.mp3");
 var discord_unmute_sound = new sound("assets/sounds/discord_unmute.mp3");
 var discord_notification_sound = new sound("assets/sounds/discord_notification.mp3");
 var button_click = new sound("assets/sounds/button_click.wav");
+var dial_up = new sound("assets/sounds/dial_up_internet.mp3");
+var windows_error = new sound("assets/sounds/windows_error.mp3");
 var timerVal = 0;
 var char_c;
 var last_screen = {};
 var program_list = {
     force_tools: false,
 };
+var active_program;
+var forceStarted = 0;
+var forceUsed = 0;
+var hacked_list = [];
 var achievements = {
     hack_yourself: false,
+    form_form_form_and_form: false,
 }
 
 var today = new Date();
@@ -219,6 +227,18 @@ function getM(character_value, message) {
         //<div><button onclick="" class="emoji_button">🥳</button></div>; emoji çalışması
 
         message_box = document.querySelectorAll(".message_box");
+        only_message_screen = document.querySelector("#only_message_screen");
+        call_container = document.querySelector("#call_container");
+        setTimeout(function () {
+            only_message_screen.scrollTo({
+                top: 99999,
+                behavior: 'smooth'
+            });
+            call_container.scrollTo({
+                top: 99999,
+                behavior: 'smooth'
+            });
+        }, 100);
         message_box.forEach(box => {
             box.innerHTML = box.innerHTML + message_line_html;
         });
@@ -498,7 +518,7 @@ function notifications_clear(character_value, time) {
     }, time);
 }
 
-function notification(character_value, type) {
+function notification(character_value, type, play_sound = null) {
     var find_user;
     character = get_character(character_value);
 
@@ -530,7 +550,9 @@ function notification(character_value, type) {
         character.unread_message + '</span></div></div>';
 
     if (type == "message") {
-        discord_notification_sound.play();
+        if(play_sound == null){
+            discord_notification_sound.play();
+        }
         if (find_user != null) {
             find_user.remove();
         }
@@ -676,19 +698,16 @@ function get_screen(character_value, type) {
         selected_container.classList.add("display_block");
     }
 
-    //incele
-    // const $messages = document.querySelector('.message_box');
-    // console.log($messages)
-    // const newMessage = $messages.lastElementChild;
-    // const newMessageStyles = getComputedStyle(newMessage);
-    // const newMessageMargin = parseInt(newMessageStyles.marginBottom);
-    // const newMessageHeight = newMessage.offsetHeight + newMessageMargin;
-    // const visibleHight = $messages.offsetHeight;
-    // const containerHeight = $messages.scrollHeight;
-    // const scrollOffset = $messages.scrollTop + visibleHeight;
-    // if (containerHeight - newMessageHeight <= scrollOffset) {
-    //     $messages.scrollTop = $messages.scrollHeight
-    // }
+    only_message_screen = document.querySelector("#only_message_screen");
+    call_container = document.querySelector("#call_container");
+    setTimeout(function () {
+        only_message_screen.scrollTo({
+            top: 99999,
+        });
+        call_container.scrollTo({
+            top: 99999,
+        });
+    }, 100);
 
     var cntext = document.querySelectorAll(".character_DisplayName");
     var cndtext = document.querySelectorAll(".character_NameSurname");
@@ -713,8 +732,10 @@ function get_screen(character_value, type) {
     });
 }
 
-function playSpeechSound(character_value, speech_sound, time = 1500) {
-    discord_join_sound.play();
+function playSpeechSound(character_value, speech_sound, time = 1500, new_call = true) {
+    if (new_call) {
+        discord_join_sound.play();
+    }
     speech_ended = false;
     notification(character_value, "call");
     get_screen(character_value, "call");
@@ -750,7 +771,7 @@ function createButton(btn_innertext, btn_onclick_val, btn_style = null, btn_clas
 
 function createImage(img_src, img_onclick_val, img_style = null, img_class = null, id = null) {
     id_html = id != undefined || id != null ? 'id="' + id + '"' : ' ';
-    style_html = img_style != undefined || img_style != null ? 'style="' + img_style + '"' : 'style="width:40px;"';
+    style_html = img_style != undefined || img_style != null ? 'style="' + img_style + '"' : 'style="width:25px;"';
     onclick_html = img_onclick_val != undefined || img_onclick_val != null ? 'onclick="clickSound(),' + img_onclick_val + '"' : "";
     class_html = img_class != undefined || img_class != null ? 'class="bpoint ' + img_class + '"' : 'class="bpoint"';
     var buttonhtml = '<img ' + id_html + ' src="' + img_src + '"' + style_html + " " + onclick_html + " " + class_html + '>';
@@ -763,6 +784,10 @@ function createYoutubeIframe(link, width = 560, height = 315, id = null) {
     return iframee;
 }
 
+function destroyThis(variable) {
+    variable.parentNode.removeChild(variable);
+}
+
 function clickSound() {
     button_click.play();
 }
@@ -771,42 +796,50 @@ function findSpeech(speech_name) {
     return "assets/sounds/speech_sounds/" + speech_name;
 }
 
-function addProgram(name) {
-    program_panel = document.getElementById("program_panel");
-    if (name == "force_tools" && program_list.force_tools != true) {
-        program_panel.innerHTML = program_panel.innerHTML + '<div class="programs" onclick="clickSound(), forcetools()">FORCE_tools.exe</div>';
-        program_list.force_tools = true;
+function rootDiv(mode) {
+    var bar = document.getElementById("rootDiv");
+    mode == "visible" ? bar.style.visibility = "visible" : bar.style.visibility = "hidden";
+}
+
+function doGlitch(queryss, glitch_type, repeater = false, time = 0) {
+    var objec = document.querySelectorAll(queryss);
+    if (glitch_type == "scanlines") {
+        objec.forEach(element => {
+            element.classList.add("scanlines");
+            if (repeater) {
+                setTimeout(function () {
+                    element.classList.remove("scanlines");
+                }, time);
+            }
+        });
+    } else if (glitch_type == "line_glitch") {
+        objec.forEach(element => {
+            element.classList.add("line_glitch");
+            if (repeater) {
+                setTimeout(function () {
+                    element.classList.remove("scanlines");
+                }, time);
+            }
+        });
+    } else if (glitch_type == "glow") {
+        objec.forEach(element => {
+            element.classList.add("glow");
+            if (repeater) {
+                setTimeout(function () {
+                    element.classList.remove("glow");
+                }, time);
+            }
+        });
     }
 }
 
-function downloadProgram(name) {
-    if (name == "force_tools" && program_list.force_tools == false) {
-        toastr.options = {
-            positionClass: "toast-bottom-right",
-            closeButton: true,
-        }
-        toast = toastr["error"](
-            '<div>Yazılım tehlikeli olabilir ?</div><div><button type="button" onclick="clickSound(), addProgram(\'' + name + '\')">Kur</button></div>'
-        );
-    }
-}
-
-function forcetools() {
-    var option_list;
-    characters.forEach(ch => {
-        option_list = option_list + '<option value="' + ch.id + '">' + ch.name + ' ' + ch.surname + '</option>';
-    });
-
-    var select_html = '<select name="fselect">' + option_list + '</select>';
-
+function createYoutubeIframeToast(link, width = 560, height = 315, id = null) {
+    id_html = id != undefined || id != null ? 'id="' + id + '"' : ' ';
+    iframee = '<iframe ' + id_html + ' width="' + width + '" height="' + height + '" src="' + link + '" title="YouTube video player" style="float:right;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>';
     toastr.options = {
-        positionClass: "toast-bottom-right",
+        positionClass: "toast-top-full-width",
+        // positionClass: "my-toast-class",
         closeButton: true,
-    }
-    toastr["success"](
-        'FORCE_tools.EXE'
-    );
-    toastr.options = {
         closeButton: true,
         newestOnTop: false,
         progressBar: false,
@@ -821,60 +854,7 @@ function forcetools() {
         showMethod: "fadeIn",
         hideMethod: "fadeOut"
     }
-
-    setTimeout(function () {
-        toast = toastr["warning"](
-            '<div><form id="nmap" action="javascript:void(0)" onsubmit="forceStart()" method="post"><div><span>Select User</span></div><div>' + select_html + '<div><div><button onclick="clickSound()" type="submit" style="cursor:pointer;" class="btn btn-primary">Hesabı kır</button><div></form></div>'
-        );
-    }, 1500)
-}
-
-function forceStart() {
-    var elements = document.getElementById("nmap").elements;
-    user_id = elements['fselect'].value;
-    setTimeout(function () {
-        toast.remove();
-    }, 500);
-    setTimeout(function () {
-        toast = toastr["success"](
-            '<div>Hesap işleniyor...</div>'
-        );
-    }, 1000);
-    setTimeout(function () {
-        toast.remove();
-    }, 5000);
-    setTimeout(function () {
-        fchar = get_character(user_id);
-        toast = toastr["error"]('<div><span id="forced_user">name</span><hr><p>Şu olarak değiştir</p><form id="forcerequest" action="javascript:void(0)" onsubmit="forceRequest(' + fchar.id + ')" method="post"><input type="text" name="name" placeholder="Ad"><input type="text" name="surname" placeholder="Soyad"><input type="text" name="display_name" placeholder="Kullanıcı Adı"><input type="text" name="img_url" placeholder="Görsel URL"><div><button onclick="clickSound()" type="submit" style="cursor:pointer;"class="btn btn-primary">Değiştir</button></div></form></div>');
-        document.getElementById("forced_user").innerText = fchar.name + " " + fchar.surname;
-    }, 6000);
-}
-
-function forceRequest(user_id) {
-    var elements = document.getElementById("forcerequest").elements;
-    fchar = get_character(user_id);
-    if (elements['name'].value != "" && elements['name'].value != fchar.name) {
-        character_content_change(fchar.id, "name", elements['name'].value, 0, true);
-    }
-    if (elements['surname'].value != "" && elements['surname'].value != fchar.surname) {
-        character_content_change(fchar.id, "surname", elements['surname'].value, 0, true);
-    }
-    if (elements['display_name'].value != "" && elements['display_name'].value != fchar.display_name) {
-        character_content_change(fchar.id, "display_name", elements['display_name'].value, 0, true);
-    }
-    if (elements['img_url'].value != "" && elements['img_url'].value != fchar.img_url) {
-        character_content_change(fchar.id, "img_url", elements['img_url'].value, 0, true);
-    }
-
-    if (fchar.id == 0 && !achievements.hack_yourself) {
-        getMessage("berkay", "abi sen ciddi misin ? cidden kendi hesabını mı hackleyeceksin", 2000);
-        getMessage("berkay", "bari profil fotoğrafını değiştir XD", 5000);
-        getMessage("berkay", "örn. Görsel URL kısmına <input value='assets/images/profile/mee6.webp'> yazabilirsin", 8000);
-        achievements.hack_yourself = true;
-    }
-}
-
-function rootDiv(mode) {
-    var bar = document.getElementById("rootDiv");
-    mode == "visible" ? bar.style.visibility = "visible" : bar.style.visibility = "hidden";
+    toastr["info"](
+        '<div>' + iframee + '</div>'
+    );
 }

@@ -344,29 +344,82 @@
 
 .emoji_button {
     border-radius: 6px;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     background-color: rgba(0, 0, 0, 0.2);
     padding-right: 7px;
     padding-left: 7px;
     cursor: pointer;
 }
 
-.emoji_button.active_emoji{
+.emoji_button.active_emoji {
     border: 1px solid #5764F0;
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.name_tagged{
+.name_tagged {
     display: inline-block;
     background-color: rgba(41, 111, 250, 0.8);
     font-weight: bold;
-    color:#ffffff;
+    color: #ffffff;
 }
 
-.ntfc_tagged{
+.ntfc_tagged {
     display: inline-block;
     color: rgba(255, 220, 22, 0.9);
     background-color: rgba(255, 220, 20, 0.4);
     font-weight: bold;
-    color:#ffffff;
+    color: #ffffff;
+}
+
+.web-hide {
+    display: block !important;
+}
+
+.mobile-hide {
+    display: none !important;
+}
+
+.mobile-hide-inline {
+    display: none !important;
+}
+
+/* Mobile code */
+@media only screen and (min-width: 425px) {
+    .web-hide {
+        display: none !important;
+    }
+
+    .mobile-hide {
+        display: block !important;
+    }
+
+    .mobile-hide-inline {
+        display: inline-block !important;
+    }
+
+    
+}
+
+
+@media only screen and (max-width: 425px) {
+    .container {
+        grid-column-start: 3;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        position: relative;
+        float: right;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--primary);
+    }
+}
+
+.diger_adiyla{
+    color:#655CC9;
+    font-weight: bold;
+}
+
+body {
+    scroll-behavior: smooth !important;
 }

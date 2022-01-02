@@ -17,9 +17,9 @@
     <link rel="stylesheet" type="text/css" href="assets/css/glitch.css">
 </head>
 
-<body>
+<body onunload="islemYap()">
     <div class="rootDiv" id="rootDiv" style="visibility: hidden;">
-        <div class="side-bar">
+        <div class="side-bar mobile-hide">
             <div class="nav">
                 <div class="guildSettings">
                     <div class="navguild">
@@ -116,7 +116,8 @@
                             <span style="font-weight: bold; font-size: 32px;" class="character_DisplayName"></span>
                             <span
                                 style="font-weight:bold; font-size:16px; text-indent: 50px; color:#72767D; margin-left:20px;">
-                                Diğer adıyla <span class="character_NameSurname">character_NameSurname</span> </span>
+                                Diğer adıyla <span
+                                    class="diger_adiyla character_NameSurname">character_NameSurname</span> </span>
                         </p>
                         <p style="color:#72767D; font-weight: bold; ">
                             Bu <span class="character_DisplayName">character_DisplayName</span> kullanıcısıyla olan
@@ -155,7 +156,8 @@
                             <span style="font-weight: bold; font-size: 32px;" class="character_DisplayName"></span>
                             <span
                                 style="font-weight:bold; font-size:16px; text-indent: 50px; color:#72767D; margin-left:20px;">
-                                Diğer adıyla <span class="character_NameSurname">character_NameSurname</span> </span>
+                                Diğer adıyla <span
+                                    class="diger_adiyla character_NameSurname">character_NameSurname</span> </span>
                         </p>
                         <p style="color:#72767D; font-weight: bold; ">
                             Bu <span class="character_DisplayName">character_DisplayName</span> kullanıcısıyla olan
@@ -193,6 +195,13 @@
     <script src="/assets/js/bitcord_app.js"></script>
     <script src="/assets/js/game.js"></script>
     <!-- <script src="/assets/js/test.js"></script> -->
+
+    <script type="text/javascript">
+        // F5 koruması
+        $(window).on('beforeunload', function () {
+            return 'Your own message goes here...';
+        });
+    </script>
 </body>
 
 </html>
