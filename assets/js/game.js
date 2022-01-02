@@ -19,12 +19,6 @@
     var gorev_basladi = false;
     var gorev_baslangic_degeri = 0;
 
-    window.onunload = islemYap;
-
-    function islemYap() {
-        alert("Güle Güle!");
-    }
-
 
     if (get_debug_info != undefined) {
         debug_mode = (get_debug_info.toLowerCase() === 'true');
@@ -118,11 +112,12 @@
 
 
     // oyunu başlatır
-    function start_game(){
+    function start_game() {
         setTimeout(() => {
             otg_join()
         }, 1000);
     }
+
 
     // sahne 1
     function otg_join() {
@@ -152,8 +147,9 @@
             getMessage("otg", createMessageHtml("ahmet", "hepi niv yiır"), 35000);
             getMessage("ata", "Selam " + get_character("user").display_name + " !", 39000);
             getMessage("ata", "Yardıma ihtiyacın olduğunda moderatörlerimizle iletişime geçebilirsin.", 42000);
-            getMessage("otg", createMessageHtml("yavuz", "<div>peki şuna ne diyorsunuz</div><div> " + createImage("assets/images/otg_islamic.png", null, "width:200px;") + "</div>"), 47000);
-            getMessage("otg", createMessageHtml("berkay", "Aklıma bu geldi " + createButton("izle", "createYoutubeIframeToast('https://www.youtube.com/embed/IX8qyn0cNEU')")), 54000);
+            getMessage("otg", createMessageHtml("yavuz", "<div>peki şuna ne diyorsunuz</div><div> " + createImage("assets/images/iphone13.jpg", null, "width:200px;") + "</div>"), 47000);
+            getMessage("otg", createMessageHtml("berkay", "Iphone 13 mü o "), 54000);
+            getMessage("otg", createMessageHtml("berkay", "Aklıma bu geldi " + createButton("izle", "createYoutubeIframeToast('https://www.youtube.com/embed/-V0BWAtM5zw')")), 61000);
             getMessage("otg", createMessageHtml("ahmet", "LSŞDNKNSLDHJKGHMFDFASFJHLJKFDGN"), 78000);
             getMessage("otg", createMessageHtml("omerf", "hahahahh"), 81000);
             getMessage("otg", createMessageHtml("ata", "!clear 16"), 85000);
@@ -479,7 +475,7 @@
     }
 
     function can_ilbey_sahne() {
-       
+
         getMessage("otg", createMessageHtml("oktay", "Dürüm ne kadar"), 2000);
         getMessage("otg", createMessageHtml("ata", "?"), 7000);
         getMessage("otg", createMessageHtml("omerf", "yine başlıyoruz " + createButton("izle", "createYoutubeIframeToast('https://www.youtube.com/embed/-1qju6V1jLM')")), 13000);
@@ -596,7 +592,7 @@
             getMessage("omerf", "ASDVWAVWAV", 3500);
             getMessage("omerf", "testi geçtin", 6500);
             setTimeout(() => {
-                lux_white_aciklama() 
+                lux_white_aciklama()
             }, 7000);
         } else if (secilen_hap == "kirmizi") {
             deleteMessages("omerf", null, 1000);
@@ -772,7 +768,7 @@
         getMessage("lux_black", createMessageHtml("berkay", 'Birazdan yapacaklarımız bundan daha eğlenceli olacak'), 81000);
         setTimeout(
             function () {
-                deleteMessages("lux_black",0);
+                deleteMessages("lux_black", 0);
                 trolleme_gorevi();
             }, 85000);
 
@@ -796,7 +792,7 @@
         getMessage("lux_black", createMessageHtml("berkay", 'Müziksiz hack olur mu :D'), 30000);
         getMessage("lux_black", createMessageHtml("berkay", 'Hacker müziği geliyor'), 35000);
         setTimeout(() => {
-            muzikle_birlikte(); 
+            muzikle_birlikte();
         }, 37000);
         getMessage("otg", createMessageHtml("kardelen", '<div style="display:block;"><span class="ntfc_tagged">@Duyuru</span></div> Konsept Akşamları etkinliğimiz başladı! ' + createImage("assets/images/emogies/4.png")), 40000);
         getMessage("lux_black", createMessageHtml("berkay", 'Etkinlik başladı, acele et !'), 45000);
@@ -1140,8 +1136,8 @@
         forceUsed++;
         var elements = document.getElementById("forcerequest").elements;
         fchar = get_character(user_id);
-        
-        if(gorev_basladi){
+
+        if (gorev_basladi) {
             toastr.options = {
                 positionClass: "toast-bottom-right",
                 closeButton: true,
