@@ -421,7 +421,7 @@
         getMessage("omerf", "OTG yi hackledim, iyi izle", 44000);
         character_content_change("otg", "img_url", "omg_logo.webp", 48000);
         character_content_change("otg", "display_name", "OMG", 50000);
-        getMessage("omerf", "OMG grubu DLKJGBDKBDLKKB, bakalım yeni modumuz ne yapacak XD", 56000);
+        getMessage("omerf", 'OMG ( Oh My God ! ) grubu DLKJGBDKBDLKKB, bakalım yeni modumuz ne yapacak XD', 56000);
         setTimeout(function () {
             berkay_atilma_sahnesi()
         }, 56000);
@@ -961,7 +961,7 @@
                         if (!achievements.hack_yourself) {
                             achievements_html = achievements_html + "<div> - Kendini Hackle</div>";
                         }
-                        if(!achievements.form_form_form_and_form){
+                        if (!achievements.form_form_form_and_form) {
                             achievements_html = achievements_html + "<div> - Beni mod yapıııın!</div>";
                         }
 
@@ -1017,6 +1017,26 @@
         if (name == "force_tools" && program_list.force_tools != true) {
             program_panel.innerHTML = program_panel.innerHTML + '<div class="programs" onclick="clickSound(), forcetools()">FORCE_tools.exe</div>';
             program_list.force_tools = true;
+
+            toastr.options = {
+                positionClass: "toast-top-right",
+                newestOnTop: false,
+                progressBar: false,
+                preventDuplicates: false,
+                onclick: null,
+                disableTimeOut: true,
+                tapToDismiss: false,
+                extendedTimeOut: 0,
+                timeOut: 0,
+                showEasing: "swing",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut"
+            }
+            toast = toastr["info"](
+                '<div>Force_tools.exe <button onclick="forcetools()">Run</button></div>'
+            );
+
             getMessage("berkay", "Programını şimdilik kapatıyorum. Hemen çalıştırma, sana göstereceklerim var.", 4000);
             setTimeout(function () {
                 if (active_program != undefined) {
