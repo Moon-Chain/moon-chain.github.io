@@ -847,7 +847,7 @@
         getMessage("lux_black", createMessageHtml("akin", 'OTG yi trolledin tamam da, beni niye trolledin'), 11000);
         getMessage("lux_black", createMessageHtml("berkay", get_character("user").display_name + " yapmadı :D, sen uyuyordun galiba. O sıra trolledik"), 17000);
         getMessage("lux_black", createMessageHtml("akin", 'Pizzabasan ne demek dfkgjdf'), 21000);
-        if (hacked_list.find(elem => elem == get_character("akin").id) == undefined) {
+        if (hacked_list.find(elem => elem == get_character("akin").id) != undefined) {
             getMessage("lux_black", createMessageHtml("akin", "hadi onu anladım, 2 kere niye trollediniz ?"), 25000);
             getMessage("lux_black", createMessageHtml("omerf", 'onu biz yapmadık xd'), 30000);
         }
@@ -866,10 +866,11 @@
         getMessage("lux_black", createMessageHtml("berkay", 'tansiyon ilacıyla'), 82000);
         getMessage("lux_black", createMessageHtml("ahmet", 'DGKBDLBŞRBGGR'), 86000);
         getMessage("lux_black", createMessageHtml("omerf", 'OWERPBOWPBWPEWB'), 91000);
-
+        getMessage("lux_black", createMessageHtml("ahmet", '<span style="color:#FF642E;"> Anlamadım ama neyse <span>'), 95000);
+        
         setTimeout(() => {
             fbi_open_the_door();
-        }, 91000);
+        }, 97000);
 
     }
 
