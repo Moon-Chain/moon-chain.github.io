@@ -1,0 +1,46 @@
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #2E3338;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #202225;
+    border-radius: 10px;
+    border-left: 3px solid #2E3338;
+    border-right: 3px solid #2E3338;
+    size: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #202225;
+}
+
+
+.card-shadow{
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+}
+
+.list-group a{
+    cursor: pointer;
+}
+
+body{
+    background-image: url("/assets/images/index/bg1.jpg");
+    background-repeat: repeat;
+}
+
+.nav li {
+    margin-right:10px;
+}
+
+.content-header{
+    font-size:26px;
+    font-weight: bold;
+}
