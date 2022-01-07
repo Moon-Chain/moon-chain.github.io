@@ -13,8 +13,8 @@
     var moderator_basvuruldu = false;
     var hacker_programi_alindi = false;
     var form_clicked_value = 0;
-    var otgus = new sound("assets/sounds/speech_sounds/otgus.wav");
-    var montdrum = new sound("assets/sounds/speech_sounds/montage_drum.mp3");
+    var otgus = new sound("../assets/sounds/speech_sounds/otgus.wav");
+    var montdrum = new sound("../assets/sounds/speech_sounds/montage_drum.mp3");
     var bitcord_mode = false;
     var gorev_basladi = false;
     var gorev_baslangic_degeri = 0;
@@ -137,7 +137,7 @@
             getMessage("otg", createMessageHtml("kardelen", "Yeni yılınız kutlu olsun :>"), 5000);
             getMessage("otg", createMessageHtml("ata", "Hoşgeldin, " + get_character("user").display_name), 7000);
             getMessage("otg", createMessageHtml("kardelen", "Hoşgeldin, " + get_character("user").display_name), 9000);
-            getMessage("otg", createMessageHtml("berkay", createImage("assets/images/cotg_us_transparent.png", null, "width:200px;") + " <div>OTG US yeni yıllar diler</div>"), 13000);
+            getMessage("otg", createMessageHtml("berkay", createImage("../assets/images/cotg_us_transparent.png", null, "width:200px;") + " <div>OTG US yeni yıllar diler</div>"), 13000);
             getMessage("otg", createMessageHtml("yusuf", 'otgus.wav <i class="fa fa-arrow-right"></i> ' + createButton("Dinle", "playAnySound('otgus')")), 19000);
             getMessage("otg", createMessageHtml("ahmet", "KASGPĞÜIADPSĞGGPIĞDSIPĞHGIPĞSDHPIPĞDSHŞDSLH"), 25000);
             getMessage("otg", createMessageHtml("oktay", "oha"), 28000);
@@ -145,7 +145,7 @@
             getMessage("otg", createMessageHtml("ahmet", "hepi niv yiır"), 35000);
             getMessage("ata", "Selam " + get_character("user").display_name + " !", 39000);
             getMessage("ata", "Yardıma ihtiyacın olduğunda moderatörlerimizle iletişime geçebilirsin.", 42000);
-            getMessage("otg", createMessageHtml("yavuz", "<div>peki şuna ne diyorsunuz</div><div> " + createImage("assets/images/iphone13.jpg", null, "width:200px;") + "</div>"), 47000);
+            getMessage("otg", createMessageHtml("yavuz", "<div>peki şuna ne diyorsunuz</div><div> " + createImage("../assets/images/iphone13.jpg", null, "width:200px;") + "</div>"), 47000);
             getMessage("otg", createMessageHtml("berkay", "Iphone 13 mü o "), 54000);
             getMessage("otg", createMessageHtml("berkay", "Aklıma bu geldi " + createButton("izle", "createYoutubeIframeToast('https://www.youtube.com/embed/-V0BWAtM5zw')")), 61000);
             getMessage("otg", createMessageHtml("ahmet", "LSŞDNKNSLDHJKGHMFDFASFJHLJKFDGN"), 78000);
@@ -169,13 +169,13 @@
         getMessage("otg", createMessageHtml("can_ilbey", "Davet linki at"), 25000);
         getMessage("otg", createMessageHtml("yavuz", "Ben gelirim"), 28000);
         getMessage("otg", createMessageHtml("ahmet", "https://garticphone.com/tr/?c=03f092a4ad"), 32000);
-        getMessage("otg", createMessageHtml("yavuz", '<div style="display:block;"><span class="name_tagged">@skyla</span></div>' + createImage("assets/images/ece_cizim.png", null, "width:400px;")), 48000);
+        getMessage("otg", createMessageHtml("yavuz", '<div style="display:block;"><span class="name_tagged">@skyla</span></div>' + createImage("../assets/images/ece_cizim.png", null, "width:400px;")), 48000);
         getMessage("otg", createMessageHtml("ece", "Ha ha ha"), 53000);
         getMessage("otg", createMessageHtml("ahmet", "QWEIOBIONIQWB Yeni yılda baya güleceğiz galiba"), 56000);
         getMessage("otg", createMessageHtml("oktay", "Katılıyorum XD"), 61000);
         deleteMessages("otg", null, 80500);
         getMessage("otg", "Mesaj geçmişi temizlendi.", 81000);
-        getMessage("otg", createMessageHtml("ata", '<div style="display:block;"><span class="ntfc_tagged">@Duyuru</span></div> Herkese merhaba! <br> <br> Konsept Akşamları etkinliği için hep beraber bu akşam 20.00’da OTG Discord sunucumuzda toplanıyoruz!' + createImage("assets/images/emogies/1.png") + '  <br> <br> Etkinliğimizde, önceden belirlediğimiz bir tema kapsamında toplanan referanslardan ilham alarak hayal ediyoruz ve sonrasında oyun geliştirmenin ilgilendiğimiz alanında tasarlıyoruz ve üretiyoruz! ' + createImage("assets/images/emogies/3.png") + '  <br> <br> Temaya göre hazırladığımız referansları her zaman olduğu gibi etkinliğimizin başında açıklayacağız, ilgisi olan herkesi bekleriz!' + createImage("assets/images/emogies/2.png")), 86000);
+        getMessage("otg", createMessageHtml("ata", '<div style="display:block;"><span class="ntfc_tagged">@Duyuru</span></div> Herkese merhaba! <br> <br> Konsept Akşamları etkinliği için hep beraber bu akşam 20.00’da OTG Discord sunucumuzda toplanıyoruz!' + createImage("../assets/images/emogies/1.png") + '  <br> <br> Etkinliğimizde, önceden belirlediğimiz bir tema kapsamında toplanan referanslardan ilham alarak hayal ediyoruz ve sonrasında oyun geliştirmenin ilgilendiğimiz alanında tasarlıyoruz ve üretiyoruz! ' + createImage("../assets/images/emogies/3.png") + '  <br> <br> Temaya göre hazırladığımız referansları her zaman olduğu gibi etkinliğimizin başında açıklayacağız, ilgisi olan herkesi bekleriz!' + createImage("../assets/images/emogies/2.png")), 86000);
         setTimeout(function () {
             cenk_hoca_gruba_katiliyor()
         }, 97000);
@@ -193,7 +193,7 @@
                 function () {
                     getMessage("kardelen", "Hazır mısın", 1000);
                     playSpeechSound("kardelen", findSpeech("kardelen_melodi.mp3"), 2000);
-                    getMessage("kardelen", 'Dinlediğin için teşekkürler :D <div>' + createButton(createImage("assets/images/emogies/1.png"), "projeyi_begen(this)", null, "emoji_button", "kp_like") + "</div>", 19000);
+                    getMessage("kardelen", 'Dinlediğin için teşekkürler :D <div>' + createButton(createImage("../assets/images/emogies/1.png"), "projeyi_begen(this)", null, "emoji_button", "kp_like") + "</div>", 19000);
                     speechEnded_indicator("kardelen", 19500);
                 },
                 function () {
@@ -299,7 +299,7 @@
         getMessage("otg", createMessageHtml("ece", "Ne gibi ?"), 5000);
         getMessage("otg", createMessageHtml("yusuf", "Grupta bir ejderha var, daha garip ne olabilir ?"), 6000);
         getMessage("otg", createMessageHtml("ata", "davetsiz üyeler form doldurmadan nasıl katılabilir ki ?. Cenk adında biri katıldı ve sunucu kurallarına aykırı davranışlar sergilediği için gruptan atıldı."), 11000);
-        getMessage("ahmet", "<div>knk yeni ayakkabı aldım, sen anlarsın. Nasıl ?</div> " + createImage("assets/images/yeni_ayakkabi.png", null, "width:300px;"), 22000);
+        getMessage("ahmet", "<div>knk yeni ayakkabı aldım, sen anlarsın. Nasıl ?</div> " + createImage("../assets/images/yeni_ayakkabi.png", null, "width:300px;"), 22000);
         getMessage("otg_guard", "OTG nin moderatöre ihtiyacı var, moderatörlerimiz oldukça yoğun", 27000);
         getMessage("otg_guard", "Başvuranların faaliyetleri baz alınarak tercih yapılacaktır. Şansını dene", 34000);
         getMessage("otg_guard", "Moderatör başvurusu " + createButton("Tıkla", "moderator_basvuru()"), 38000);
@@ -417,7 +417,7 @@
         getMessage("otg_guard", "Gözümüzü kapattığımız an, düşman daima bir adım atar.", 32000);
         deleteMessages("otg", null, 34000);
         deleteMessages("omerf", null, 34000);
-        getMessage("otg", createMessageHtml("kardelen", '<div style="display:block;"><span class="ntfc_tagged">@Duyuru</span></div> Konsept Akşamları etkinliğimiz 15 dakika sonra başlayacak, hepinizi Çalışma Alanı sesli kanalına bekliyoruz! ' + createImage("assets/images/emogies/1.png")), 35000);
+        getMessage("otg", createMessageHtml("kardelen", '<div style="display:block;"><span class="ntfc_tagged">@Duyuru</span></div> Konsept Akşamları etkinliğimiz 15 dakika sonra başlayacak, hepinizi Çalışma Alanı sesli kanalına bekliyoruz! ' + createImage("../assets/images/emogies/1.png")), 35000);
         getMessage("omerf", "OTG yi hackledim, iyi izle", 44000);
         character_content_change("otg", "img_url", "omg_logo.webp", 48000);
         character_content_change("otg", "display_name", "OMG", 50000);
@@ -529,8 +529,8 @@
         get_callModal("morpheus", 1500, null,
             function () {
                 playSpeechSound("morpheus", findSpeech("morpheus_hap_konusma.mp3"), 1500);
-                getMessage("morpheus", createImage("assets/images/mavi_hap.png", "hap_secimi('mavi')", "width:50px; margin-top:16px;"), 24000);
-                getMessage("morpheus", createImage("assets/images/kirmizi_hap.png", "hap_secimi('kirmizi')", "width:50px; margin-top:16px;"), 32000);
+                getMessage("morpheus", createImage("../assets/images/mavi_hap.png", "hap_secimi('mavi')", "width:50px; margin-top:16px;"), 24000);
+                getMessage("morpheus", createImage("../assets/images/kirmizi_hap.png", "hap_secimi('kirmizi')", "width:50px; margin-top:16px;"), 32000);
                 speechEnded_indicator("morpheus", 40000);
                 closeCall_ST("morpheus", 40000);
                 getMessage("berkay", "maviyi seçersen oyun biter, kırmızıyı seçersen devam ederiz.", 46000);
@@ -596,7 +596,7 @@
             deleteMessages("omerf", null, 1000);
             getMessage("omerf", "Soğuk mu sıcak mı ?", 1500);
             getMessage("omerf", "Ah şu Morpheus ve onun şakaları yok mu", 3500);
-            getMessage("omerf", createImage("assets/images/morpheusxd.jpg", null, "width:400px;"), 6500);
+            getMessage("omerf", createImage("../assets/images/morpheusxd.jpg", null, "width:400px;"), 6500);
             getMessage("omerf", "DŞGBSDJGORBJSLGKBKSLGAFNLAWKJBWPALŞBAJKBB", 8500);
             getMessage("omerf", "Neyse, madem bizim tarafımızı seçtin", 15000);
             getMessage("omerf", "Hadi OTG.. Pardon OMG'nin icabına bakalım XD", 17000);
@@ -792,7 +792,7 @@
         setTimeout(() => {
             muzikle_birlikte();
         }, 37000);
-        getMessage("otg", createMessageHtml("kardelen", '<div style="display:block;"><span class="ntfc_tagged">@Duyuru</span></div> Konsept Akşamları etkinliğimiz başladı! ' + createImage("assets/images/emogies/4.png")), 40000);
+        getMessage("otg", createMessageHtml("kardelen", '<div style="display:block;"><span class="ntfc_tagged">@Duyuru</span></div> Konsept Akşamları etkinliğimiz başladı! ' + createImage("../assets/images/emogies/4.png")), 40000);
         getMessage("lux_black", createMessageHtml("berkay", 'Etkinlik başladı, acele et !'), 45000);
     };
 
@@ -920,7 +920,7 @@
 
     function oyunBiter() {
         getMessage("fbi", "Thank you for playing !", 1000);
-        getMessage("fbi", "See you later" + createImage("assets/images/emogies/4.png"), 4000);
+        getMessage("fbi", "See you later" + createImage("../assets/images/emogies/4.png"), 4000);
         get_screen("fbi", "only_message");
 
         // increase_timer = 0;
@@ -1202,7 +1202,7 @@
             }, 80000);
             getMessage("berkay", "abi sen ciddi misin ? cidden kendi hesabını mı hackleyeceksin", 2000);
             getMessage("berkay", "bari profil fotoğrafını değiştir XD", 5000);
-            getMessage("berkay", "örn. Görsel URL kısmına <input value='assets/images/profile/mee6.webp'> yazabilirsin", 8000);
+            getMessage("berkay", "örn. Görsel URL kısmına <input value='../assets/images/profile/mee6.webp'> yazabilirsin", 8000);
             achievements.hack_yourself = true;
         }
     }

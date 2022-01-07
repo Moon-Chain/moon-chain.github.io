@@ -16,15 +16,15 @@ var if_call_closed_function = null;
 var variable_if_call_closed = null;
 var variable_if_speech_not_ended = null;
 var glitch_interval = null;
-var discord_call_sound = new sound("assets/sounds/discord_call.mp3");
-var discord_join_sound = new sound("assets/sounds/discord_join.mp3");
-var discord_leave_sound = new sound("assets/sounds/discord_leave.mp3");
-var discord_mute_sound = new sound("assets/sounds/discord_mute.mp3");
-var discord_unmute_sound = new sound("assets/sounds/discord_unmute.mp3");
-var discord_notification_sound = new sound("assets/sounds/discord_notification.mp3");
-var button_click = new sound("assets/sounds/button_click.wav");
-var dial_up = new sound("assets/sounds/dial_up_internet.mp3");
-var windows_error = new sound("assets/sounds/windows_error.mp3");
+var discord_call_sound = new sound("../assets/sounds/discord_call.mp3");
+var discord_join_sound = new sound("../assets/sounds/discord_join.mp3");
+var discord_leave_sound = new sound("../assets/sounds/discord_leave.mp3");
+var discord_mute_sound = new sound("../assets/sounds/discord_mute.mp3");
+var discord_unmute_sound = new sound("../assets/sounds/discord_unmute.mp3");
+var discord_notification_sound = new sound("../assets/sounds/discord_notification.mp3");
+var button_click = new sound("../assets/sounds/button_click.wav");
+var dial_up = new sound("../assets/sounds/dial_up_internet.mp3");
+var windows_error = new sound("../assets/sounds/windows_error.mp3");
 var timerVal = 0;
 var char_c;
 var last_screen = {};
@@ -793,7 +793,7 @@ function clickSound() {
 }
 
 function findSpeech(speech_name) {
-    return "assets/sounds/speech_sounds/" + speech_name;
+    return "../assets/sounds/speech_sounds/" + speech_name;
 }
 
 function rootDiv(mode) {
