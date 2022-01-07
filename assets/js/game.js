@@ -26,55 +26,63 @@
     if (!debug_mode) {
         $(document).ready(function () {
             Swal.fire({
-                title: 'Bitcord\'a hoşgeldin',
+                title: 'All Ways & Always\'e hoşgeldin',
                 confirmButtonText: 'Devam <i class="fa fa-arrow-right"></i>',
                 allowOutsideClick: false,
                 allowEscapeKey: false
             }).then((result) => {
                 Swal.fire({
                     title: 'Öncelikle yeni yılın kutlu olsun! <br>Bu oyun OTG üyelerine yeni yıl hediyesi olarak tasarlandı.',
-                    text: 'Bitcord - Simülasyon Oyunu',
+                    text: 'All Ways & Always - Simülasyon Oyunu',
                     confirmButtonText: 'Devam <i class="fa fa-arrow-right"></i>',
                     allowOutsideClick: false,
                     allowEscapeKey: false
                 }).then((result) => {
                     Swal.fire({
-                        title: '<img style="border-radius:50%; width:60px;" src="' + characters[0].img_url +
-                            '"><br>' + 'Hoşgeldin',
-                        text: 'Hadi, benzersiz bir nickname belirle !',
-                        input: 'text',
-                        inputAttributes: {
-                            autocapitalize: 'off'
-                        },
-                        showCancelButton: true,
-                        confirmButtonText: 'Hazırım',
-                        cancelButtonText: 'Anonim devam et',
+                        title: 'Gerçekçi bir deneyim için mikrofonunu açabilirsin (opsiyonel) ',
+                        text: 'All Ways & Always - Simülasyon Oyunu',
+                        confirmButtonText: 'Devam <i class="fa fa-arrow-right"></i>',
                         allowOutsideClick: false,
                         allowEscapeKey: false
                     }).then((result) => {
-                        toastr.options = {
-                            positionClass: "toast-bottom-right",
-                            closeButton: true,
-                        }
-                        toast = toastr["info"](
-                            '<div>Gerçekçi deneyim için Tam ekran modu aktif</div>'
-                        );
-                        toggleFullScreen();
-                        rootDiv("visible");
-                        var fuimg = document.querySelectorAll(".foreignUserImg");
-                        fuimg.forEach(fu => {
-                            fu.src = characters[0].img_url;
-                        });
-                        setTimeout(function () {
-                            start_game();
-                        }, 2000);
+                        Swal.fire({
+                            title: '<img style="border-radius:50%; width:60px;" src="' + characters[0].img_url +
+                                '"><br>' + 'Hoşgeldin',
+                            text: 'Hadi, benzersiz bir nickname belirle !',
+                            input: 'text',
+                            inputAttributes: {
+                                autocapitalize: 'off'
+                            },
+                            showCancelButton: true,
+                            confirmButtonText: 'Hazırım',
+                            cancelButtonText: 'Anonim devam et',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            toastr.options = {
+                                positionClass: "toast-bottom-right",
+                                closeButton: true,
+                            }
+                            toast = toastr["info"](
+                                '<div>Gerçekçi deneyim için Tam ekran modu aktif</div>'
+                            );
+                            toggleFullScreen();
+                            rootDiv("visible");
+                            var fuimg = document.querySelectorAll(".foreignUserImg");
+                            fuimg.forEach(fu => {
+                                fu.src = characters[0].img_url;
+                            });
+                            setTimeout(function () {
+                                start_game();
+                            }, 2000);
 
-                        if (result.isConfirmed) {
-                            kullanici_adi = result.value.slice(0, 12);
-                            character = get_character("user");
-                            character.display_name = kullanici_adi;
-                            document.getElementById("username_text").innerText = kullanici_adi;
-                        }
+                            if (result.isConfirmed) {
+                                kullanici_adi = result.value.slice(0, 12);
+                                character = get_character("user");
+                                character.display_name = kullanici_adi;
+                                document.getElementById("username_text").innerText = kullanici_adi;
+                            }
+                        });
                     });
                 });
             });
@@ -867,7 +875,7 @@
         getMessage("lux_black", createMessageHtml("ahmet", 'DGKBDLBŞRBGGR'), 86000);
         getMessage("lux_black", createMessageHtml("omerf", 'OWERPBOWPBWPEWB'), 91000);
         getMessage("lux_black", createMessageHtml("ahmet", '<span style="color:#FF642E;"> Anlamadım ama neyse <span>'), 95000);
-        
+
         setTimeout(() => {
             fbi_open_the_door();
         }, 97000);

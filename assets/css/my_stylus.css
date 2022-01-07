@@ -41,6 +41,13 @@ body{
 }
 
 .content-header{
-    font-size:26px;
+    margin:0px;
+    display: block;
+    font-size:18px;
     font-weight: bold;
+    text-transform: uppercase;
+}
+
+.list-group a span{
+    float:left;
 }

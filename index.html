@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -18,19 +18,35 @@
 <body>
     <div class="container-fluid">
         <div class="row" style="margin-top:40px;">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <div class="card mb-3 card-shadow">
+                    <div class="row g-0">
+                        <img src="assets/images/index/moonarctic_long.jpg" class="img-fluid rounded-start">
+
+                        <div class="card-body">
+                            <p><b>MoonArctic Games</b></p>
+                            <a href="https://www.linkedin.com/company/77698405" target="_blank"
+                                class="btn btn-outline-primary"><i class="fa fa-linkedin-square"></i></a>
+                            <a href="https://play.google.com/store/apps/dev?id=7749542609909457027" target="_blank"
+                                class="btn btn-outline-success"><i class="fa fa-gamepad"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
                 <div class="card mb-3 card-shadow">
                     <div class="row g-0">
                         <div class="col-md-5">
-                            <img src="assets/images/index/pp.png" class="img-fluid rounded-start">
+                            <img id="profile_photo" class="img-fluid rounded-start">
                         </div>
                         <div class="col-md-7">
                             <div class="card-body">
-                                <p>Selam! ben MoonChain</p>
+                                <p>MoonChain</p>
                                 <hr>
-                                <p> Web geliştiricisi ve Oyun tasarımcısıyım</p>
-                                <p style="height:50px;"></p>
+                                <p> Web Developer & Game Developer</p>
+                                <p> Founder at <b>MoonArctic Games</b></p>
+                                <p> Co-Founder at <b>Gamer Sepetim</b></p>
                                 <a href="https://www.linkedin.com/in/olce/" target="_blank"
                                     class="btn btn-outline-primary"><i class="fa fa-linkedin-square"></i></a>
                                 <a href="https://github.com/Moon-Chain" target="_blank" class="btn btn-outline-dark"><i
@@ -45,56 +61,35 @@
             <div class="col-md-3"></div>
         </div>
 
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="card mb-3 card-shadow">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="assets/images/index/moonarctic_long.jpg" class="img-fluid rounded-start">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body">
-                                <p><b>MoonArctic Games</b> şirketinin kurucusuyum</p>
-                                <a href="https://www.linkedin.com/company/77698405" target="_blank"
-                                    class="btn btn-outline-primary"><i class="fa fa-linkedin-square"></i></a>
-                                <a href="https://play.google.com/store/apps/dev?id=7749542609909457027" target="_blank"
-                                    class="btn btn-outline-success"><i class="fa fa-gamepad"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3"></div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+        <div class="row" style="margin-top:20px;">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
                 <div class="card mb-3 card-shadow">
                     <div class="card-body">
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist"
+                        <ul class="nav flex-column nav-pills mb-3" id="pills-tab" role="tablist"
                             style="margin-bottom:0px !important;">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="pills-game-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-game" type="button" role="tab" aria-controls="pills-game"
-                                    aria-selected="true">Oyunlarım</button>
+                            <li class="nav-item mb-2" role="presentation" style="width:100%;">
+                                <button style="width: 100%;" class="btn btn-outline-danger active" id="pills-game-tab"
+                                    data-bs-toggle="pill" data-bs-target="#pills-game" type="button" role="tab"
+                                    aria-controls="pills-game" aria-selected="true">Oyunlarım</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-portfolio-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-portfolio" type="button" role="tab"
-                                    aria-controls="pills-portfolio" aria-selected="false">Portfolyom</button>
+                                <button style="width: 100%;" class="btn btn-outline-primary" id="pills-portfolio-tab"
+                                    data-bs-toggle="pill" data-bs-target="#pills-portfolio" type="button" role="tab"
+                                    aria-controls="pills-portfolio" aria-selected="false">Web Projelerim</button>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-game" role="tabpanel" aria-labelledby="pills-game-tab">
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
+            <div class="col-md-7">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-game" role="tabpanel"
+                        aria-labelledby="pills-game-tab">
+
+                        <!-- -------------------------------------- -->
+
                         <div class="card mb-3 card-shadow">
                             <div class="row g-0">
                                 <div class="col-md-5">
@@ -102,63 +97,87 @@
                                 </div>
                                 <div class="col-md-7">
                                     <div class="card-body">
-                                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#exampleModal">
-                                            Launch demo modal
-                                        </button> -->
-
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="asdmod" tabindex="-1" role="dialog"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">ALL WAYS & ALWAYS
+                                                        <h5 class="modal-title" id="exampleModalLabel">ALL WAYS
+                                                            &
+                                                            ALWAYS
                                                         </h5>
-                                                        <button type="button" class="close btn btn-danger"
-                                                            data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        ...
+
+                                                        <div class="row">
+                                                            <div class="col-md-6"
+                                                                style="border-right:1px solid #DEE2E6 ;">
+                                                                <span>Önemli not: Oyunda bulunan her şey kurgudur ve
+                                                                    eğlence amaçlıdır. </span>
+                                                                <br>
+                                                                <br>
+                                                                <span>Oyun ilk "Bitcord" üzerinde başlar ve oyun
+                                                                    geliştirme grubuna katılırız,
+                                                                    grupla tanıştıktan sonra işler yavaş yavaş
+                                                                    ciddileşir ve kendimizi bir
+                                                                    hacker cemiyetinin içinde buluruz...
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p class="text-center">Episodes</p>
+                                                                <div class="list-group">
+                                                                    <button data-toggle="game_episode"
+                                                                        data-target="aa/episode_1.html"
+                                                                        class="btn btn-dark mb-1"><span>Episode
+                                                                            1</span> "Glorious Purpose"</button>
+                                                                    <button href="javascript:void(0)"
+                                                                        class="btn btn-outline-dark mb-1 disabled"><span>Episode
+                                                                            2</span> (Coming Soon)
+                                                                    </button>
+                                                                    <button href="javascript:void(0)"
+                                                                        class="btn btn-outline-dark mb-1 disabled"><span>Episode
+                                                                            3</span> (Coming Soon)</button>
+                                                                    <button href="javascript:void(0)"
+                                                                        class="btn btn-outline-dark mb-1 disabled"><span>Episode
+                                                                            4</span> (Coming Soon)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Save
-                                                            changes</button>
+                                                            data-dismiss="modal">Kapat</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <p><b style="text-transform: uppercase;">All Ways & Always</b> - Web Tabanlı Simülasyon</p>
-                                        <div class="list-group">
-                                            <a href="aa/episode_1.html"
-                                                class="list-group-item list-group-item-action">Episode
-                                                1 / "Glorious Purpose"</a>
-                                            <a href="javascript:void(0)"
-                                                class="list-group-item list-group-item-action disabled">Episode 2 / "The
-                                                Variant" (Coming Soon)
-                                            </a>
-                                        </div>
+                                        <p><b style="text-transform: uppercase;">All Ways & Always</b> - Web Tabanlı
+                                            Simülasyon Oyunu</p>
+                                        <span>Muhteşem senaryosu ile sizi içinde düşüren, mizahı ile güldürüp felsefesi
+                                            ile düşündüren chat simülasyon oyunu </span>
+                                        <hr>
+                                        <button style="float: right;" type="button" class="btn btn-success"
+                                            data-toggle="modal" data-target="#asdmod">
+                                            incele <i class="fa fa-external-link"></i>
+                                        </button>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="pills-portfolio" role="tabpanel" aria-labelledby="pills-portfolio-tab">
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
-                        <div style="overflow-x: auto; max-height: 300px;">
-                            <div class="card mb-3 card-shadow" style="height:186px;">
-                                <p style="text-align: center; margin-top:60px;">Coming Soon..</p>
 
-                            </div>
+
+                        <!-- -------------------------------------- -->
+
+                    </div>
+                    <div class="tab-pane fade" id="pills-portfolio" role="tabpanel"
+                        aria-labelledby="pills-portfolio-tab">
+
+                        <div style="overflow-x: auto; max-height: 350px;" id="portfolio_box">
+
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -167,9 +186,130 @@
 
     </div>
     <script>
+        var random = Math.floor(Math.random() * 7);
+        var portfolio_box;
+        var portfolio_items = [];
+        portfolio_items[0] = {
+            id: 0,
+            img_url: "assets/images/index/gslogo.png",
+            title: "Gamer Sepetim",
+            description: 'Yapım aşamasında.. <b>Tahmini çıkış - Şubat 2022</b> <br> <a target="_blank" href="https://www.facebook.com/groups/valohesap"> Valorant hesap alım satım</a> facebook grubumuzun resmi sitesi',
+            link: "",
+        }
+        portfolio_items[1] = {
+            id: 1,
+            img_url: "assets/images/index/gif-cheer.gif",
+            title: "GrowSurg",
+            description: "Yapım aşamasında.. <br> GrowTopia oyununda bulunan ameliyat görevlerinin web simulatör versiyonu (Dil destekli)",
+            link: "",
+        }
+        portfolio_items[2] = {
+            id: 2,
+            img_url: "assets/images/index/kardelen.png",
+            title: "Kardelen Su",
+            description: "<b>Full Stack</b> olarak geliştirdiğim web projesi <br> 554.140 satır kod <br> UI + Admin + Bayilik sistemi + API",
+            link: "https://www.kardelensu.com/",
+        }
+        portfolio_items[3] = {
+            id: 3,
+            img_url: "assets/images/index/sandino.png",
+            title: "Sandino Mobilya",
+            description: "<b>Full Stack</b> olarak geliştirdiğim web projesi <br> 180.006 satır kod <br> UI + Admin",
+            link: "https://www.sandino.com.tr/",
+        }
+        portfolio_items[4] = {
+            id: 4,
+            img_url: "assets/images/index/megaser.png",
+            title: "Megaser",
+            description: "<b>Front-End</b> olarak geliştirdiğim web projesi <br> Sadece UI",
+            link: "http://megaser.com.tr/",
+        }
+        portfolio_items[5] = {
+            id: 5,
+            img_url: "assets/images/index/yenir.png",
+            title: "Yenir",
+            description: "<b>Front-End</b> olarak geliştirdiğim web projesi <br> Sadece UI",
+            link: "https://www.yenirapp.com/",
+        }
+        portfolio_items[6] = {
+            id: 6,
+            img_url: "assets/images/index/medwave.png",
+            title: "Medwave",
+            description: "<b>Front-End</b> olarak geliştirdiğim web projesi <br> Sadece UI",
+            link: "https://www.medwave.com.tr/",
+        }
+
+
+        var profile_photos = [];
+        profile_photos[0] = "assets/images/index/pp0.png";
+        profile_photos[1] = "assets/images/index/pp1.png";
+        profile_photos[2] = "assets/images/index/pp2.png";
+        profile_photos[3] = "assets/images/index/pp3.png";
+        profile_photos[4] = "assets/images/index/pp4.png";
+        profile_photos[5] = "assets/images/index/pp5.png";
+        profile_photos[6] = "assets/images/index/pp6.png";
+
+
+
+        // Portfolyo oluşturucu
+        $(document).ready(function () {
+
+            portfolio_box = document.getElementById("portfolio_box");
+            profile_photo = document.getElementById("profile_photo");
+
+            if (profile_photo != undefined) {
+                profile_photo.src = profile_photos[random];
+            }
+
+            if (portfolio_items.length > 0) {
+                portfolio_items.forEach(portfolio_content => {
+                    if (portfolio_content.link != "") {
+                        link_html = ' <a href="' + portfolio_content.link +
+                            '" target="_blank"class="btn btn-primary btn-sm">incele <i class="fa fa-arrow-right"></i></a>';
+                    } else {
+                        link_html = '';
+                    }
+                    content_html =
+                        '<div class="card mb-3 card-shadow" style="height:186px;"><div class="row g-0"><div class="col-md-4"><img style="max-height:186px; width:284px; object-fit:cover;" src="' +
+                        portfolio_content.img_url +
+                        '" class="img-fluid rounded-start"></div><div class="col-md-8"><div class="card-body"><span class="text-center content-header">' +
+                        portfolio_content.title + link_html + '</span><div><span>' +
+                        portfolio_content.description + '</span></div></div></div></div></div>';
+
+                    portfolio_box.innerHTML = portfolio_box.innerHTML + content_html;
+                });
+            } else {
+                html =
+                    '<div class="card mb-3 card-shadow" style="height:186px;"><p style="text-align: center; margin-top:60px;">Coming Soon..</p></div>';
+                portfolio_box.innerHTML = html;
+            }
+        });
+
         $('button[data-toggle="modal"]').click(function (event) {
-            console.log("basıldı")
-            $('#asdmod').modal('show'); //call modal directly
+            target = event.currentTarget.dataset.target
+            $(target).modal('show');
+        });
+
+        $('button[data-dismiss="modal"]').click(function (event) {
+            $('#asdmod').modal('hide'); //call modal directly
+        });
+
+        $('button[data-toggle="game_episode"]').click(function (event) {
+            target = event.currentTarget.dataset.target
+            Swal.fire({
+                title: 'Emin misin ?',
+                text: "Oyun başlatılacak",
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#198754',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet <i class="fa fa-check"></i>',
+                cancelButtonText: 'Hayır <i class="fa fa-close"></i>'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = target;
+                }
+            })
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.min.js"></script>
