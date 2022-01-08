@@ -19,7 +19,8 @@
 <body>
     <div class="container-fluid">
         <div class="row" style="margin-top:40px;">
-            <div class="col-md-1"></div>
+            <div class="col-md-1">
+            </div>
             <div class="col-md-2">
                 <div class="card mb-3 card-shadow">
                     <div class="row g-0">
@@ -35,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <div class="card mb-3 card-shadow">
                     <div class="row g-0">
                         <div class="col-md-5">
@@ -64,7 +65,8 @@
 
 
         <div class="row" style="margin-top:20px;">
-            <div class="col-md-1"></div>
+            <div class="col-md-1">
+            </div>
             <div class="col-md-2">
                 <div class="card mb-3 card-shadow">
                     <div class="card-body">
@@ -84,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-game" role="tabpanel"
                         aria-labelledby="pills-game-tab">
@@ -121,9 +123,9 @@
                                                                     geliştirme grubuna katılırız,
                                                                     grupla tanıştıktan sonra işler yavaş yavaş
                                                                     ciddileşir ve kendimizi bir
-                                                                    hacker cemiyetinin içinde buluruz...                                                                    
+                                                                    hacker cemiyetinin içinde buluruz...
                                                                 </span>
-                                                                 <br>
+                                                                <br>
                                                                 <br>
                                                                 <span>- Bölüm isimleri Loki dizisinden alınmıştır</span>
                                                             </div>
@@ -158,7 +160,8 @@
 
                                         <p><b style="text-transform: uppercase;">All Ways & Always</b> - Web Tabanlı
                                             Simülasyon Oyunu</p>
-                                        <span>Muhteşem senaryosu ile sizi labirentin içine düşüren, mizahı ile güldürüp felsefesi
+                                        <span>Muhteşem senaryosu ile sizi labirentin içine düşüren, mizahı ile güldürüp
+                                            felsefesi
                                             ile düşündüren chat simülasyon oyunu </span>
                                         <hr>
                                         <button style="float: right;" type="button" class="btn btn-success"
@@ -190,7 +193,6 @@
 
     </div>
     <script>
-        var random = Math.floor(Math.random() * 7);
         var portfolio_box;
         var portfolio_items = [];
         portfolio_items[0] = {
@@ -245,23 +247,25 @@
 
 
         var profile_photos = [];
-        profile_photos[0] = "assets/images/index/pp0.png";
-        profile_photos[1] = "assets/images/index/pp1.png";
-        profile_photos[2] = "assets/images/index/pp2.png";
-        profile_photos[3] = "assets/images/index/pp3.png";
-        profile_photos[4] = "assets/images/index/pp4.png";
-        profile_photos[5] = "assets/images/index/pp5.png";
-        profile_photos[6] = "assets/images/index/pp6.png";
+        for (let index = 0; index < 13; index++) {
+            profile_photos[index] = 'assets/images/index/pp' + index + '.png';
+        }
 
-
+        var background_photos = [];
+        for (let index = 0; index < 13; index++) {
+            background_photos[index] = 'assets/images/patterns/repeat' + index + '.png';
+        }
 
         // Portfolyo oluşturucu
         $(document).ready(function () {
-
             portfolio_box = document.getElementById("portfolio_box");
             profile_photo = document.getElementById("profile_photo");
 
+            random = Math.floor(Math.random() * background_photos.length);
+            document.body.style.backgroundImage = 'url(' + background_photos[random] + ')';
+
             if (profile_photo != undefined) {
+                random = Math.floor(Math.random() * profile_photos.length);
                 profile_photo.src = profile_photos[random];
             }
 
