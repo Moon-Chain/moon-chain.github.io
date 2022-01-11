@@ -32,7 +32,7 @@
                 allowEscapeKey: false
             }).then((result) => {
                 Swal.fire({
-                    title: 'Öncelikle yeni yılın kutlu olsun! <br>Bu oyun OTG üyelerine yeni yıl hediyesi olarak tasarlandı.',
+                    title: 'Öncelikle yeni yılın kutlu olsun! <br>Bu oyun ITU Oyun Geliştirme Kulübü için yeni yıl hediyesi olarak tasarlandı.',
                     text: 'All Ways & Always - Simülasyon Oyunu',
                     confirmButtonText: 'Devam <i class="fa fa-arrow-right"></i>',
                     allowOutsideClick: false,
