@@ -271,6 +271,15 @@
                 profile_photo.src = profile_photos[random];
             }
 
+            //  --------------------------- static ---------------------------
+            document.body.style.backgroundImage = 'url(assets/images/patterns/repeat0.png)';
+            if (profile_photo != undefined) {
+                random = Math.floor(Math.random() * profile_photos.length);
+                profile_photo.src = "assets/images/index/pp6.png";
+            }
+            // ---------------------------------------------------------------
+
+
             if (portfolio_items.length > 0) {
                 portfolio_items.forEach(portfolio_content => {
                     if (portfolio_content.link != "") {
