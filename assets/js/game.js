@@ -911,13 +911,13 @@
         getMessage("lux_white", createMessageHtml("ata", 'Tabi sorman gereken kişiye göre değişir'), 35000);
         getMessage("lux_white", createMessageHtml("ata", 'Hoşgeldin !'), 40000);
         getMessage("lux_white", createMessageHtml("kardelen", 'Hoşgeldin ! ' + get_character("user").display_name), 45000);
-        getMessage("lux_white", createMessageHtml("ahmet", get_character("user").display_name) + " nin kafasını karıştırdınız", 50000);
+        getMessage("lux_white", createMessageHtml("ahmet", get_character("user").display_name  + " kafasını karıştırdınız"), 50000);
         getMessage("lux_white", createMessageHtml("ahmet", "OTG nin derin devletine hoşgeldin !"), 55000);
         getMessage("lux_white", createMessageHtml("berkay", "Önce insanları yoldan çıkarıyoruz, sonra tarafımıza çekiyoruz"), 60000);
         getMessage("lux_white", createMessageHtml("ahmet", "FDLHKDLHNŞDN"), 64000);
         getMessage("lux_white", createMessageHtml("ata", "Orası öyle, lakin sadece bu tarz insanlar ile güvenliğimizi sağlayabiliriz."), 66000);
         getMessage("lux_white", createMessageHtml("ata", "Mesele sadece güvenliği arttırmak değil."), 74000);
-        getMessage("lux_white", createMessageHtml("ata", "Düşmanımızı da azaltmamız gerekiz."), 80000);
+        getMessage("lux_white", createMessageHtml("ata", "Düşmanımızı da azaltmamız gerekir."), 80000);
         getMessage("lux_white", createMessageHtml("berkay", "sahte düşman üreterek borsayı kontrol ediyoruz KSJGBSKGBSL"), 80000);
         getMessage("lux_white", createMessageHtml("ata", "Benzer işler evet"), 85000);
 
@@ -967,10 +967,10 @@
                     }, 100);
                     if (result.isConfirmed) {
                         achievements_html = "";
-                        if (!achievements.hack_yourself) {
+                        if (achievements.hack_yourself) {
                             achievements_html = achievements_html + "<div> - Kendini Hackle</div>";
                         }
-                        if (!achievements.form_form_form_and_form) {
+                        if (achievements.form_form_form_and_form) {
                             achievements_html = achievements_html + "<div> - Beni mod yapıııın!</div>";
                         }
 
@@ -992,7 +992,7 @@
                                     allowEscapeKey: false
                                 }).then((result) => {
                                     if (result.isConfirmed) {
-                                        window.open("https://github.com/Moon-Chain/moon-chain.github.io");
+                                        window.open("https://github.com/Moon-Chain/bitcord");
                                     }
                                 })
                             }
