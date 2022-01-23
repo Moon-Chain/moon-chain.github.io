@@ -26,21 +26,21 @@
     if (!debug_mode) {
         $(document).ready(function () {
             Swal.fire({
-                title: 'All Ways & Always\'e hoşgeldin',
+                title: 'OTG Bitcord\'a hoşgeldin',
                 confirmButtonText: 'Devam <i class="fa fa-arrow-right"></i>',
                 allowOutsideClick: false,
                 allowEscapeKey: false
             }).then((result) => {
                 Swal.fire({
                     title: 'Öncelikle yeni yılın kutlu olsun! <br>Bu oyun ITU Oyun Geliştirme Kulübü için yeni yıl hediyesi olarak tasarlandı.',
-                    text: 'All Ways & Always - Simülasyon Oyunu',
+                    text: 'OTG Bitcord - Simülasyon Oyunu',
                     confirmButtonText: 'Devam <i class="fa fa-arrow-right"></i>',
                     allowOutsideClick: false,
                     allowEscapeKey: false
                 }).then((result) => {
                     Swal.fire({
                         title: 'Gerçekçi bir deneyim için mikrofonunu açabilirsin (opsiyonel) ',
-                        text: 'All Ways & Always - Simülasyon Oyunu',
+                        text: 'OTG Bitcord - Simülasyon Oyunu',
                         confirmButtonText: 'Devam <i class="fa fa-arrow-right"></i>',
                         allowOutsideClick: false,
                         allowEscapeKey: false
