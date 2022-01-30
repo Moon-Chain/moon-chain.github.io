@@ -144,7 +144,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Kapat</button>
+                                                            data-dismiss="modal" data-target="#otgbitcord_modal">Kapat</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -224,7 +224,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Kapat</button>
+                                                            data-dismiss="modal" data-target="#asdmod">Kapat</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -379,7 +379,8 @@
         });
 
         $('button[data-dismiss="modal"]').click(function (event) {
-            $('#asdmod').modal('hide'); //call modal directly
+            target = event.currentTarget.dataset.target
+            $(target).modal('hide'); //call modal directly
         });
 
         $('button[data-toggle="game_episode"]').click(function (event) {
