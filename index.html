@@ -73,19 +73,19 @@
                                             <p> Founder at <b>MoonArctic Games</b></p>
                                             <p> Co-Founder at <b>Gamer Sepetim</b></p>
 
-                                            <a href="https://www.linkedin.com/in/olce/" target="_blank"
+                                            <a id="my_linkedin" href="https://www.linkedin.com/in/olce/" target="_blank"
                                                 class="btn btn-primary"><i class="fa fa-linkedin-square"></i></a>
-                                            <a href="https://github.com/Moon-Chain" target="_blank"
+                                            <a id="my_github" href="https://github.com/Moon-Chain" target="_blank"
                                                 class="btn btn-dark"><i class="fa fa-github"></i></a>
-                                            <a href="mailto:berkayolce@gmail.com" target="_blank"
+                                            <a id="my_email" href="mailto:berkayolce@gmail.com" target="_blank"
                                                 class="btn btn-danger"><i class="fa fa-envelope"></i></a>
-                                            <button class="btn btn-outline-danger" onclick="myScene(1)"><i
+                                            <button id="my_icth" class="btn btn-outline-danger" onclick="myScene(1)"><i
                                                     class="fa fa-gamepad"></i></button>
 
-                                            <button class="btn btn-outline-danger" onclick="myScene(3)"><i
-                                                    class="fa fa-youtube-play"></i></button>
-                                            <button class="btn btn-outline-success" onclick="myScene(2)"><i
-                                                    class="fa fa-spotify"></i></button>
+                                            <button id="my_youtube" class="btn btn-outline-danger"
+                                                onclick="myScene(3)"><i class="fa fa-youtube-play"></i></button>
+                                            <button id="my_spotify" class="btn btn-outline-success"
+                                                onclick="myScene(2)"><i class="fa fa-spotify"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -101,9 +101,9 @@
                                             Chain</a></iframe>
                                 </div>
                                 <div class="col-md-12">
-                                    <iframe frameborder="0" src="https://itch.io/embed/1399744?dark=true" width="552"
-                                        height="167"><a href="https://moon-chain.itch.io/ei-evil-intelligence">EI (Evil
-                                            Intelligence) by Moon Chain</a></iframe>
+                                    <iframe frameborder="0" src="https://itch.io/embed/1410323?dark=true" width="552"
+                                        height="167"><a href="https://moon-chain.itch.io/jammer-jammer">Jammer Jammer by
+                                            Moon Chain</a></iframe>
                                 </div>
                             </div>
 
@@ -175,7 +175,7 @@
                     <div class="tab-pane fade" id="pills-portfolio" role="tabpanel"
                         aria-labelledby="pills-portfolio-tab">
 
-                        <div  id="portfolio_box">
+                        <div id="portfolio_box">
 
                         </div>
 
@@ -245,18 +245,24 @@
         //     description: "Yapım aşamasında.. <br> GrowTopia oyununda bulunan ameliyat görevlerinin web simulatör versiyonu (Dil destekli)",
         //     link: "",
         // });
-        portfolio_items.push({
-            img_url: "assets/images/index/evil_intelligence.png",
-            title: "Evil Intelligence - Hujam #1",
-            description: "Oyun 2078 de başlar. Geçmiş yıllarda yaşanan felaketin ardından teknolojinin evrimi durmuştur. Amacımız felaketi onaracak bir yapay zeka geliştirmektir.",
-            link: "https://moon-chain.itch.io/ei-evil-intelligence",
-        });
-        portfolio_items.push({
-            img_url: "assets/images/index/depression_stitch.png",
-            title: "Depression Stitch - FrostJam #4",
-            description: "Geçmişten kaçan başrol karakterimiz yalnızlığa sığınır ve kendini toplumdan izole eder. Zaman zaman insanların ona ulaşması zihninde sıkıntılara yol açar. (kötü hatıralarına dikiş atılmıştır fakat zamanla dikişler patlamaya başlarlar.)",
-            link: "https://moon-chain.itch.io/depression-stitch",
-        });
+        // portfolio_items.push({
+        //     img_url: "assets/images/index/jammer_jammer.png",
+        //     title: "Jammer Jammer - Mağara Jam #4",
+        //     description: 'Senaryoda "Süper güç" dediğimiz kavramın felsefesi yapılmaktadır. "Yeraltı GameDev" adında bir oyun ekibi, Jam oyunu yapmak üzere tartışırlar. Jam\'i kazanmak için illegal işlere kalkışan bu ekip, Jam\'in ruhuna aykırı davrandıkları için..',
+        //     link: "https://moon-chain.itch.io/jammer-jammer",
+        // });
+        // portfolio_items.push({
+        //     img_url: "assets/images/index/evil_intelligence.png",
+        //     title: "Evil Intelligence - Hujam #1",
+        //     description: "Oyun 2078 de başlar. Geçmiş yıllarda yaşanan felaketin ardından teknolojinin evrimi durmuştur. Amacımız felaketi onaracak bir yapay zeka geliştirmektir.",
+        //     link: "https://moon-chain.itch.io/ei-evil-intelligence",
+        // });
+        // portfolio_items.push({
+        //     img_url: "assets/images/index/depression_stitch.png",
+        //     title: "Depression Stitch - FrostJam #4",
+        //     description: "Geçmişten kaçan başrol karakterimiz yalnızlığa sığınır ve kendini toplumdan izole eder. Zaman zaman insanların ona ulaşması zihninde sıkıntılara yol açar. (kötü hatıralarına dikiş atılmıştır fakat zamanla dikişler patlamaya başlarlar.)",
+        //     link: "https://moon-chain.itch.io/depression-stitch",
+        // });
         portfolio_items.push({
             img_url: "assets/images/index/bitcord.png",
             title: "Bitcord - Beta_1.0.5",
@@ -391,6 +397,19 @@
                 }
             })
         });
+    </script>
+    <script>
+        var button_list = ["my_linkedin", "my_github", "my_email", "my_itch", "my_youtube", "my_spotify"];
+        setInterval(() => {
+            var rand = Math.floor(Math.random() * button_list.length);
+            var button_html = document.getElementById(button_list[rand]);
+            if (button_html != undefined) {
+                button_html.classList.add("shaking");
+                setTimeout((button_html) => {
+                    button_html.classList.remove("shaking");
+                }, 3000, button_html);
+            }
+        }, 4000);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.min.js"></script>
 
