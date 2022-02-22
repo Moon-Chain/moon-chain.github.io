@@ -55,6 +55,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="card mb-3 card-shadow">
+                    <div class="card-body">
+                        <ul class="nav flex-column nav-pills mb-3" id="pills-tab" role="tablist"
+                            style="margin-bottom:0px !important;">
+                            <li class="nav-item" role="presentation">
+                                <p style="text-align: center; font-weight: bold;">Auto Swipe</p>
+                                <button onclick="auto_swipe(this)" data-value="false" style="width: 100%;"
+                                    class="btn btn-outline-primary" type="button">OFF</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col-md-7">
                 <div id="mySwipe" class="swipe">
@@ -87,6 +99,7 @@
                                             <button id="my_spotify" class="btn btn-outline-success"
                                                 onclick="myScene(2)"><i class="fa fa-spotify"></i></button>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -192,6 +205,7 @@
     <script>
         var element = document.getElementById('mySwipe');
         var project_element = document.getElementById('projectSwipe');
+        var aswipe = false;
 
         window.projectSwipe = new Swipe(project_element, {
             startSlide: 0,
@@ -226,6 +240,43 @@
         function projectScene(id = 0) {
             window.projectSwipe.slide(id, 1000);
         }
+
+        function auto_swipe(e) {
+            if (e.dataset.value == "false") {
+                swipefn(true);
+                e.innerHTML = "ON";
+                aswipe = true;
+                e.dataset.value = "true";
+                e.classList.add("active");
+            } else if (e.dataset.value == "true") {
+                e.innerHTML = "OFF";
+                aswipe = false;
+                e.dataset.value = "false";
+                e.classList.remove("active");
+            }
+        }
+
+        var button_list = ["my_itch", "my_youtube", "my_spotify"];
+        var button_list = ["my_itch", "my_youtube", "my_spotify"];
+
+        swipefn = (val) => {
+            if (val) {
+                var rand = Math.floor(Math.random() * button_list.length);
+                // TODO SWIPE AUTO
+                window.mySwipe.slide(rand, 1000);
+                /////////////////////
+                var button_html = document.getElementById(button_list[rand]);
+                if (button_html != undefined) {
+                    button_html.classList.add("shaking");
+                    setTimeout((button_html) => {
+                        button_html.classList.remove("shaking");
+                    }, 3000, button_html);
+                }
+            }
+        }
+        setInterval(() => {
+            swipefn(aswipe);
+        }, 4000);
     </script>
 
 
@@ -397,20 +448,6 @@
                 }
             })
         });
-    </script>
-    <script>
-        // var button_list = ["my_linkedin", "my_github", "my_email", "my_itch", "my_youtube", "my_spotify"];
-        var button_list = ["my_itch", "my_youtube", "my_spotify"];
-        setInterval(() => {
-            var rand = Math.floor(Math.random() * button_list.length);
-            var button_html = document.getElementById(button_list[rand]);
-            if (button_html != undefined) {
-                button_html.classList.add("shaking");
-                setTimeout((button_html) => {
-                    button_html.classList.remove("shaking");
-                }, 3000, button_html);
-            }
-        }, 4000);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.min.js"></script>
 
