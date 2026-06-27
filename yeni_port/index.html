@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berkay Olce — Interface & Simulation Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #16140F; }
+  ::selection { background: #E8431C; color: #F1EEE7; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #16140F; }
+  ::-webkit-scrollbar-thumb { background: #3a362c; }
+
+  @keyframes bo-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes bo-blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+  @keyframes reveal-up { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+  [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+  [data-reveal].revealed { opacity: 1; transform: none; }
+  [data-reveal-delay] { transition-delay: 0.12s; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ── NAV ── */
+  #nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 80;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 26px; color: #fff; mix-blend-mode: difference;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em;
+    pointer-events: none;
+  }
+  #nav nav { display: flex; gap: 18px; pointer-events: auto; flex-wrap: wrap; justify-content: center; }
+  #nav nav a { color: #fff; display: inline-flex; align-items: center; gap: 5px; line-height: 1; }
+  #nav .blink { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: bo-blink 1.6s steps(1) infinite; display: inline-block; }
+  #nav .right { display: flex; align-items: center; gap: 8px; }
+
+  /* ── HERO ── */
+  #top {
+    position: relative; min-height: 100vh; background: #F1EEE7; color: #16140F;
+    font-family: 'Space Grotesk', sans-serif; -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 104px 26px 0 26px;
+    background-image: linear-gradient(rgba(22,20,15,0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(22,20,15,0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .hero-top-row {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.06em; color: #6B655A; max-width: 1500px; width: 100%; margin: 0 auto;
+  }
+  .hero-top-row span:last-child { text-align: right; line-height: 1.6; }
+  .hero-top-row span:first-child { max-width: 340px; line-height: 1.6; }
+  .hero-name-wrap { max-width: 1500px; width: 100%; margin: 0 auto; }
+  .hero-name {
+    font-weight: 600; letter-spacing: -0.045em; line-height: 0.86;
+    font-size: clamp(58px, 15.5vw, 232px);
+  }
+  .hero-name-bottom { display: flex; align-items: baseline; gap: 0.18em; flex-wrap: wrap; }
+  .hero-name-reg {
+    font-family: 'JetBrains Mono', monospace; font-weight: 400;
+    font-size: clamp(11px, 1.1vw, 15px); letter-spacing: 0.04em; color: #E8431C;
+    align-self: flex-end; padding-bottom: 0.9em;
+  }
+  .hero-meta-grid {
+    max-width: 1500px; width: 100%; margin: 0 auto;
+    border-top: 1px solid rgba(22,20,15,0.16);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: rgba(22,20,15,0.16);
+  }
+  .hero-meta-cell {
+    background: #F1EEE7; padding: 16px 14px 18px 0;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .hero-meta-cell .k { font-size: 10px; letter-spacing: 0.12em; color: #9a9486; margin-bottom: 7px; }
+  .hero-meta-cell .v { font-size: 13.5px; letter-spacing: 0.01em; color: #16140F; }
+  .hero-marquee-wrap { overflow: hidden; white-space: nowrap; border-top: 1px solid rgba(22,20,15,0.16); }
+  .hero-marquee-inner { display: inline-flex; animation: bo-marquee 26s linear infinite; will-change: transform; }
+  .hero-marquee-inner span {
+    font-size: clamp(28px, 4vw, 58px); font-weight: 500;
+    letter-spacing: -0.02em; padding: 14px 0;
+  }
+
+  /* ── LIGHT SECTIONS ── */
+  .light { background: #F1EEE7; color: #16140F; font-family: 'Space Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+  .dark  { background: #16140F; color: #F1EEE7; font-family: 'Space Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+  .inner { max-width: 1500px; margin: 0 auto; }
+
+  /* ── WORK ── */
+  #work { padding: 100px 26px 90px 26px; position: relative; }
+  .work-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 20px; margin-bottom: 42px;
+  }
+  .work-header h2 { font-size: clamp(34px, 6vw, 86px); font-weight: 600; letter-spacing: -0.04em; line-height: 0.9; }
+  .work-header .tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8A8377; }
+
+  .project-row {
+    display: grid; grid-template-columns: 64px 1fr auto;
+    align-items: center; gap: 24px; padding: 26px 8px;
+    border-top: 1px solid rgba(241,238,231,0.16);
+    transition: padding-left .4s cubic-bezier(.2,.7,.2,1), background .3s;
+    cursor: default;
+  }
+  .project-row:hover { padding-left: 26px; background: rgba(241,238,231,0.03); }
+  .project-n { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #E8431C; }
+  .project-mid { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+  .project-title { font-size: clamp(26px, 4.6vw, 62px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
+  .project-cat { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8A8377; }
+  .project-right { display: flex; align-items: center; gap: 22px; }
+  .project-year { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8377; }
+  .project-arr { font-size: 22px; line-height: 1; color: #F1EEE7; }
+  .work-end { border-top: 1px solid rgba(241,238,231,0.16); }
+
+  /* ── PREVIEW CARD ── */
+  #preview-card {
+    position: fixed; z-index: 60; width: 300px; height: 208px;
+    pointer-events: none; opacity: 0;
+    transform: translate(-50%, -50%) scale(0.96);
+    transition: opacity .35s ease, transform .35s cubic-bezier(.2,.7,.2,1);
+  }
+  .preview-inner {
+    width: 100%; height: 100%;
+    background-image: repeating-linear-gradient(45deg, #23201a 0 11px, #1b1812 11px 22px);
+    border: 1px solid rgba(241,238,231,0.22);
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 14px; font-family: 'JetBrains Mono', monospace;
+  }
+  .preview-inner .p-tag { font-size: 10px; letter-spacing: 0.12em; color: #8A8377; }
+  .preview-inner .p-title { font-size: 18px; font-weight: 600; color: #F1EEE7; letter-spacing: 0.01em; font-family: 'Space Grotesk', sans-serif; }
+  .preview-inner .p-cat { font-size: 10px; color: #E8431C; letter-spacing: 0.08em; margin-top: 5px; }
+
+  /* ── ABOUT ── */
+  #about { padding: 100px 26px; }
+  .about-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #9a9486; }
+  .about-grid {
+    display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+    gap: 54px; align-items: start; margin-top: 54px;
+  }
+  .about-text {
+    font-size: clamp(24px, 3.4vw, 46px); font-weight: 400;
+    line-height: 1.18; letter-spacing: -0.02em; text-wrap: pretty;
+  }
+  .about-text em { font-style: italic; }
+  .about-text .accent { color: #E8431C; }
+  .about-portrait {
+    aspect-ratio: 4/5; width: 100%;
+    background-image: repeating-linear-gradient(45deg, #E6E1D5 0 12px, #ECE8DD 12px 24px);
+    border: 1px solid rgba(22,20,15,0.14);
+    display: flex; align-items: flex-end; padding: 14px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 0.1em; color: #9a9486;
+  }
+  .about-note {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    line-height: 1.7; color: #6B655A; margin-top: 16px;
+  }
+
+  /* ── PATH ── */
+  #path { padding: 80px 26px; border-top: 1px solid rgba(22,20,15,0.14); }
+  .path-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 30px;
+  }
+  .path-header h2 { font-size: clamp(28px, 4vw, 52px); font-weight: 600; letter-spacing: -0.03em; }
+  .path-header .tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #9a9486; }
+  .exp-row {
+    display: grid; grid-template-columns: 180px 1fr auto;
+    gap: 24px; align-items: baseline;
+    padding: 22px 0; border-top: 1px solid rgba(22,20,15,0.14);
+  }
+  .exp-year { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #16140F; letter-spacing: 0.02em; }
+  .exp-role { font-size: clamp(20px, 2.4vw, 30px); font-weight: 500; letter-spacing: -0.02em; }
+  .exp-note { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B655A; margin-top: 5px; letter-spacing: 0.04em; }
+  .exp-place { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9a9486; }
+  .exp-end { border-top: 1px solid rgba(22,20,15,0.14); }
+
+  /* ── STACK ── */
+  #stack { padding: 80px 26px 110px 26px; }
+  .stack-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 30px;
+  }
+  .stack-header h2 { font-size: clamp(28px, 4vw, 52px); font-weight: 600; letter-spacing: -0.03em; }
+  .stack-header .tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #9a9486; }
+  .cap-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(22,20,15,0.14);
+    border-top: 1px solid rgba(22,20,15,0.14);
+    border-bottom: 1px solid rgba(22,20,15,0.14);
+  }
+  .cap-col { background: #F1EEE7; padding: 26px 22px 30px 0; }
+  .cap-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #E8431C; margin-bottom: 18px; }
+  .cap-item { font-size: 17px; font-weight: 400; letter-spacing: -0.01em; padding: 7px 0; color: #16140F; }
+
+  /* ── CONTACT ── */
+  #contact { padding: 100px 26px 36px 26px; min-height: 90vh; display: flex; flex-direction: column; justify-content: space-between; }
+  .contact-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8A8377; }
+  .contact-h2 {
+    font-size: clamp(40px, 8.5vw, 140px); font-weight: 600;
+    letter-spacing: -0.045em; line-height: 0.9; margin: 24px 0 40px 0;
+  }
+  .contact-h2 .accent { color: #E8431C; }
+  .contact-email {
+    display: inline-flex; align-items: center; gap: 16px;
+    color: #F1EEE7; font-size: clamp(22px, 3.5vw, 46px);
+    font-weight: 400; letter-spacing: -0.02em;
+    border-bottom: 1px solid rgba(241,238,231,0.3);
+    padding-bottom: 8px;
+    transition: gap .3s, border-color .3s;
+  }
+  .contact-email:hover { gap: 28px; border-color: #E8431C; }
+  .contact-email .arr { color: #E8431C; }
+  .socials { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; }
+  .socials a { color: #8A8377; transition: color .25s; }
+  .socials a:hover { color: #F1EEE7; }
+  .contact-footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 16px;
+    border-top: 1px solid rgba(241,238,231,0.16);
+    padding-top: 18px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: 0.08em; color: #8A8377;
+  }
+  .contact-footer a { color: #8A8377; transition: color .25s; }
+  .contact-footer a:hover { color: #F1EEE7; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .exp-row { grid-template-columns: 1fr; gap: 4px; }
+    .exp-place { grid-column: 1; }
+    .cap-grid { grid-template-columns: 1fr; }
+    .hero-meta-grid { grid-template-columns: repeat(2, 1fr); }
+    .project-row { grid-template-columns: 44px 1fr; }
+    .project-right { display: none; }
+    #nav .right { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav">
+  <span>BERKAY&nbsp;OLCE&nbsp;©2026</span>
+  <nav id="nav-links"></nav>
+  <span class="right"><span class="blink"></span><span id="clock">ISTANBUL&nbsp;//&nbsp;--:--:--</span></span>
+</header>
+
+<!-- HERO -->
+<section id="top" data-section="00">
+  <div class="hero-top-row">
+    <span>INTERFACE&nbsp;&amp;&nbsp;SIMULATION&nbsp;ENGINEER<br>BUILDING&nbsp;SYSTEMS&nbsp;THAT&nbsp;MOVE&nbsp;—&nbsp;GAMES,<br>REALTIME&nbsp;TOOLS&nbsp;&amp;&nbsp;THE&nbsp;UI&nbsp;AROUND&nbsp;THEM.</span>
+    <span>[&nbsp;PORTFOLIO&nbsp;]<br>VER&nbsp;2026.06<br>SCROLL&nbsp;↓</span>
+  </div>
+
+  <div class="hero-name-wrap">
+    <div class="hero-name">
+      <div id="name-top">BERKAY</div>
+      <div class="hero-name-bottom"><span id="name-bottom">OLCE</span><span class="hero-name-reg">®</span></div>
+    </div>
+  </div>
+
+  <div class="hero-meta-grid">
+    <div class="hero-meta-cell"><div class="k">ROLE</div><div class="v">Interface &amp; Sim Engineer</div></div>
+    <div class="hero-meta-cell"><div class="k">BASED</div><div class="v">Istanbul · UTC+3</div></div>
+    <div class="hero-meta-cell"><div class="k">FOCUS</div><div class="v">Realtime systems</div></div>
+    <div class="hero-meta-cell"><div class="k">STATUS</div><div class="v">Open to projects</div></div>
+  </div>
+
+  <div class="hero-marquee-wrap">
+    <div class="hero-marquee-inner">
+      <span>SELECTED&nbsp;WORKS&nbsp;<span style="color:#E8431C;">✦</span>&nbsp;INTERFACE&nbsp;<span style="color:#E8431C;">✦</span>&nbsp;SIMULATION&nbsp;<span style="color:#E8431C;">✦</span>&nbsp;GAMES&nbsp;<span style="color:#E8431C;">✦</span>&nbsp;</span>
+      <span>SELECTED&nbsp;WORKS&nbsp;<span style="color:#E8431C;">✦</span>&nbsp;INTERFACE&nbsp;<span style="color:#E8431C;">✦</span>&nbsp;SIMULATION&nbsp;<span style="color:#E8431C;">✦</span>&nbsp;GAMES&nbsp;<span style="color:#E8431C;">✦</span>&nbsp;</span>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" data-section="01" class="dark">
+  <div class="inner">
+    <div class="work-header" data-reveal>
+      <h2>Selected<br>Works</h2>
+      <span class="tag">[ 01 / SIX&nbsp;PROJECTS / 2023—2025 ]</span>
+    </div>
+    <div id="projects-list"></div>
+    <div class="work-end"></div>
+  </div>
+</section>
+
+<!-- PREVIEW CARD -->
+<div id="preview-card">
+  <div class="preview-inner">
+    <span class="p-tag" id="preview-tag">PREVIEW // 01</span>
+    <div>
+      <div class="p-title" id="preview-title">AETHER ENGINE</div>
+      <div class="p-cat" id="preview-cat">Realtime Simulation</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" data-section="02" class="light">
+  <div class="inner">
+    <span class="about-label" data-reveal>02 / ABOUT</span>
+    <div class="about-grid">
+      <p class="about-text" data-reveal>
+        I build <span class="accent">interfaces for systems that move</span> — simulations, multiplayer games, and the realtime tools that shape them. Equal parts engineer and designer, I care about the <em>feel of a single frame</em> as much as the logic running beneath it.
+      </p>
+      <div data-reveal data-reveal-delay>
+        <div class="about-portrait">[ PORTRAIT / 4:5 ]</div>
+        <p class="about-note">Currently independent, taking on simulation, interface and game projects. Previously shipped engines, design systems and netcode across studios and startups.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATH -->
+<section id="path" data-section="03" class="light">
+  <div class="inner">
+    <div class="path-header" data-reveal>
+      <h2>The Path</h2>
+      <span class="tag">03 / EXPERIENCE</span>
+    </div>
+    <div class="exp-row">
+      <span class="exp-year">2024 — NOW</span>
+      <div><div class="exp-role">Independent</div><div class="exp-note">Simulation, interface &amp; game R&amp;D for studios and startups.</div></div>
+      <span class="exp-place">REMOTE</span>
+    </div>
+    <div class="exp-row">
+      <span class="exp-year">2022 — 2024</span>
+      <div><div class="exp-role">Senior Interface Engineer</div><div class="exp-note">Design systems, realtime tools &amp; front-of-product UI.</div></div>
+      <span class="exp-place">[ STUDIO ]</span>
+    </div>
+    <div class="exp-row">
+      <span class="exp-year">2020 — 2022</span>
+      <div><div class="exp-role">Game Systems Developer</div><div class="exp-note">Gameplay, netcode &amp; engine tooling on shipped titles.</div></div>
+      <span class="exp-place">[ COMPANY ]</span>
+    </div>
+    <div class="exp-row">
+      <span class="exp-year">2018 — 2020</span>
+      <div><div class="exp-role">Frontend &amp; Tools Developer</div><div class="exp-note">Web apps, prototypes &amp; internal pipelines.</div></div>
+      <span class="exp-place">[ STUDIO ]</span>
+    </div>
+    <div class="exp-end"></div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" data-section="04" class="light">
+  <div class="inner">
+    <div class="stack-header" data-reveal>
+      <h2>The Stack</h2>
+      <span class="tag">04 / CAPABILITIES</span>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-col">
+        <div class="cap-head">ENGINEERING</div>
+        <div class="cap-item">Realtime rendering</div>
+        <div class="cap-item">ECS architecture</div>
+        <div class="cap-item">Physics &amp; simulation</div>
+        <div class="cap-item">Multiplayer netcode</div>
+        <div class="cap-item">Shader programming</div>
+      </div>
+      <div class="cap-col">
+        <div class="cap-head">INTERFACE</div>
+        <div class="cap-item">Design systems</div>
+        <div class="cap-item">Motion &amp; micro-interaction</div>
+        <div class="cap-item">Prototyping</div>
+        <div class="cap-item">Information design</div>
+        <div class="cap-item">Accessibility</div>
+      </div>
+      <div class="cap-col">
+        <div class="cap-head">TOOLING</div>
+        <div class="cap-item">WebGL / WebGPU</div>
+        <div class="cap-item">TypeScript</div>
+        <div class="cap-item">Rust / C#</div>
+        <div class="cap-item">Unity / Godot</div>
+        <div class="cap-item">Custom engines</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" data-section="05" class="dark">
+  <div class="inner" style="width:100%;">
+    <span class="contact-tag">05 / CONTACT</span>
+    <h2 class="contact-h2" data-reveal>Let's build<br>something<br>that <span class="accent">moves.</span></h2>
+    <a href="mailto:berkayolcee@gmail.com" class="contact-email">
+      berkayolcee@gmail.com<span class="arr">↗</span>
+    </a>
+    <div class="socials">
+      <a href="#" target="_blank" rel="noopener">GITHUB&nbsp;↗</a>
+      <a href="#" target="_blank" rel="noopener">ITCH.IO&nbsp;↗</a>
+      <a href="#" target="_blank" rel="noopener">TWITTER&nbsp;/&nbsp;X&nbsp;↗</a>
+      <a href="#" target="_blank" rel="noopener">LINKEDIN&nbsp;↗</a>
+    </div>
+  </div>
+  <div class="inner contact-footer" style="width:100%;">
+    <span>© 2026 BERKAY OLCE — DESIGNED &amp; BUILT FROM SCRATCH</span>
+    <span>ISTANBUL // <span id="clock-foot">--:--:--</span> // 41.0°N 28.9°E</span>
+    <a href="#top">BACK TO TOP ↑</a>
+  </div>
+</section>
+
+<script>
+  /* ── DATA ── */
+  const NAV_ITEMS = [
+    { n: "00", label: "INDEX", id: "top" },
+    { n: "01", label: "WORK",  id: "work" },
+    { n: "02", label: "ABOUT", id: "about" },
+    { n: "03", label: "PATH",  id: "path" },
+    { n: "04", label: "STACK", id: "stack" },
+    { n: "05", label: "CONTACT", id: "contact" }
+  ];
+
+  const PROJECTS = [
+    { n: "01", title: "AETHER ENGINE",  cat: "Realtime Simulation", year: "2025" },
+    { n: "02", title: "VELLUM",         cat: "Interface System",    year: "2025" },
+    { n: "03", title: "DRIFT PROTOCOL", cat: "Multiplayer Game",    year: "2024" },
+    { n: "04", title: "CARTOGRAPH",     cat: "Procedural Tooling",  year: "2024" },
+    { n: "05", title: "HALCYON",        cat: "Narrative Game",      year: "2023" },
+    { n: "06", title: "SYNTH OS",       cat: "UI Kit / Motion",     year: "2023" }
+  ];
+
+  /* ── CLOCK ── */
+  function tick() {
+    try {
+      const t = new Date().toLocaleTimeString("en-GB", { hour12: false, timeZone: "Europe/Istanbul" });
+      const str = "ISTANBUL&nbsp;//&nbsp;" + t;
+      document.getElementById("clock").innerHTML = str;
+      document.getElementById("clock-foot").textContent = t;
+    } catch(e) {
+      const t = new Date().toLocaleTimeString("en-GB", { hour12: false });
+      document.getElementById("clock").textContent = "ISTANBUL // " + t;
+      document.getElementById("clock-foot").textContent = t;
+    }
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* ── SCRAMBLE ── */
+  const GLYPHS = "##@%&$*/<>[]{}ABCDEFGHJKLMNPRSTUVWXYZ0123456789";
+  function scramble() {
+    const top = "BERKAY", bot = "OLCE", total = 42;
+    let frame = 0;
+    const build = (target, shown) => {
+      let out = "";
+      for (let i = 0; i < target.length; i++) {
+        out += i < shown ? target[i] : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+      }
+      return out;
+    };
+    const elTop = document.getElementById("name-top");
+    const elBot = document.getElementById("name-bottom");
+    const finish = () => { clearInterval(t); elTop.textContent = top; elBot.textContent = bot; };
+    const t = setInterval(() => {
+      frame++;
+      const prog = Math.min(frame / total, 1);
+      elTop.textContent = build(top, Math.floor(prog * (top.length + 1)));
+      elBot.textContent = build(bot, Math.floor(Math.max(0, prog - 0.15) / 0.85 * (bot.length + 1)));
+      if (prog >= 1) finish();
+    }, 45);
+    setTimeout(finish, 2600);
+  }
+  scramble();
+
+  /* ── NAV BUILD ── */
+  let activeSection = "00";
+  function buildNav() {
+    const nav = document.getElementById("nav-links");
+    nav.innerHTML = NAV_ITEMS.map(i =>
+      `<a href="#${i.id}" data-nav="${i.n}"><span class="nav-marker">${i.n === activeSection ? "●" : "·"}</span> ${i.n} ${i.label}</a>`
+    ).join("");
+  }
+  buildNav();
+
+  /* ── SECTION OBSERVER ── */
+  const sections = document.querySelectorAll("[data-section]");
+  const so = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        activeSection = e.target.getAttribute("data-section");
+        document.querySelectorAll("#nav-links [data-nav]").forEach(a => {
+          a.querySelector(".nav-marker").textContent = a.getAttribute("data-nav") === activeSection ? "●" : "·";
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+  sections.forEach(s => so.observe(s));
+
+  /* ── REVEAL OBSERVER ── */
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("revealed"); ro.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+  document.querySelectorAll("[data-reveal]").forEach(el => ro.observe(el));
+
+  /* ── PROJECTS ── */
+  const list = document.getElementById("projects-list");
+  const previewCard = document.getElementById("preview-card");
+  const previewTag = document.getElementById("preview-tag");
+  const previewTitle = document.getElementById("preview-title");
+  const previewCat = document.getElementById("preview-cat");
+
+  PROJECTS.forEach(p => {
+    const row = document.createElement("div");
+    row.className = "project-row";
+    row.innerHTML = `
+      <span class="project-n">${p.n}</span>
+      <div class="project-mid">
+        <span class="project-title">${p.title}</span>
+        <span class="project-cat">${p.cat}</span>
+      </div>
+      <div class="project-right">
+        <span class="project-year">${p.year}</span>
+        <span class="project-arr">↗</span>
+      </div>`;
+    row.addEventListener("mouseenter", () => {
+      previewTag.textContent = "PREVIEW // " + p.n;
+      previewTitle.textContent = p.title;
+      previewCat.textContent = p.cat;
+      previewCard.style.opacity = "1";
+      previewCard.style.transform = "translate(-50%,-50%) scale(1)";
+    });
+    list.appendChild(row);
+  });
+
+  list.addEventListener("mousemove", e => {
+    previewCard.style.left = (e.clientX + 24) + "px";
+    previewCard.style.top = e.clientY + "px";
+  });
+  list.addEventListener("mouseleave", () => {
+    previewCard.style.opacity = "0";
+    previewCard.style.transform = "translate(-50%,-50%) scale(0.96)";
+  });
+</script>
+</body>
+</html>

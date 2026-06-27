@@ -120,6 +120,11 @@ function tokyo_tm_modalbox_about() {
 		modalBox.removeClass('opened');
 		return false;
 	});
+	modalBox.on('click', function (e) {
+		if (jQuery(e.target).hasClass('tokyo_tm_modalbox_about')) {
+			modalBox.removeClass('opened');
+		}
+	});
 }
 
 // -------------------------------------------------
@@ -168,6 +173,23 @@ function tokyo_tm_modalbox_portfolio() {
 		modalBox.find('.top_image').html(parent.find('.popup_info').html());
 		modalBox.find('.portfolio_main_title').html('<h3>' + title + '</h3>' + '<span>' + category + '</span>');
 		tokyo_tm_popup();
+		tokyo_tm_data_images();
+
+		modalBox.find('.additional_images').magnificPopup({
+			delegate: 'a.zoom',
+			type: 'image',
+			gallery: { enabled: true },
+			removalDelay: 300,
+			mainClass: 'mfp-fade'
+		});
+	});
+
+	modalBox.on('click', function (e) {
+		if (jQuery(e.target).hasClass('tokyo_tm_modalbox')) {
+			modalBox.removeClass('opened');
+			modalBox.find('.description_wrap').html('');
+			jQuery('body').removeClass('modal');
+		}
 	});
 }
 

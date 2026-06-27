@@ -1,0 +1,154 @@
+========================================
+BERKAY ÖLÇE
+========================================
+Telefon    : xxxxxxxxxx
+E-Posta    : xxxxxxxxxxxx
+Konum      : Kocaeli / Gölcük, Türkiye
+LinkedIn   : https://www.linkedin.com/in/olce/
+GitHub     : https://github.com/Moon-Chain
+Portföy    : https://moon-chain.github.io
+
+
+----------------------------------------
+PROFIL ÖZETI
+----------------------------------------
+7 yıldır yazılım geliştiriyorum; kariyerime Full Stack web geliştirmeyle başladım,
+ardından oyun geliştirme alanına geçerek kendi Discord simülasyon motorumu (Bitcord.js)
+sıfırdan inşa ettim. Farklı endüstrilerin kesişim noktalarında orijinal çözümler üretmeyi
+ve kısa sürede (2-72 saat) yüksek kaliteli çıktılar elde etmeyi seviyorum.
+
+
+----------------------------------------
+DENEYİM
+----------------------------------------
+
+MoonArctic Games | Kurucu & Bağımsız Oyun Geliştirici
+Kasım 2023 – Nisan 2025 | İstanbul, Türkiye
+- Kendi geliştirdiğim Bitcord.js oyun motoruyla 8+ oyun projesi tamamladım.
+- Mağara Jam #4'te "En Orijinal Oyun" ödülünü aldım (400 oyun arasından;
+  Elraenn dahil önemli içerik üreticileri jüride yer aldı).
+- "Let's Make GTA 6" (Ludum Dare 50): 16.739 görüntülenme, 6.300 browser play.
+- "Jammer Jammer" (Mağara Jam #4): 1.500 görüntülenme, 780 browser play.
+- Birden fazla jam projesinde ekip lideri ve yazılım sorumlusu olarak görev aldım.
+
+
+Dedica Teknoloji AŞ (eski adı: Akın Dizayn) | Full Stack Web Developer
+Ekim 2019 – Mart 2021 | İzmit, Kocaeli, Türkiye
+- 9 kurumsal web projesi geliştirdim (UI + Admin paneli + API):
+    • Kardelen Su        — 554.140 satır kod | UI + Admin + Bayilik sistemi + API
+    • Sandino Mobilya   — 230.006 satır kod | UI + Admin
+    • Megaser           — 166.370 satır kod | UI + Admin
+    • CML Kargo         — Kargo takip sistemi | ASP.NET
+    • Yenir             — Front-End UI
+    • Medwave           — Front-End UI
+    • + 3 ek proje
+- Mobil uygulamalar için RESTful API servisi ve teknik dokümantasyon tasarladım.
+
+
+----------------------------------------
+EĞİTİM
+----------------------------------------
+
+Sabancı Mesleki Teknik Anadolu Lisesi
+Bilişim Teknolojileri & Web Programcılığı | Mezuniyet: Haziran 2020
+
+
+----------------------------------------
+TEKNİK YETKİNLİKLER
+----------------------------------------
+
+Diller & Framework'ler:
+  JavaScript (Vanilla, Node.js), HTML/CSS, PHP, C# (.NET / Unity), Python, ASP.NET
+
+Web:
+  Electron, SolidJS, React, Next.js, Tailwind CSS, REST API tasarımı, CMS geliştirme
+
+Oyun Geliştirme:
+  Unity (C#), Bitcord.js (kendi motorum), Pixel Art, UI Tasarımı, Game Design
+
+Araçlar:
+  Git / GitHub, Photoshop, VS Code
+
+
+----------------------------------------
+PROJELER
+----------------------------------------
+
+Bitcord.js — Oyun Motoru (Açık Kaynak)
+  Kendi geliştirdiğim Discord arayüz simülasyon framework'ü.
+  Birden fazla jam ve bağımsız projede kullandım.
+  https://github.com/Moon-Chain/bitcord.js
+
+- - -
+
+Jammer Jammer | Mağara Jam #4 · 2023                [ÖDÜLLÜ]
+  72 saatte tek başıma geliştirdim. Senaryo, pixel art, yazılım ve video
+  alanlarının hepsini üstlendim. Bitcord.js ile yapıldı.
+  Ödül: En Orijinal Oyun (400 oyun arasından, Elraenn jürisi)
+  https://moon-chain.itch.io/jammer-jammer
+
+Let's Make GTA 6 | Ludum Dare 50 · 2022             [16.739 görüntülenme]
+  "Kaçınılmazı Ertele" temasına özel, Bitcord.js üzerinde geçen bir baskın oyunu.
+  Projeye özel Cord-OS (pencere yöneticisi) altyapısı yazdım.
+  https://moon-chain.itch.io/lets-make-gta-6
+
+System Cursed | Ar-Ge Projesi · 2023
+  Jam dışı, 1 aylık korku oyunu geliştirme deneyi.
+  Bitcord.js içine Unity gömülerek yapıldı (3D + simülasyon hibrit mimari).
+  Ekip: 3D Artist / Composer, Coder / Pixel Artist, Berkay (Kodlama, UI, Game Design)
+  https://moon-chain.itch.io/system-cursed
+
+Candyland | ITU OTG Save the Jam
+  Unity C# ile geliştirdim. Ekibin yazılım sorumlusu ve yöneticisiydim
+  (2D Artist + Musician ile birlikte 3 kişilik ekip).
+  https://moon-chain.itch.io/candyland
+
+Bermuda | Jamination 5 · ITU OTG
+  6 kişilik ekipte yazılım sorumlusu olarak görev aldım. Unity C#.
+  https://dactarium.itch.io/bermuda
+
+Depression Stitch | FrostJam 4 · ITU OTG
+  https://moon-chain.itch.io/depression-stitch
+
+Rise from the Ashes | Shelter Jam
+  Clicker / stratejik kasa açma oyunu. Web teknolojileri ile geliştirildi.
+  https://moon-chain.itch.io/rise-from-the-ashes
+
+EI — Evil Intelligence | HuJam · ACM Hacettepe
+  Bitcord.js ile geliştirildi.
+  https://moon-chain.itch.io/ei-evil-intelligence
+
+Hack Force | Demo · 2022
+  Hacking simülasyon oyunu; gerçek komutlar (connect, bruteforce) ve
+  gerçek zamanlı şifre kırma animasyonları içeriyor. Tamamen HTML ile yazıldı.
+  GIST 2022 fuarında 60 stant arasında yer aldım, oyunu 3 gün boyunca tanıttım.
+  Basında: oyungezer.com.tr — "GIST 2022'de Öne Çıkan Türk Bağımsız Yapımları"
+  https://oyungezer.com.tr/haber/gist-2022de-one-cikan-turk-bagimsiz-yapimlari/detay
+
+Diğer Katılımlar (Editör / Organizasyon):
+  ITU OTG – Jamination 7, Global Game Jam '24,
+  Bahçeşehir Ü. – Zone'o'ween Jam,
+  İstanbul Kent Ü. – Board Game Jam
+
+
+----------------------------------------
+ÖDÜLLER
+----------------------------------------
+
+En Orijinal Oyun
+  Mağara Jam #4 | "Jammer Jammer" | 2023
+  400 katılımcı arasından seçildi.
+  Jüri: Tuğkan "Elraenn" Gönültaş, Batu "Videoyun" Bozkan,
+        Orhun Kayaalp, Ataberk "Atom" Palacıoğlu, Tolunay Genç.
+
+
+----------------------------------------
+KURSLAR (Seçki)
+----------------------------------------
+
+(120+ Saat) Komple Uygulamalı Web Geliştirme Eğitimi - Sadık Turan / Udemy
+E-Ticaret: Katmanlı Mimari ile Core MVC - Sadık Turan / Udemy
+Unity ile Oyun Geliştirme (C#) — Mustafa Akkuzu / Udemy
+
+
+========================================

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,6 +20,42 @@
 	<link rel="stylesheet" type="text/css" href="portfolio_assets/css/colors.css" />
 	<link rel="stylesheet" type="text/css" href="portfolio_assets/css/style.css" />
 
+    <style>
+        /* Popup main image height fix */
+        .tokyo_tm_modalbox .popup_details .top_image {
+            min-height: 280px !important;
+        }
+        /* Wider popup box */
+        .tokyo_tm_modalbox .box_inner {
+            max-width: 860px;
+        }
+        /* Description text */
+        .tokyo_tm_modalbox .textbox p {
+            color: #ccc;
+            font-size: 14.5px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        /* Detail row labels */
+        .tokyo_tm_modalbox .detailbox ul li .first {
+            min-width: 90px;
+        }
+        /* Gallery images */
+        .additional_images ul {
+            display: flex;
+            gap: 10px;
+        }
+        .additional_images ul li {
+            flex: 1;
+            list-style: none;
+        }
+        .additional_images ul li .list_inner a img {
+            transition: opacity 0.2s;
+        }
+        .additional_images ul li .list_inner a img:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 
 <body class="dark">
@@ -119,6 +155,24 @@
 									<span class="name">Photoshop</span>
 								</div>
 							</li>
+						<li>
+							<div class="list_inner">
+								<h3><a href="#"><img style="height:60px;" src="assets/images/solidjs.png"></a></h3>
+								<span class="name">Solid.js</span>
+							</div>
+						</li>
+						<li>
+							<div class="list_inner">
+								<h3><a href="#"><img style="height:60px;" src="portfolio_assets/img/logo/electron.svg"></a></h3>
+								<span class="name">Electron.js</span>
+							</div>
+						</li>
+						<li>
+							<div class="list_inner">
+								<h3><a href="#"><img style="height:60px;" src="portfolio_assets/img/logo/tauri.svg"></a></h3>
+								<span class="name">Tauri</span>
+							</div>
+						</li>
 						</ul>
 					</div>
 				</div>
@@ -168,7 +222,7 @@
 					<ul>
 						<li class="active"><a href="#home"><i class="fa fa-house"></i> Home</a></li>
 						<li><a href="#about"><i class="fa fa-user"></i> About</a></li>
-						<!-- <li><a href="#portfolio"><i class="fa fa-folder"></i> Content</a></li> -->
+						<li><a href="#portfolio"><i class="fa fa-folder"></i> Portfolio</a></li>
 						<!-- <li><a href="#news"><i class="fa fa-file-lines"></i> Blog</a></li> -->
 						<!-- <li><a href="#contact">Contact</a></li> -->
 					</ul>
@@ -208,12 +262,12 @@
 											<li><a class="moonicon_linkedin" target="_blank"
 													href="https://www.linkedin.com/in/olce/"><i
 														class="fa-brands fa-2x fa-linkedin"></i></i></a></li>
-											<li><a class="moonicon_youtube" target="_blank"
+											<!-- <li><a class="moonicon_youtube" target="_blank"
 													href="https://www.youtube.com/channel/UCbo03n2FaGKHtBTO5Y6WWBg"><i
-														class="fa-brands fa-2x fa-youtube"></i></i></a></li>
-											<li><a class="moonicon_spotify" target="_blank"
+														class="fa-brands fa-2x fa-youtube"></i></i></a></li> -->
+											<!-- <li><a class="moonicon_spotify" target="_blank"
 													href="https://open.spotify.com/user/4xjr1gg05y525ygnpclueqqy2"><i
-														class="fa-brands fa-2x fa-spotify"></i></i></a></li>
+														class="fa-brands fa-2x fa-spotify"></i></i></a></li> -->
 											<li><a class="moonicon_instagram" target="_blank"
 													href="https://www.instagram.com/berkay.olce/"><i
 														class="fa-brands fa-2x fa-instagram"></i></i></a></li>
@@ -241,7 +295,7 @@
 													document.write(/\d{4}/.exec(Date())[0] - 2002)
 												</script> yaşındayım ve 6 yıllık yazılım geliştirme deneyimine sahibim. 
 												<br> Kariyerime web ve masaüstü uygulamaları geliştirerek başladım, ancak zamanla asıl tutkumun özgün ve yaratıcı oyunlar geliştirmek olduğunu fark ettim. 
-												<br> Şu anda <a target="_blank" style="color: #b6d3ff;" href="https://www.moonarctic.com">MoonArctic Games </a> adıyla bağımsız oyunlar geliştiriyorum ve fikirden ürüne kadar tüm süreci tek başıma yürütüyorum.</a>
+												<br> Şu anda <a target="_blank" style="color: #b6d3ff;" href="https://www.moonarctic.com">MoonArctic Games </a> adıyla bağımsız oyunlar geliştiriyorum ve fikirden ürüne kadar tüm süreci tek başıma yürütüyorum. <br> Ayni zamanda web gelistirme alaninda freelance projeler uretiyorum; PHP, JavaScript, HTML/CSS ve Solid.js konularinda gelistirme ve danismanlik hizmeti sunuyorum.</a>
 										</div>
 										<div class="tokyo_tm_button button_learn_more">
 											<a href="#">Beceriler</a>
@@ -278,8 +332,6 @@
 										<ul>
 											<li><a href="#" class="current" data-filter="*">All</a></li>
 											<li><a href="#" data-filter=".game">Game</a></li>
-											<li><a href="#" data-filter=".youtube">Youtube</a></li>
-											<li><a href="#" data-filter=".image">Image</a></li>
 											<li><a href="#" data-filter=".project">Project</a></li>
 										</ul>
 									</div>
@@ -290,7 +342,236 @@
 									<li class="game">
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
-												data-title="Lets's Make GTA 6" data-category="Ludum Dare 50">
+												data-title="Jammer Jammer" data-category="Magara Jam #4">
+												<a class="popup_info" href="#">
+													<img src="portfolio_assets/img/portfolio/jammer_jammer.png" alt="" />
+													<div class="main_image"
+														data-img-url="portfolio_assets/img/portfolio/jammer_jammer.png">
+													</div>
+												</a>
+												<div class="details_all_wrap">
+													<div class="popup_details">
+														<div class="top_image"></div>
+														<div class="portfolio_main_title"></div>
+														<div class="main_details">
+															<div class="textbox">
+																<p><strong style="color:#ffd700;">En Orijinal Oyun — Magara Jam #4</strong> &nbsp;|&nbsp; 400+ katilimci, 5 kisilik juri</p>
+																<p>Magara Jam #4 kapsaminda 72 saatte tek basima gelistirdiğim simulasyon oyunu. Jam temasi "Kendin olmak senin super gucun"u felsefi bir senaryoya donusturdum.</p>
+																<p>Senaryoda "Yeraldi GameDev" ekibi jam'i hile yoluyla kazanmaya calisir — bu eyleme "Jammer Jammer" denir. Jam ruhuna aykiri bu hareket lanetlenir; gunu kurtarmak oyuncuya duser.</p>
+																<p>Kendi gelistirdigim <a href="https://github.com/Moon-Chain/bitcord.js" target="_blank" style="color:#b6d3ff;">Bitcord.js</a> oyun motoruyla yapildi. Senaryo, piksel art, yazilim ve video tamamen tek kisilik calisma. Ses: MadRooster kütüphanesi + "Thor's Hammer" savas muzigi.</p>
+															</div>
+															<div class="detailbox">
+																<ul>
+																	<li>
+																		<span class="first">Kategori</span>
+																		<span>Game Jam — Magara Jam #4</span>
+																	</li>
+																	<li>
+																		<span class="first">Tarih</span>
+																		<span>Subat 2022</span>
+																	</li>
+																	<li>
+																		<span class="first">Motor</span>
+																		<span>Bitcord.js (ozel motor)</span>
+																	</li>
+																	<li>
+																		<span class="first">Baglanti</span>
+																		<span><a href="https://moon-chain.itch.io/jammer-jammer" target="_blank">itch.io'da Oyna</a></span>
+																	</li>
+																	<li>
+																		<span class="first">Jam</span>
+																		<span><a href="https://itch.io/jam/magara-jam-4" target="_blank">Magara Jam #4</a></span>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="additional_images">
+															<ul>
+																<li>
+																	<div class="list_inner">
+																		<a href="https://img.itch.zone/aW1nLzg0MjIzNDMucG5n/original/MtlbZq.png" class="zoom" data-gallery="jammer-jammer">
+																			<img src="https://img.itch.zone/aW1nLzg0MjIzNDMucG5n/original/MtlbZq.png" alt="" style="width:100%;height:110px;object-fit:cover;border-radius:6px;cursor:zoom-in;">
+																		</a>
+																	</div>
+																</li>
+																<li>
+																	<div class="list_inner">
+																		<a href="portfolio_assets/img/portfolio/juriler.jpg" class="zoom" data-gallery="jammer-jammer">
+																			<img src="portfolio_assets/img/portfolio/juriler.jpg" alt="" style="width:100%;height:110px;object-fit:cover;border-radius:6px;cursor:zoom-in;">
+																		</a>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="game">
+										<div class="inner">
+											<div class="entry tokyo_tm_portfolio_animation_wrap"
+												data-title="Hack Force" data-category="GIST 2022 Indie">
+												<a class="popup_info" href="#">
+													<img src="portfolio_assets/img/portfolio/hf1.png" alt="" />
+													<div class="main_image"
+														data-img-url="portfolio_assets/img/portfolio/hf1.png">
+													</div>
+												</a>
+												<div class="details_all_wrap">
+													<div class="popup_details">
+														<div class="top_image"></div>
+														<div class="portfolio_main_title"></div>
+														<div class="main_details">
+															<div class="textbox">
+																<p><strong style="color:#4af;">GİST 2022 Indie Area</strong> &nbsp;|&nbsp; Oyungezer.com.tr tarafindan one cikarildi</p>
+																<p>"connect", "bruteforce" gibi gercek terminal komutlariyla ilerlenebilen bir hacking simulasyon oyunu. Klasik bulmaca veya QTE mekaniklerinden vazgecilip gercek komut satiri deneyimine odaklanildi; gercek zamanli sifre kirma animasyonlari iceriyor.</p>
+																<p>Demo iki haftada tamamlandi ve Gaming Istanbul (GIST) 2022 Indie Alaninda sergilendi. 60 standin yer aldigi fuarda Oyungezer.com.tr tarafindan one cikan 7 bagimsiz yapimdan biri secildi. Not: Fuarda bir ziyaretci tarayici konsolunu acarak oyunu gercekten hackledi!</p>
+																<p>Tamamen HTML/CSS/JavaScript ile yazilmistir; harici oyun motoru kullanilmamistir.</p>
+															</div>
+															<div class="detailbox">
+																<ul>
+																	<li>
+																		<span class="first">Kategori</span>
+																		<span>Simulasyon — HTML5</span>
+																	</li>
+																	<li>
+																		<span class="first">Tarih</span>
+																		<span>2022</span>
+																	</li>
+																	<li>
+																		<span class="first">Basin</span>
+																		<span><a href="https://oyungezer.com.tr/haber/gist-2022de-one-cikan-turk-bagimsiz-yapimlari/detay" target="_blank">Oyungezer.com.tr</a></span>
+																	</li>
+																	<li>
+																		<span class="first">Video</span>
+																		<span><a href="https://www.youtube.com/watch?v=RsLXPP3CQc0" target="_blank">YouTube'da Izle</a></span>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="additional_images">
+															<ul>
+																<li>
+																	<div class="list_inner">
+																		<a href="portfolio_assets/img/portfolio/hf2.png" class="zoom" data-gallery="hack-force">
+																			<img src="portfolio_assets/img/portfolio/hf2.png" alt="" style="width:100%;height:110px;object-fit:cover;border-radius:6px;cursor:zoom-in;">
+																		</a>
+																	</div>
+																</li>
+																<li>
+																	<div class="list_inner">
+																		<a href="portfolio_assets/img/portfolio/hf3.png" class="zoom" data-gallery="hack-force">
+																			<img src="portfolio_assets/img/portfolio/hf3.png" alt="" style="width:100%;height:110px;object-fit:cover;border-radius:6px;cursor:zoom-in;">
+																		</a>
+																	</div>
+																</li>
+																<li>
+																	<div class="list_inner">
+																		<a href="portfolio_assets/img/portfolio/hf4.png" class="zoom" data-gallery="hack-force">
+																			<img src="portfolio_assets/img/portfolio/hf4.png" alt="" style="width:100%;height:110px;object-fit:cover;border-radius:6px;cursor:zoom-in;">
+																		</a>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="project">
+										<div class="inner">
+											<div class="entry tokyo_tm_portfolio_animation_wrap"
+												data-title="Kardelen Su" data-category="Web Projesi">
+												<a class="popup_info" href="#">
+													<img src="portfolio_assets/img/portfolio/kardelen.png" alt="" />
+													<div class="main_image"
+														data-img-url="portfolio_assets/img/portfolio/kardelen.png">
+													</div>
+												</a>
+												<div class="details_all_wrap">
+													<div class="popup_details">
+														<div class="top_image"></div>
+														<div class="portfolio_main_title"></div>
+														<div class="main_details">
+															<div class="textbox">
+																<p>Turkiye'de su dagitim sektorunde faaliyet gosteren Kardelen Su icin tasarim taslagindan üretime kadar yonettigim tam kapsamli web projesi.</p>
+																<p><strong>Backend:</strong> PHP CodeIgniter ile RESTful API mimarisi ve yonetim paneli. Siparis takibi, sube yonetimi, musteri adresleri ve urun katalogu yonetimi iceriyor. Mobil uygulama entegrasyonu icin ayrica API gelistirildi.</p>
+																<p><strong>Frontend:</strong> Verilen tasarim taslagindan piksel-perfect HTML/CSS/JavaScript implementasyonu. Mobil, tablet ve masaustu icin tam responsive tasarim. Sayfa yuku optimize edildi.</p>
+															</div>
+															<div class="detailbox">
+																<ul>
+																	<li>
+																		<span class="first">Kategori</span>
+																		<span>Web Projesi — E-Ticaret + Kurumsal</span>
+																	</li>
+																	<li>
+																		<span class="first">Teknoloji</span>
+																		<span>PHP, CodeIgniter, MySQL, HTML/CSS, JavaScript</span>
+																	</li>
+																	<li>
+																		<span class="first">Tarih</span>
+																		<span>2020</span>
+																	</li>
+																	<li>
+																		<span class="first">Website</span>
+																		<span><a href="https://www.kardelensu.com/" target="_blank">kardelensu.com</a></span>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="project">
+										<div class="inner">
+											<div class="entry tokyo_tm_portfolio_animation_wrap"
+												data-title="Bitcord.js" data-category="Oyun Motoru / Kütüphane">
+												<a class="popup_info" href="#">
+													<img src="portfolio_assets/img/portfolio/bitcord.png" alt="" />
+													<div class="main_image"
+														data-img-url="portfolio_assets/img/portfolio/bitcord.png">
+													</div>
+												</a>
+												<div class="details_all_wrap">
+													<div class="popup_details">
+														<div class="top_image"></div>
+														<div class="portfolio_main_title"></div>
+														<div class="main_details">
+															<div class="textbox">
+																<p>Discord arayuzunu ve UX mantigini taklit eden, tarayici tabanli simulasyon motoru ve oyun altyapisi. HTML, CSS ve JavaScript ile sifirdan insa edildi; harici kutüphane kullanilmadi.</p>
+																<p><strong>Tasarim karari:</strong> Discord arayuzu hem tanidk hem bilgi yogun bir ortam sunuyor — bu da onu oyun ici senaryo ve diyalog arayuzu icin ideal kiliyor. Oyuncu gercek bir Discord deneyimiymiş gibi hissederek senaryoya dahil oluyor.</p>
+																<p>Jammer Jammer, Let's Make GTA 6, Evil Intelligence ve Depression Stitch oyunlarinin temelini olusturuyor. Moduler yapisi sayesinde farkli oyun senaryolarina hizlica adapte edilebiliyor. Acik kaynak olarak GitHub'da yayinlandi.</p>
+															</div>
+															<div class="detailbox">
+																<ul>
+																	<li>
+																		<span class="first">Kategori</span>
+																		<span>Oyun Motoru / JS Kutuphanesi</span>
+																	</li>
+																	<li>
+																		<span class="first">Teknoloji</span>
+																		<span>HTML, CSS, JavaScript</span>
+																	</li>
+																	<li>
+																		<span class="first">Kaynak</span>
+																		<span><a href="https://github.com/Moon-Chain/bitcord.js" target="_blank">GitHub'da Incele</a></span>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="game">
+										<div class="inner">
+											<div class="entry tokyo_tm_portfolio_animation_wrap"
+												data-title="Let's Make GTA 6" data-category="Ludum Dare 50">
 												<a class="popup_info" href="#">
 													<img src="portfolio_assets/img/portfolio/letsmakegta.png" alt="" />
 													<div class="main_image"
@@ -303,98 +584,30 @@
 														<div class="portfolio_main_title"></div>
 														<div class="main_details">
 															<div class="textbox">
-																<p>We live in a world where we need to move quickly and
-																	iterate
-																	on our ideas as flexibly as possible. Building
-																	mockups
-																	strikes the ideal balance between true-life
-																	representation
-																	of the end product and ease of modification.</p>
-																<p>Mockups are useful both for the creative phase of the
-																	project
-																	- for instance when you're trying to figure out your
-																	user
-																	flows or the proper visual hierarchy - and the
-																	production
-																	phase when they will represent the target product.
-																	Making
-																	mockups a part of your creative and development
-																	process
-																	allows you to quickly and easily ideate.</p>
+																<p>Ludum Dare 50 Game Jam katilim oyunu. "Kacınılmazı Ertele" temasi, oyun tarihinin en uzun beklenen yapimi olan GTA 6'ya yapilan meta bir gonderme olarak yorumlandi.</p>
+																<p>Kendi gelistirdigim <a href="https://github.com/Moon-Chain/bitcord.js" target="_blank" style="color:#b6d3ff;">Bitcord.js</a> oyun motoruyla yapildi. Projeye ozel <strong>Cord-OS</strong> (pencere yoneticisi) altyapisi yazildi; Discord benzeri arayuz uzerinden Rockstar Games'in (parodiyle) ic isleyisini simule ediyor.</p>
+																	<p><strong style="color:#7ec8e3;">16.739 goruntulenme</strong> ve <strong style="color:#7ec8e3;">6.300 tarayici ici oynanma</strong> ile itch.io'daki en cok izlenen projem.</p>
 															</div>
 															<div class="detailbox">
 																<ul>
 																	<li>
-																		<span class="first">Client</span>
-																		<span>Alvaro Morata</span>
+																		<span class="first">Kategori</span>
+																		<span>Game Jam — Ludum Dare 50</span>
 																	</li>
 																	<li>
-																		<span class="first">Category</span>
-																		<span><a href="#">Detail</a></span>
+																		<span class="first">Motor</span>
+																		<span>Bitcord.js</span>
 																	</li>
 																	<li>
-																		<span class="first">Date</span>
-																		<span>March 07, 2021</span>
+																		<span class="first">Tarih</span>
+																		<span>Nisan 2022</span>
 																	</li>
 																	<li>
-																		<span class="first">Share</span>
-																		<ul class="share">
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/facebook.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/twitter.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/instagram.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/dribbble.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/tik-tok.svg"
-																						alt="" /></a></li>
-																		</ul>
+																		<span class="first">Baglanti</span>
+																		<span><a href="https://moon-chain.itch.io/lets-make-gta-6" target="_blank">itch.io'da Oyna</a></span>
 																	</li>
 																</ul>
 															</div>
-														</div>
-														<div class="additional_images">
-															<ul>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/1.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/2.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/3.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-															</ul>
 														</div>
 													</div>
 												</div>
@@ -404,256 +617,9 @@
 									<li class="game">
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
-												data-title="Rise From the Ashes" data-category="Shelter Jam">
+												data-title="Evil Intelligence" data-category="HuJam">
 												<a class="popup_info" href="#">
-													<img src="portfolio_assets/img/portfolio/rise_from_the_ashes.png"
-														alt="" />
-													<div class="main_image"
-														data-img-url="portfolio_assets/img/portfolio/rise_from_the_ashes.png">
-													</div>
-												</a>
-												<div class="details_all_wrap">
-													<div class="popup_details">
-														<div class="top_image"></div>
-														<div class="portfolio_main_title"></div>
-														<div class="main_details">
-															<div class="textbox">
-																<p>We live in a world where we need to move quickly and
-																	iterate
-																	on our ideas as flexibly as possible. Building
-																	mockups
-																	strikes the ideal balance between true-life
-																	representation
-																	of the end product and ease of modification.</p>
-																<p>Mockups are useful both for the creative phase of the
-																	project
-																	- for instance when you're trying to figure out your
-																	user
-																	flows or the proper visual hierarchy - and the
-																	production
-																	phase when they will represent the target product.
-																	Making
-																	mockups a part of your creative and development
-																	process
-																	allows you to quickly and easily ideate.</p>
-															</div>
-															<div class="detailbox">
-																<ul>
-																	<li>
-																		<span class="first">Client</span>
-																		<span>Alvaro Morata</span>
-																	</li>
-																	<li>
-																		<span class="first">Category</span>
-																		<span><a href="#">Detail</a></span>
-																	</li>
-																	<li>
-																		<span class="first">Date</span>
-																		<span>March 07, 2021</span>
-																	</li>
-																	<li>
-																		<span class="first">Share</span>
-																		<ul class="share">
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/facebook.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/twitter.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/instagram.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/dribbble.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/tik-tok.svg"
-																						alt="" /></a></li>
-																		</ul>
-																	</li>
-																</ul>
-															</div>
-														</div>
-														<div class="additional_images">
-															<ul>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/1.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/2.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/3.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="youtube">
-										<div class="inner">
-											<div class="entry tokyo_tm_portfolio_animation_wrap"
-												data-title="Oyunlar & Komik Anlar | #MagaraJam4 REWIND"
-												data-category="Youtube">
-												<a class="popup-youtube"
-													href="https://www.youtube.com/watch?v=iv7zS6eEQw4">
-													<img src="portfolio_assets/img/portfolio/magarajam_rewind.jpg"
-														alt="" />
-													<div class="main_image"
-														data-img-url="portfolio_assets/img/portfolio/magarajam_rewind.jpg">
-													</div>
-												</a>
-											</div>
-										</div>
-									</li>
-									<li class="game">
-										<div class="inner">
-											<div class="entry tokyo_tm_portfolio_animation_wrap"
-												data-title="Jammer Jammer" data-category="Mağara Jam #4">
-												<a class="popup_info" href="#">
-													<img src="portfolio_assets/img/portfolio/jammer_jammer.png"
-														alt="" />
-													<div class="main_image"
-														data-img-url="portfolio_assets/img/portfolio/jammer_jammer.png">
-													</div>
-												</a>
-												<div class="details_all_wrap">
-													<div class="popup_details">
-														<div class="top_image"></div>
-														<div class="portfolio_main_title"></div>
-														<div class="main_details">
-															<div class="textbox">
-																<p>We live in a world where we need to move quickly and
-																	iterate
-																	on our ideas as flexibly as possible. Building
-																	mockups
-																	strikes the ideal balance between true-life
-																	representation
-																	of the end product and ease of modification.</p>
-																<p>Mockups are useful both for the creative phase of the
-																	project
-																	- for instance when you're trying to figure out your
-																	user
-																	flows or the proper visual hierarchy - and the
-																	production
-																	phase when they will represent the target product.
-																	Making
-																	mockups a part of your creative and development
-																	process
-																	allows you to quickly and easily ideate.</p>
-															</div>
-															<div class="detailbox">
-																<ul>
-																	<li>
-																		<span class="first">Client</span>
-																		<span>Alvaro Morata</span>
-																	</li>
-																	<li>
-																		<span class="first">Category</span>
-																		<span><a href="#">Detail</a></span>
-																	</li>
-																	<li>
-																		<span class="first">Date</span>
-																		<span>March 07, 2021</span>
-																	</li>
-																	<li>
-																		<span class="first">Share</span>
-																		<ul class="share">
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/facebook.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/twitter.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/instagram.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/dribbble.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/tik-tok.svg"
-																						alt="" /></a></li>
-																		</ul>
-																	</li>
-																</ul>
-															</div>
-														</div>
-														<div class="additional_images">
-															<ul>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/1.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/2.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/3.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="game">
-										<div class="inner">
-											<div class="entry tokyo_tm_portfolio_animation_wrap"
-												data-title="Evil Intelligence" data-category="Hujam ">
-												<a class="popup_info" href="#">
-													<img src="portfolio_assets/img/portfolio/evil_intelligence.png"
-														alt="" />
+													<img src="portfolio_assets/img/portfolio/evil_intelligence.png" alt="" />
 													<div class="main_image"
 														data-img-url="portfolio_assets/img/portfolio/evil_intelligence.png">
 													</div>
@@ -664,98 +630,25 @@
 														<div class="portfolio_main_title"></div>
 														<div class="main_details">
 															<div class="textbox">
-																<p>We live in a world where we need to move quickly and
-																	iterate
-																	on our ideas as flexibly as possible. Building
-																	mockups
-																	strikes the ideal balance between true-life
-																	representation
-																	of the end product and ease of modification.</p>
-																<p>Mockups are useful both for the creative phase of the
-																	project
-																	- for instance when you're trying to figure out your
-																	user
-																	flows or the proper visual hierarchy - and the
-																	production
-																	phase when they will represent the target product.
-																	Making
-																	mockups a part of your creative and development
-																	process
-																	allows you to quickly and easily ideate.</p>
+																<p>HuJam Game Jam katilim oyunu. Yapay zeka ve kotu niyet temasi uzerine kurulu bir simulasyon ve senaryo deneyimi.</p>
+																<p>Kendi gelistirdigim Bitcord.js oyun motoruyla yapildi — Discord benzeri arayuz uzerinden oynanan bir senaryo oyunu.</p>
 															</div>
 															<div class="detailbox">
 																<ul>
 																	<li>
-																		<span class="first">Client</span>
-																		<span>Alvaro Morata</span>
+																		<span class="first">Kategori</span>
+																		<span>Game Jam — HuJam · ACM Hacettepe</span>
 																	</li>
 																	<li>
-																		<span class="first">Category</span>
-																		<span><a href="#">Detail</a></span>
+																		<span class="first">Motor</span>
+																		<span>Bitcord.js</span>
 																	</li>
 																	<li>
-																		<span class="first">Date</span>
-																		<span>March 07, 2021</span>
-																	</li>
-																	<li>
-																		<span class="first">Share</span>
-																		<ul class="share">
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/facebook.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/twitter.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/instagram.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/dribbble.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/tik-tok.svg"
-																						alt="" /></a></li>
-																		</ul>
+																		<span class="first">Baglanti</span>
+																		<span><a href="https://moon-chain.itch.io/ei-evil-intelligence" target="_blank">itch.io'da Oyna</a></span>
 																	</li>
 																</ul>
 															</div>
-														</div>
-														<div class="additional_images">
-															<ul>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/1.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/2.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/3.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-															</ul>
 														</div>
 													</div>
 												</div>
@@ -767,8 +660,7 @@
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="Depression Stitch" data-category="FrostJam #4">
 												<a class="popup_info" href="#">
-													<img src="portfolio_assets/img/portfolio/depression_stitch.png"
-														alt="" />
+													<img src="portfolio_assets/img/portfolio/depression_stitch.png" alt="" />
 													<div class="main_image"
 														data-img-url="portfolio_assets/img/portfolio/depression_stitch.png">
 													</div>
@@ -779,338 +671,69 @@
 														<div class="portfolio_main_title"></div>
 														<div class="main_details">
 															<div class="textbox">
-																<p>We live in a world where we need to move quickly and
-																	iterate
-																	on our ideas as flexibly as possible. Building
-																	mockups
-																	strikes the ideal balance between true-life
-																	representation
-																	of the end product and ease of modification.</p>
-																<p>Mockups are useful both for the creative phase of the
-																	project
-																	- for instance when you're trying to figure out your
-																	user
-																	flows or the proper visual hierarchy - and the
-																	production
-																	phase when they will represent the target product.
-																	Making
-																	mockups a part of your creative and development
-																	process
-																	allows you to quickly and easily ideate.</p>
+																<p>FrostJam #4 Game Jam katilim oyunu. Kis temali, duygusal agirlikli bir anlati ve simulasyon oyunu.</p>
+																<p>Kendi gelistirdigim Bitcord.js oyun motoruyla yapildi.</p>
 															</div>
 															<div class="detailbox">
 																<ul>
 																	<li>
-																		<span class="first">Client</span>
-																		<span>Alvaro Morata</span>
+																		<span class="first">Kategori</span>
+																		<span>Game Jam — FrostJam #4</span>
 																	</li>
 																	<li>
-																		<span class="first">Category</span>
-																		<span><a href="#">Detail</a></span>
+																		<span class="first">Motor</span>
+																		<span>Bitcord.js</span>
 																	</li>
 																	<li>
-																		<span class="first">Date</span>
-																		<span>March 07, 2021</span>
-																	</li>
-																	<li>
-																		<span class="first">Share</span>
-																		<ul class="share">
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/facebook.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/twitter.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/instagram.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/dribbble.svg"
-																						alt="" /></a></li>
-																			<li><a href="#"><img class="svg"
-																						src="portfolio_assets/img/svg/social/tik-tok.svg"
-																						alt="" /></a></li>
-																		</ul>
+																		<span class="first">Baglanti</span>
+																		<span><a href="https://moon-chain.itch.io/depression-stitch" target="_blank">itch.io'da Oyna</a></span>
 																	</li>
 																</ul>
 															</div>
-														</div>
-														<div class="additional_images">
-															<ul>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/1.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/2.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li>
-																	<div class="list_inner">
-																		<div class="my_image">
-																			<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																				alt="" />
-																			<div class="main"
-																				data-img-url="portfolio_assets/img/portfolio/3.jpg">
-																			</div>
-																		</div>
-																	</div>
-																</li>
-															</ul>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</li>
-									<!-- <li class="image">
+									<li class="game">
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
-												data-title="Gloria Jenkins" data-category="Image">
-												<a class="zoom" href="portfolio_assets/img/portfolio/3.jpg">
-													<img src="portfolio_assets/img/thumbs/1-1.jpg" alt="" />
-													<div class="main_image"
-														data-img-url="portfolio_assets/img/portfolio/3.jpg"></div>
-												</a>
-											</div>
-										</div>
-									</li> -->
-									<li class="project">
-										<div class="inner">
-											<div class="entry tokyo_tm_portfolio_animation_wrap" data-title="Bitcord"
-												data-category="Project">
+												data-title="Rise From the Ashes" data-category="Shelter Jam">
 												<a class="popup_info" href="#">
-													<img src="portfolio_assets/img/portfolio/bitcord.png" alt="" />
+													<img src="portfolio_assets/img/portfolio/rise_from_the_ashes.png" alt="" />
 													<div class="main_image"
-														data-img-url="portfolio_assets/img/portfolio/bitcord.png"></div>
-												</a>
-											</div>
-										</div>
-										<div class="details_all_wrap">
-											<div class="popup_details">
-												<div class="top_image"></div>
-												<div class="portfolio_main_title"></div>
-												<div class="main_details">
-													<div class="textbox">
-														<p>We live in a world where we need to move quickly and iterate
-															on our ideas as flexibly as possible. Building mockups
-															strikes the ideal balance between true-life representation
-															of the end product and ease of modification.</p>
-														<p>Mockups are useful both for the creative phase of the project
-															- for instance when you're trying to figure out your user
-															flows or the proper visual hierarchy - and the production
-															phase when they will represent the target product. Making
-															mockups a part of your creative and development process
-															allows you to quickly and easily ideate.</p>
+														data-img-url="portfolio_assets/img/portfolio/rise_from_the_ashes.png">
 													</div>
-													<div class="detailbox">
-														<ul>
-															<li>
-																<span class="first">Client</span>
-																<span>Alvaro Morata</span>
-															</li>
-															<li>
-																<span class="first">Category</span>
-																<span><a href="#">Detail</a></span>
-															</li>
-															<li>
-																<span class="first">Date</span>
-																<span>March 07, 2021</span>
-															</li>
-															<li>
-																<span class="first">Share</span>
-																<ul class="share">
-																	<li><a href="#"><img class="svg"
-																				src="portfolio_assets/img/svg/social/facebook.svg"
-																				alt="" /></a></li>
-																	<li><a href="#"><img class="svg"
-																				src="portfolio_assets/img/svg/social/twitter.svg"
-																				alt="" /></a></li>
-																	<li><a href="#"><img class="svg"
-																				src="portfolio_assets/img/svg/social/instagram.svg"
-																				alt="" /></a></li>
-																	<li><a href="#"><img class="svg"
-																				src="portfolio_assets/img/svg/social/dribbble.svg"
-																				alt="" /></a></li>
-																	<li><a href="#"><img class="svg"
-																				src="portfolio_assets/img/svg/social/tik-tok.svg"
-																				alt="" /></a></li>
+												</a>
+												<div class="details_all_wrap">
+													<div class="popup_details">
+														<div class="top_image"></div>
+														<div class="portfolio_main_title"></div>
+														<div class="main_details">
+															<div class="textbox">
+																<p>Shelter Jam Game Jam katilim oyunu. Clicker / stratejik kasa acma mekanigine sahip, insani kriz temali bir oyun.</p>
+																<p>Tamamen web teknolojileriyle (HTML, CSS, JavaScript) yazildi; harici oyun motoru kullanilmadi.</p>
+															</div>
+															<div class="detailbox">
+																<ul>
+																	<li>
+																		<span class="first">Kategori</span>
+																		<span>Game Jam — Shelter Jam</span>
+																	</li>
+																	<li>
+																		<span class="first">Teknoloji</span>
+																		<span>HTML, CSS, JavaScript</span>
+																	</li>
+																	<li>
+																		<span class="first">Baglanti</span>
+																		<span><a href="https://moon-chain.itch.io/rise-from-the-ashes" target="_blank">itch.io'da Oyna</a></span>
+																	</li>
 																</ul>
-															</li>
-														</ul>
+															</div>
+														</div>
 													</div>
 												</div>
-												<div class="additional_images">
-													<ul>
-														<li>
-															<div class="list_inner">
-																<div class="my_image">
-																	<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																		alt="" />
-																	<div class="main"
-																		data-img-url="portfolio_assets/img/portfolio/1.jpg">
-																	</div>
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="list_inner">
-																<div class="my_image">
-																	<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																		alt="" />
-																	<div class="main"
-																		data-img-url="portfolio_assets/img/portfolio/2.jpg">
-																	</div>
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="list_inner">
-																<div class="my_image">
-																	<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																		alt="" />
-																	<div class="main"
-																		data-img-url="portfolio_assets/img/portfolio/3.jpg">
-																	</div>
-																</div>
-															</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</li>
-									<!-- <li class="project">
-										<div class="inner">
-											<div class="entry tokyo_tm_portfolio_animation_wrap"
-												data-title="Selena Gomez" data-category="Detail">
-												<a class="popup_info" href="#">
-													<img src="portfolio_assets/img/thumbs/1-1.jpg" alt="" />
-													<div class="main_image"
-														data-img-url="portfolio_assets/img/portfolio/7.jpg"></div>
-												</a>
-											</div>
-										</div>
-										<div class="details_all_wrap">
-											<div class="popup_details">
-												<div class="top_image"></div>
-												<div class="portfolio_main_title"></div>
-												<div class="main_details">
-													<div class="textbox">
-														<p>We live in a world where we need to move quickly and iterate
-															on our ideas as flexibly as possible. Building mockups
-															strikes the ideal balance between true-life representation
-															of the end product and ease of modification.</p>
-														<p>Mockups are useful both for the creative phase of the project
-															- for instance when you're trying to figure out your user
-															flows or the proper visual hierarchy - and the production
-															phase when they will represent the target product. Making
-															mockups a part of your creative and development process
-															allows you to quickly and easily ideate.</p>
-													</div>
-													<div class="detailbox">
-														<ul>
-															<li>
-																<span class="first">Client</span>
-																<span>Alvaro Morata</span>
-															</li>
-															<li>
-																<span class="first">Category</span>
-																<span><a href="#">Detail</a></span>
-															</li>
-															<li>
-																<span class="first">Date</span>
-																<span>March 07, 2021</span>
-															</li>
-															<li>
-																<span class="first">Share</span>
-																<ul class="share">
-																	<li><a href="#"><img class="svg"
-																				src="portfolio_assets/img/svg/social/facebook.svg"
-																				alt="" /></a></li>
-																	<li><a href="#"><img class="svg"
-																				src="portfolio_assets/img/svg/social/twitter.svg"
-																				alt="" /></a></li>
-																	<li><a href="#"><img class="svg"
-																				src="portfolio_assets/img/svg/social/instagram.svg"
-																				alt="" /></a></li>
-																	<li><a href="#"><img class="svg"
-																				src="portfolio_assets/img/svg/social/dribbble.svg"
-																				alt="" /></a></li>
-																	<li><a href="#"><img class="svg"
-																				src="portfolio_assets/img/svg/social/tik-tok.svg"
-																				alt="" /></a></li>
-																</ul>
-															</li>
-														</ul>
-													</div>
-												</div>
-												<div class="additional_images">
-													<ul>
-														<li>
-															<div class="list_inner">
-																<div class="my_image">
-																	<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																		alt="" />
-																	<div class="main"
-																		data-img-url="portfolio_assets/img/portfolio/1.jpg">
-																	</div>
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="list_inner">
-																<div class="my_image">
-																	<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																		alt="" />
-																	<div class="main"
-																		data-img-url="portfolio_assets/img/portfolio/2.jpg">
-																	</div>
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="list_inner">
-																<div class="my_image">
-																	<img src="portfolio_assets/img/thumbs/4-2.jpg"
-																		alt="" />
-																	<div class="main"
-																		data-img-url="portfolio_assets/img/portfolio/3.jpg">
-																	</div>
-																</div>
-															</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</li> -->
-									<li class="youtube">
-										<div class="inner">
-											<div class="entry tokyo_tm_portfolio_animation_wrap"
-												data-title="2021 Doğum günü efsane edit" data-category="Youtube">
-												<a class="popup-youtube"
-													href="https://www.youtube.com/watch?v=7C1c7_6UOlc">
-													<img src="portfolio_assets/img/portfolio/dogum_gunu_edit.jpg"
-														alt="" />
-													<div class="main_image"
-														data-img-url="portfolio_assets/img/portfolio/dogum_gunu_edit.jpg">
-													</div>
-												</a>
 											</div>
 										</div>
 									</li>
@@ -1119,8 +742,7 @@
 						</div>
 					</div>
 				</div>
-
-				<div id="news" class="tokyo_tm_section">
+<div id="news" class="tokyo_tm_section">
 					<div class="container">
 						<div class="tokyo_tm_news">
 							<div class="tokyo_tm_title">
